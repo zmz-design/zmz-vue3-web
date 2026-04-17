@@ -1,6 +1,6 @@
 {
-  "name": "zmz-ui3",
-  "version": "0.1.81",
+  "name": "@zmz/vue3-web",
+  "version": "0.0.1",
   "private": false,
   "type": "module",
   "license": "MIT",

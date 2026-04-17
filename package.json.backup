@@ -1,0 +1,144 @@
+{
+  "name": "@zmz/vue3-web",
+  "version": "0.0.0",
+  "private": false,
+  "type": "module",
+  "license": "MIT",
+  "author": "zmz <jiawenguang0213@sina.com>",
+  "description": "A user UI library based on Vue3",
+  "main": "cjs/zmz-vue3-web.cjs.js",
+  "module": "es/zmz-vue3-web.esm.js",
+  "unpkg": "dist/zmz-vue3-web.umd.min.js",
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "keywords": [
+    "zmz",
+    "vue",
+    "vue3",
+    "vue3组件库",
+    "vue组件库",
+    "vue库",
+    "zmz库",
+    "zmz组件库"
+  ],
+  "files": [
+    "cjs",
+    "dist",
+    "es",
+    "js",
+    "favicon.ico",
+    "LICENSE",
+    "package.json",
+    "README.md",
+    "packages"
+  ],
+  "exports": {
+    ".": {
+      "browser": "./dist/zmz-vue3-web.umd.min.js",
+      "import": "./es/zmz-vue3-web.esm.js",
+      "require": "./cjs/zmz-vue3-web.cjs.js",
+      "default": "./cjs/zmz-vue3-web.cjs.js"
+    },
+    "./umd": {
+      "import": "./dist/zmz-vue3-web.umd.min.js",
+      "require": "./dist/zmz-vue3-web.umd.min.js",
+      "default": "./dist/zmz-vue3-web.umd.min.js"
+    },
+    "./es": {
+      "import": "./es/zmz-vue3-web.esm.js",
+      "require": "./es/zmz-vue3-web.esm.js",
+      "default": "./es/zmz-vue3-web.esm.js"
+    },
+    "./cjs": {
+      "import": "./cjs/zmz-vue3-web.cjs.js",
+      "require": "./cjs/zmz-vue3-web.cjs.js",
+      "default": "./cjs/zmz-vue3-web.cjs.js"
+    },
+    "./style.css": "./dist/zmz-vue3-web.min.css"
+  },
+  "style": "dist/zmz-vue3-web.min.css",
+  "sideEffects": [
+    "dist/*",
+    "es/*",
+    "cjs/*",
+    "packages/*",
+    "*.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitee.com/zmz-design/zmz-vue3-web.git"
+  },
+  "bugs": {
+    "url": "https://gitee.com/zmz-design/zmz-vue3-web/issues"
+  },
+  "homepage": "https://zmz-vue3-web.zhuimengzhu.com",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build --mode app",
+    "preview": "vite preview",
+    "lint": "eslint . --fix",
+    "format": "prettier --write src/",
+    "git": "node --trace-warnings ./scripts/index.js",
+    "lib": "node --trace-warnings ./scripts/libs.js"
+  },
+  "dependencies": {
+    "@mdit-vue/plugin-component": "^3.0.2",
+    "@mdit-vue/plugin-frontmatter": "^3.0.2",
+    "@mdit-vue/plugin-sfc": "^3.0.2",
+    "@popperjs/core": "^2.11.8",
+    "@unhead/vue": "^2.0.17",
+    "async-validator": "^4.2.5",
+    "crypto-js": "^4.2.0",
+    "fs-extra": "^11.3.4",
+    "highlight.js": "^11.11.1",
+    "htmlparser2": "^10.0.0",
+    "jsencrypt": "^3.5.4",
+    "markdown-it": "^14.1.0",
+    "markdown-it-anchor": "^9.2.0",
+    "markdown-it-async": "^2.2.0",
+    "markdown-it-container": "^4.0.0",
+    "markdown-it-prism": "^3.0.0",
+    "markdown-it-table-of-contents": "^1.0.0",
+    "markdown-it-toc-done-right": "^4.2.0",
+    "mitt": "^3.0.1",
+    "node-html-parser": "^7.0.1",
+    "resize-observer-polyfill": "^1.5.1",
+    "semver": "^7.7.4",
+    "shiki": "^3.12.2",
+    "socket.io-client": "^4.8.1",
+    "unplugin": "^3.0.0",
+    "unplugin-utils": "^0.3.1",
+    "unplugin-vue-components": "^30.0.0",
+    "vite-plugin-lang-jsx": "^1.5.3",
+    "vite-plugin-markdown": "^2.2.0",
+    "vite-plugin-markdown-preview": "^1.1.1",
+    "vite-plugin-md": "^0.21.5",
+    "vite-plugin-pages": "^0.33.1",
+    "vite-plugin-vue-markdown": "^0.23.8",
+    "vue": "^3.5.18",
+    "vue-i18n": "^11.1.12",
+    "vue-router": "^4.5.1",
+    "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.31.0",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vitejs/plugin-vue-jsx": "^5.0.1",
+    "@vue/eslint-config-prettier": "^10.2.0",
+    "chalk": "^5.6.2",
+    "child_process": "^1.0.2",
+    "enquirer": "2.4.1",
+    "eslint": "^9.31.0",
+    "eslint-plugin-vue": "~10.3.0",
+    "globals": "^16.3.0",
+    "less": "^4.4.1",
+    "minimist": "^1.2.8",
+    "prettier": "3.6.2",
+    "vite": "^7.0.6",
+    "vite-plugin-vue-devtools": "^8.0.0"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  }
+}

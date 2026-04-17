@@ -1,6 +1,6 @@
 {
-  "name": "@zmz/vue3-web",
-  "version": "0.0.0",
+  "name": "@zmz-design/vue3-web",
+  "version": "0.0.1",
   "private": false,
   "type": "module",
   "license": "MIT",
@@ -11,6 +11,9 @@
   "unpkg": "dist/zmz-vue3-web.umd.min.js",
   "peerDependencies": {
     "vue": "^3.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "zmz",
@@ -35,7 +38,6 @@
   ],
   "exports": {
     ".": {
-      "browser": "./dist/zmz-vue3-web.umd.min.js",
       "import": "./es/zmz-vue3-web.esm.js",
       "require": "./cjs/zmz-vue3-web.cjs.js",
       "default": "./cjs/zmz-vue3-web.cjs.js"

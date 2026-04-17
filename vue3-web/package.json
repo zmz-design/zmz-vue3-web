@@ -1,6 +1,6 @@
 {
-  "name": "@zmz/vue3-web",
-  "version": "0.0.1",
+  "name": "@zmz-design/vue3-web",
+  "version": "0.0.2",
   "private": false,
   "type": "module",
   "license": "MIT",
@@ -44,7 +44,6 @@
   "homepage": "https://zmz-vue3-web.zhuimengzhu.com",
   "exports": {
     ".": {
-      "browser": "./dist/zmz-vue3-web.umd.min.js",
       "import": "./es/zmz-vue3-web.esm.js",
       "require": "./cjs/zmz-vue3-web.cjs.js",
       "default": "./cjs/zmz-vue3-web.cjs.js"
@@ -73,6 +72,9 @@
     "packages/*",
     "*.css"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "async-validator": "^4.2.5",
     "@popperjs/core": "^2.11.8",

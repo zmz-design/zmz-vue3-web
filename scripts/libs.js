@@ -53,7 +53,7 @@ const config = {
     keepFields: [
       'name', 'version', 'private', 'type', 'license', 'author', 'description',
       'main', 'style', 'module', 'unpkg', 'peerDependencies', 'types', 'keywords',
-      'files', 'repository', 'bugs', 'homepage', 'exports', 'sideEffects'
+      'files', 'repository', 'bugs', 'homepage', 'exports', 'sideEffects', 'publishConfig'
     ],
     extraFields: {
       "dependencies": {

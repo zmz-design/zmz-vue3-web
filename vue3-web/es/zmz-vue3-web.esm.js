@@ -28938,7 +28938,7 @@ const wS = (e, t = "image/jpeg", a = 4e6, n = 0.5) => {
   media: B1,
   unit: Kr,
   utils: Ah
-}, Symbol.toStringTag, { value: "Module" })), DS = "0.0.1", Br = {
+}, Symbol.toStringTag, { value: "Module" })), DS = "0.0.2", Br = {
   version: DS
 }, MS = {
   size: "",

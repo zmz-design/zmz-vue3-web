@@ -1,0 +1,284 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-inputnumber-icon-size: @global-default-font;
+@zmz-inputnumber-icon-color: #606266;
+@zmz-inputnumber-icon-active-color: @global-theme-primary;
+@zmz-inputnumber-height: @global-default-size;
+@zmz-inputnumber-font-size: @global-default-font;
+@zmz-inputnumber-background-color: #fff;
+@zmz-inputnumber-button-background-color: #f4f5f9;
+@zmz-inputnumber-border-color: @global-border-color;
+@zmz-inputnumber-border-hover-color: @global-hover-border-color;
+@zmz-inputnumber-border-active-color: @global-theme-primary;
+@zmz-inputnumber-border-radius: 3px;
+@zmz-inputnumber-text-color: @global-theme-default;
+
+@{b}zmz-inputnumber {
+    .theme-var(--zmz-inputnumber-height, @zmz-inputnumber-height);
+    .theme-var(--zmz-inputnumber-icon-size, @zmz-inputnumber-icon-size);
+    .theme-var(--zmz-inputnumber-icon-color, @zmz-inputnumber-icon-color);
+    .theme-var(--zmz-inputnumber-icon-active-color, @zmz-inputnumber-icon-active-color);
+    .theme-var(--zmz-inputnumber-font-size, @zmz-inputnumber-font-size);
+    .theme-var(--zmz-inputnumber-background-color, @zmz-inputnumber-background-color);
+    .theme-var(--zmz-inputnumber-button-background-color, @zmz-inputnumber-button-background-color);
+    .theme-var(--zmz-inputnumber-border-radius, @zmz-inputnumber-border-radius);
+    .theme-var(--zmz-inputnumber-border-color, @zmz-inputnumber-border-color);
+    .theme-var(--zmz-inputnumber-border-hover-color, @zmz-inputnumber-border-hover-color);
+    .theme-var(--zmz-inputnumber-border-active-color, @zmz-inputnumber-border-active-color);
+    .theme-var(--zmz-inputnumber-text-color, @zmz-inputnumber-text-color);
+}
+
+@{b}zmz-inputnumber {
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    border: 1px solid var(--zmz-inputnumber-border-color);
+    box-sizing: border-box;
+    border-radius: var(--zmz-inputnumber-border-radius);
+    overflow: hidden;
+    background: var(--zmz-inputnumber-background-color);
+    transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    &:hover {
+        border-color: var(--zmz-inputnumber-border-hover-color);
+    }
+
+    @{m}focus,
+    @{m}hover {
+        &:hover {
+            border-color: var(--zmz-inputnumber-border-active-color);
+        }
+    }
+
+    @{m}disabled {
+        opacity: @global-disabled-opacity;
+        cursor: no-drop;
+        user-select: none;
+
+        &:hover {
+            border-color: var(--zmz-inputnumber-border-color);
+        }
+
+        .zmz-inputnumber {
+
+            @{e}add,
+            @{e}reduce {
+                cursor: no-drop;
+            }
+
+            @{e}input {
+                cursor: no-drop;
+            }
+        }
+    }
+
+    @{m}readonly {
+        cursor: initial;
+        user-select: none;
+
+        &:hover {
+            border-color: var(--zmz-inputnumber-border-active-color);
+        }
+
+        .zmz-inputnumber {
+
+            @{e}add,
+            @{e}reduce {
+                cursor: initial;
+            }
+
+            @{e}input {
+                cursor: initial;
+            }
+        }
+    }
+
+
+    @{m}size-large {
+        .theme-var(--zmz-inputnumber-height, @global-large-size);
+        .theme-var(--zmz-inputnumber-font-size, @global-large-font);
+        .theme-var(--zmz-inputnumber-icon-size, @global-large-font);
+    }
+
+    @{m}size-medium {
+        .theme-var(--zmz-inputnumber-height, @global-medium-size);
+        .theme-var(--zmz-inputnumber-font-size, @global-medium-font);
+        .theme-var(--zmz-inputnumber-icon-size, @global-medium-font);
+    }
+
+    @{m}size-default {
+        .theme-var(--zmz-inputnumber-height, @global-default-size);
+        .theme-var(--zmz-inputnumber-font-size, @global-default-font);
+        .theme-var(--zmz-inputnumber-icon-size, @global-default-font);
+    }
+
+    @{m}size-small {
+        .theme-var(--zmz-inputnumber-height, @global-small-size);
+        .theme-var(--zmz-inputnumber-font-size, @global-small-font);
+        .theme-var(--zmz-inputnumber-icon-size, @global-small-font);
+    }
+
+    @{m}size-mini {
+        .theme-var(--zmz-inputnumber-height, @global-mini-size);
+        .theme-var(--zmz-inputnumber-font-size, @global-mini-font);
+        .theme-var(--zmz-inputnumber-icon-size, @global-mini-font);
+    }
+
+    @{e}add,
+    @{e}reduce {
+        width: var(--zmz-inputnumber-height);
+        height: var(--zmz-inputnumber-height);
+        text-align: center;
+        background-color: var(--zmz-inputnumber-button-background-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: absolute;
+
+        .zmz-inputnumber__icon {
+            font-size: var(--zmz-inputnumber-icon-size);
+            color: var(--zmz-inputnumber-icon-color);
+            transform: scale(.8);
+        }
+
+        &:hover {
+            .zmz-inputnumber__icon {
+                color: var(--zmz-inputnumber-icon-active-color);
+            }
+        }
+    }
+
+    @{e}add {
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border-left: 1px solid var(--zmz-inputnumber-border-color);
+
+        &.zmz-inputnumber__add--disabeld {
+            cursor: no-drop;
+            opacity: 0.5;
+        }
+    }
+
+    @{e}reduce {
+        left: 0;
+        top: 0;
+        bottom: 0;
+        border-right: 1px solid var(--zmz-inputnumber-border-color);
+
+        &.zmz-inputnumber__reduce--disabeld {
+            cursor: no-drop;
+            opacity: 0.5;
+        }
+    }
+
+    @{m}controls {
+        .zmz-inputnumber__wrap {
+            padding: 0 var(--zmz-inputnumber-height);
+        }
+    }
+
+    @{m}controls-right {
+        .zmz-inputnumber__wrap {
+            padding-left: 10px;
+            padding-right: var(--zmz-inputnumber-height);
+        }
+
+        .zmz-inputnumber {
+
+            @{e}add {
+                top: 0;
+                right: 0;
+                left: auto;
+                bottom: auto;
+                height: 50%;
+                border-bottom: 1px solid var(--zmz-inputnumber-border-color);
+            }
+
+            @{e}reduce {
+                right: 0;
+                bottom: 0;
+                top: auto;
+                left: auto;
+                height: 50%;
+                border-left: 1px solid var(--zmz-inputnumber-border-color);
+                border-right: none;
+            }
+        }
+    }
+
+    @{m}controls-left {
+        .zmz-inputnumber__wrap {
+            padding-left: 10px;
+            padding-right: var(--zmz-inputnumber-height);
+        }
+
+        .zmz-inputnumber {
+
+            @{e}add {
+                top: 0;
+                right: auto;
+                left: 0;
+                bottom: auto;
+                height: 50%;
+                border-bottom: 1px solid var(--zmz-inputnumber-border-color);
+                border-right: 1px solid var(--zmz-inputnumber-border-color);
+                border-left: none;
+            }
+
+            @{e}reduce {
+                right: auto;
+                bottom: 0;
+                top: auto;
+                left: 0;
+                height: 50%;
+                border-right: 1px solid var(--zmz-inputnumber-border-color);
+            }
+        }
+    }
+
+    @{e}wrap {
+        flex: 1;
+    }
+
+    @{e}input {
+        cursor: pointer;
+        font-size: var(--zmz-inputnumber-font-size);
+        display: block;
+        border: none;
+        border-radius: var(--zmz-checkbox-border-radius);
+        outline: 0;
+        color: var(--zmz-inputnumber-text-color);
+        height: var(--zmz-inputnumber-height);
+        line-height: var(--zmz-inputnumber-height);
+        background: var(--zmz-inputnumber-background-color);
+        width: 100%;
+        padding: 0 10px;
+        text-align: center;
+        box-sizing: border-box;
+        user-select: none;
+        transition: all 0.5s;
+
+        &::-webkit-input-placeholder {
+            /* WebKit, Blink, Edge */
+            color: rgba(@global-theme-default, 0.5);
+        }
+
+        &:-moz-placeholder {
+            /* Mozilla Firefox 4 to 18 */
+            color: rgba(@global-theme-default, 0.5);
+        }
+
+        &::-moz-placeholder {
+            /* Mozilla Firefox 19+ */
+            color: rgba(@global-theme-default, 0.5);
+        }
+
+        &:-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: rgba(@global-theme-default, 0.5);
+        }
+    }
+}

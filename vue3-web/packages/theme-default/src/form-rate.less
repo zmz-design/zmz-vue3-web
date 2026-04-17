@@ -1,0 +1,97 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-rate-icon-size: @global-default-size;
+@zmz-rate-text-color: @global-theme-default;
+@zmz-rate-icon-color: #e8e8e8;
+@zmz-rate-icon-active-color: #fadb14;
+@zmz-rate-text-font-size: 12px;
+
+@{b}zmz-rate {
+    .theme-var(--zmz-rate-icon-size, @zmz-rate-icon-size);
+    .theme-var(--zmz-rate-icon-color, @zmz-rate-icon-color);
+    .theme-var(--zmz-rate-icon-active-color, @zmz-rate-icon-active-color);
+    .theme-var(--zmz-rate-text-color, @zmz-rate-text-color);
+    .theme-var(--zmz-rate-text-font-size, @zmz-rate-text-font-size);
+}
+
+@{b}zmz-rate {
+    display: flex;
+    align-items: center;
+
+    @{m}size-large {
+        .theme-var(--zmz-rate-icon-size, @global-large-size);
+    }
+
+    @{m}size-medium {
+        .theme-var(--zmz-rate-icon-size, @global-medium-size);
+    }
+
+    @{m}size-default {
+        .theme-var(--zmz-rate-icon-size, @global-default-size);
+    }
+
+    @{m}size-small {
+        .theme-var(--zmz-rate-icon-size, @global-small-size);
+    }
+
+    @{m}size-mini {
+        .theme-var(--zmz-rate-icon-size, @global-mini-size);
+    }
+
+    @{m}readonly {
+        .zmz-rate__item {
+            cursor: initial;
+        }
+    }
+
+    @{m}disabled {
+        cursor: no-drop;
+        opacity: .5;
+
+        .zmz-rate__item {
+            cursor: no-drop;
+        }
+    }
+
+    @{e}item {
+        display: inline-block;
+        cursor: pointer;
+        margin-right: 5px;
+        position: relative;
+
+        .zmz-rate__icon {
+            font-size: var(--zmz-rate-icon-size);
+            color: var(--zmz-rate-icon-color);
+        }
+
+        @{m}active {
+            .zmz-rate__icon {
+                color: var(--zmz-rate-icon-active-color);
+            }
+        }
+
+        @{m}half {
+            .zmz-rate__item__first {
+                opacity: 1;
+            }
+        }
+
+        @{e}first {
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 0;
+            position: absolute;
+        }
+    }
+
+    @{e}promptext {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: var(--zmz-rate-text-font-size);
+        color: var(--zmz-rate-text-color);
+    }
+}

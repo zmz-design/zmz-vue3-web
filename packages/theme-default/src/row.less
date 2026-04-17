@@ -1,0 +1,73 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@{b}zmz-row {
+    position: relative;
+    box-sizing: border-box;
+
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+
+    &:before {
+        content: '';
+        display: table;
+    }
+
+    @{m}flex {
+        display: flex;
+
+        &:after,
+        &:before {
+            display: none;
+        }
+
+        &.zmz-row--flex {
+            &-wrap {
+                flex-wrap: wrap;
+            }
+
+            &-justify {
+                &-start {
+                    justify-content: flex-start;
+                }
+
+                &-center {
+                    justify-content: center;
+                }
+
+                &-end {
+                    justify-content: flex-end;
+                }
+
+                &-space-between {
+                    justify-content: space-between;
+                }
+
+                &-space-around {
+                    justify-content: space-around;
+                }
+
+                &-space-evenly {
+                    justify-content: space-evenly;
+                }
+            }
+
+            &-align {
+                &-top {
+                    align-items: flex-start;
+                }
+
+                &-center {
+                    align-items: center;
+                }
+
+                &-bottom {
+                    align-items: flex-end;
+                }
+            }
+        }
+    }
+}

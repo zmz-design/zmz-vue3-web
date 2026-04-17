@@ -1,0 +1,450 @@
+//文档项目
+.zmz-global-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: var(--theme-header-height);
+        padding: 0 15px;
+
+        &__wrap {
+            display: flex;
+            align-items: center;
+        }
+
+        &__inner {
+            height: 50px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        &__title {
+            color: var(--theme-color-text);
+            font-size: 16px;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        &__box {
+            float: left;
+
+            li {
+                display: inline-block;
+                padding: 0 10px;
+
+                a {
+                    color: var(--theme-color-text);
+                    font-size: 13px;
+                    display: block;
+
+                    span {
+                        font-size: 30px;
+                        vertical-align: top;
+                    }
+                }
+            }
+        }
+    }
+
+    &__nav {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        flex: 1;
+        padding: 0 15px;
+
+        &__left {
+            flex: 1;
+            display: flex;
+            align-items: center;
+
+            .nav-item {
+                display: flex;
+                align-items: center;
+                height: var(--theme-header-height);
+                padding: 0 10px;
+                color: var(--theme-color-text);
+
+                a {
+                    font-size: 12px;
+                    color: var(--theme-color-text);
+                }
+
+                span,
+                i {
+                    color: var(--theme-color-text);
+                }
+
+                .zmz-dropdown {
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
+            .zmz-dropdown {
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        &__right {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+
+            .nav-item {
+                display: flex;
+                align-items: center;
+                height: var(--theme-header-height);
+                padding: 0 10px;
+
+                a {
+                    font-size: 12px;
+                    width: 100%;
+                    display: block;
+                    color: var(--theme-color-text);
+
+                    &:hover {
+                        color: var(--theme-color-hover-text);
+                    }
+                }
+
+                .zmz-dropdown {
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+
+                    .zmz-dropdown__header {
+                        color: var(--theme-color-text);
+
+                        &:hover {
+                            color: var(--theme-color-hover-text);
+                        }
+
+                        &>i {
+                            font-size: 10px;
+                            margin-left: 3px;
+                        }
+
+                        &>i.zmz-icon--translate-lang {
+                            font-size: 18px;
+                            color: var(--theme-color-text);
+                        }
+                    }
+
+                    .zmz-teleportdom__arrow::before {
+                        border-bottom-color: var(--theme-color-background);
+                    }
+
+                    .zmz-dropdown__menu {
+                        background-color: var(--theme-color-background);
+                        a {
+                            font-size: 12px;
+                            width: 100%;
+                            display: block;
+                            color: var(--theme-color-text);
+
+                            &:hover {
+                                color: var(--theme-color-hover-text);
+                            }
+                        }
+
+                        .zmz-dropdown__item {
+                            color: var(--theme-color-text);
+
+                            &:hover {
+                                color: var(--theme-color-hover-text);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 公共logo
+.zmz-global-header-logo {
+    display: flex;
+    align-items: center;
+    height: var(--theme-header-height);
+    padding: 0 15px;
+
+    &__wrap {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    &__inner {
+        height: 100%;
+        display: block;
+        margin-right: 10px;
+    }
+
+    &__title {
+        color: var(--theme-color-text);
+        font-size: 20px;
+        font-weight: bold;
+        display: inline-block;
+    }
+
+    &__back {
+        font-size: 12px;
+        margin-left: 10px;
+    }
+}
+
+.zmz-globalIndex {
+    width: 100%;
+
+    &__header {
+        height: 55px;
+        background: var(--theme-color-background);
+        border-bottom: 1px solid rgba(60, 60, 60, .12);
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 9;
+
+        &__wrap {
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+
+    &__content {
+        padding: 96px 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: var(--theme-color-background);
+
+        &__title {
+            background: var(--theme-color-background-linear-gradient-text);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 90px;
+            line-height: 1.25;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        &__describe {
+            font-size: 46px;
+            line-height: 1.25;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            text-align: center;
+            max-width: 960px;
+            margin: 0 auto;
+            margin-bottom: 10px;
+            color: var(--theme-color-twotext);
+        }
+
+        &__tip {
+            max-width: 960px;
+            line-height: 1.5;
+            color: var(--theme-color-threetext);
+            transition: color .5s;
+            font-size: 22px;
+            margin: 24px auto 40px;
+            text-align: center;
+        }
+
+        &__button {
+            text-align: center;
+
+            &>a {
+                font-size: 14px;
+                display: inline-block;
+                border-radius: 8px;
+                transition: background-color .5s, color .5s;
+                position: relative;
+                font-weight: 600;
+                background-color: var(--theme-color-background-error);
+                color: #fff;
+                margin-right: 18px;
+                padding: 8px 1em;
+
+                &.onlineEdit {
+                    color: #476582;
+                    font-weight: 500;
+                    background: #f1f1f1;
+                }
+
+                .icon {
+                    display: inline;
+                    position: relative;
+                    top: -1px;
+                    margin-left: 10px;
+                    fill: currentColor;
+                    transition: transform .2s;
+                }
+            }
+        }
+    }
+
+    &__section {
+        width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 50px;
+
+        .zmz-globalIndex__section__item {
+            flex-basis: 25%;
+
+            .zmz-globalIndex__section__item__wrap {
+                margin: 10px;
+                background: #f9f9f9;
+                padding: 20px 10px;
+                border-radius: 10px;
+            }
+
+            .zmz-globalIndex__section__item__img {
+                width: 100%;
+                height: 200px;
+                display: block;
+                margin: 0 auto;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .zmz-globalIndex__section__item__name {
+                text-align: center;
+                padding: 20px 0 0;
+                display: block;
+                line-height: 1.5;
+                color: rgba(60, 60, 60, 0.7);
+                transition: color 0.5s;
+                font-size: 16px;
+                text-align: center;
+            }
+        }
+    }
+
+    &__tip {
+        border-top: 1px solid var(--theme-color-border);
+        background: var(--theme-color-background);
+
+        &__wrap {
+            display: flex;
+            flex-wrap: wrap;
+            width: 1200px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+
+        &__item {
+            flex-basis: 33.33%;
+            padding: 15px;
+            box-sizing: border-box;
+
+            &__title {
+                font-weight: 600;
+                font-size: 20px;
+                letter-spacing: -.4px;
+                color: var(--theme-color-text);
+                transition: color .5s;
+                margin-bottom: 0.75em;
+                text-align: center;
+            }
+
+            &__content {
+                font-weight: 400;
+                font-size: 14px;
+                text-align: center;
+                color: var(--theme-color-twotext);
+            }
+        }
+    }
+
+    &__footer {
+
+        background: var(--theme-color-threebackground);
+        padding: 42px 32px;
+
+        &__wrap {
+            width: 1200px;
+            margin: 0 auto;
+            columns: 1;
+            padding: 24px 32px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        &__item {
+            flex-basis: 33.33%;
+            margin-bottom: 30px;
+        }
+
+        &__title {
+            font-weight: 500;
+            color: var(--theme-color-threetext);
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        &__content {
+            &__item {
+                margin-bottom: 5px;
+                text-align: center;
+
+                &>a {
+                    font-size: 12px;
+                    display: block;
+                    color: var(--theme-color-twotext);
+                }
+            }
+        }
+
+        &__copyright {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            &__title {
+                line-height: 20px;
+                font-size: 12px;
+                font-weight: 500;
+                color: var(--theme-color-twotext);
+                margin-bottom: 10px;
+            }
+
+            &__content {
+                text-align: center;
+                line-height: 20px;
+                font-size: 12px;
+                font-weight: 500;
+                color: var(--theme-color-twotext);
+                transition: color .25s;
+
+                &>a {
+                    font-size: 12px;
+                    display: inline-block;
+                    color: var(--theme-color-twotext);
+                }
+            }
+        }
+    }
+}

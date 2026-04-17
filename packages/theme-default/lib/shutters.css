@@ -1,0 +1,1 @@
+@charset "utf-8";.zmz-shutters{--zmz-shutters-transition:all 0.5s;display:-webkit-box;display:-ms-flexbox;display:flex;overflow:hidden}.zmz-shutters__item{overflow:hidden;-webkit-transition:var(--zmz-shutters-transition);transition:var(--zmz-shutters-transition)}

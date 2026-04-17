@@ -1,0 +1,137 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-grid-item-border-color: #e8eaec;
+@zmz-grid-item-border-width: 1px;
+@zmz-grid-item-border-zindex: 1;
+@zmz-grid-item-content-background: #fff;
+@zmz-grid-item-content-padding: 15px;
+@zmz-grid-item-content-icon-padding: 5px 0;
+@zmz-grid-item-content-icon-font-size: 30px;
+@zmz-grid-item-content-icon-color: #646566;
+@zmz-grid-item-content-title-padding: 0 0 5px;
+@zmz-grid-item-content-title-font-size: 14px;
+@zmz-grid-item-content-title-color: #909399;
+
+@{b}zmz-grid {
+    .theme-var(--zmz-grid-item-border-color, @zmz-grid-item-border-color);
+    .theme-var(--zmz-grid-item-border-width, @zmz-grid-item-border-width);
+    .theme-var(--zmz-grid-item-border-zindex, @zmz-grid-item-border-zindex);
+    .theme-var(--zmz-grid-item-content-background, @zmz-grid-item-content-background);
+    .theme-var(--zmz-grid-item-content-padding, @zmz-grid-item-content-padding);
+    .theme-var(--zmz-grid-item-content-icon-padding, @zmz-grid-item-content-icon-padding);
+    .theme-var(--zmz-grid-item-content-icon-font-size, @zmz-grid-item-content-icon-font-size);
+    .theme-var(--zmz-grid-item-content-icon-color, @zmz-grid-item-content-icon-color);
+    .theme-var(--zmz-grid-item-content-title-padding, @zmz-grid-item-content-title-padding);
+    .theme-var(--zmz-grid-item-content-title-font-size, @zmz-grid-item-content-title-font-size);
+    .theme-var(--zmz-grid-item-content-title-color, @zmz-grid-item-content-title-color);
+    display: flex;
+    flex-wrap: wrap;
+
+    @{m}border {
+        position: relative;
+
+        .zmz-grid__item {
+            position: relative;
+
+            &:after {
+                content: '';
+                display: block;
+                overflow: hidden;
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: var(--zmz-grid-item-border-width);
+                background: var(--zmz-grid-item-border-color);
+                z-index: var(--zmz-grid-item-border-zindex);
+            }
+
+            &:before {
+                content: '';
+                display: block;
+                overflow: hidden;
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+                width: var(--zmz-grid-item-border-width);
+                background: var(--zmz-grid-item-border-color);
+                z-index: var(--zmz-grid-item-border-zindex);
+            }
+        }
+
+        &:after {
+            content: '';
+            display: block;
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: inherit;
+            width: var(--zmz-grid-item-border-width);
+            background: var(--zmz-grid-item-border-color);
+            z-index: var(--zmz-grid-item-border-zindex);
+        }
+
+        &:before {
+            content: '';
+            display: block;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: inherit;
+            height: var(--zmz-grid-item-border-width);
+            background: var(--zmz-grid-item-border-color);
+            z-index: var(--zmz-grid-item-border-zindex);
+        }
+    }
+
+    @{m}left {
+        justify-content: flex-start;
+    }
+
+    @{m}center {
+        justify-content: center;
+    }
+
+    @{m}right {
+        justify-content: flex-end;
+    }
+
+    @{e}item {
+        flex-basis: 25%;
+        box-sizing: border-box;
+    }
+
+    @{e}content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: var(--zmz-grid-item-content-padding);
+        box-sizing: border-box;
+        background: var(--zmz-grid-item-content-background);
+        flex-direction: column;
+
+        @{e}icon {
+            text-align: center;
+
+            [class^="zmz-icon--"] {
+                font-size: var(--zmz-grid-item-content-icon-font-size);
+                color: var(--zmz-grid-item-content-icon-color);
+            }
+
+            padding: var(--zmz-grid-item-content-icon-padding);
+        }
+
+        @{e}title {
+            color: var(--zmz-grid-item-content-title-color);
+            font-size: var(--zmz-grid-item-content-title-font-size);
+            text-align: center;
+            padding: var(--zmz-grid-item-content-title-padding);
+        }
+    }
+}

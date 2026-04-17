@@ -1,0 +1,484 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@{b}zmz-video {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+
+    &.is-fullscreen {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        z-index: 99999999 !important;
+    }
+
+
+    @{e}container {
+        background: #000;
+        width: 100%;
+        height: 100%;
+
+        .zmz-video-current {
+            width: 100%;
+            height: 100%;
+            outline: none;
+            display: block;
+        }
+
+        video::-webkit-media-controls,
+        video::-moz-media-controls,
+        video::-webkit-media-controls-enclosure {
+            display: none !important;
+        }
+
+        video::-webkit-media-controls-panel,
+        video::-webkit-media-controls-panel-container,
+        video::-webkit-media-controls-start-playback-button {
+            display: none !important;
+            -webkit-appearance: none;
+        }
+    }
+
+    // 控制器开始
+    @{e}controls {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 40px;
+        line-height: 40px;
+        bottom: 0;
+        z-index: 1;
+        background: linear-gradient(rgba(#fff, 0), rgba(#000, 1));
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        user-select: none;
+
+        @{e}left {
+            display: flex;
+        }
+
+        @{e}right {
+            display: flex;
+        }
+    }
+
+    @{e}play {
+        min-width: 30px;
+        display: flex;
+        align-items: center;
+
+        i {
+            font-size: 18px;
+        }
+    }
+
+    @{e}time {
+        em {
+            margin: 0 5px;
+        }
+    }
+
+    // 菜单按钮公共
+    @{e}unite {
+        text-align: center;
+        padding: 0 10px;
+        cursor: pointer;
+        font-size: 12px;
+
+        &:hover {
+            .zmz-video__unite__hover {
+                display: block;
+            }
+        }
+    }
+
+    // 音量
+    @{e}voice {
+        position: relative;
+
+        @{e}wrap {
+            display: none;
+            position: absolute;
+            bottom: 40px;
+            padding: 10px 0;
+            border-radius: 5px;
+            z-index: 9;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0;
+                height: 0;
+                border-width: 5px;
+                border-style: solid;
+                border-color: rgba(#000, .5) transparent transparent transparent;
+            }
+
+            @{e}fixed {
+                height: 80px;
+                background: rgba(#000, .5);
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                padding: 15px 0;
+                border-radius: 5px;
+            }
+        }
+    }
+
+    @{e}voiceNum {
+        line-height: 1;
+        padding-bottom: 10px;
+        font-size: 12px;
+    }
+
+    @{e}voiceBox {
+        border-radius: 5px;
+        padding: 0px 20px;
+        height: 60px;
+        position: relative;
+
+        @{e}bar {
+            width: 2px;
+            height: 100%;
+            background-color: #fff;
+        }
+
+        @{e}dot {
+            position: absolute;
+            top: 0;
+            right: -4px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #fff;
+            transition: all 0.2s;
+            cursor: pointer;
+            transform: translateY(-50%);
+        }
+
+        @{e}played {
+            position: absolute;
+            bottom: 0px;
+            height: 100%;
+            background: @global-theme-success;
+            width: 2px;
+        }
+    }
+
+    // 倍速
+    @{e}double {
+        position: relative;
+
+        @{e}wrap {
+            display: none;
+            position: absolute;
+            bottom: 40px;
+            padding: 10px 0;
+            width: 90px;
+            border-radius: 5px;
+            z-index: 9;
+            left: 50%;
+            transform: translateX(-50%);
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0;
+                height: 0;
+                border-width: 5px;
+                border-style: solid;
+                border-color: rgba(#000, .5) transparent transparent transparent;
+            }
+        }
+    }
+
+    @{e}doubleBox {
+        background: rgba(#000, .5);
+        border-radius: 5px;
+        padding: 10px 0;
+
+        @{e}li {
+            line-height: 25px;
+            padding: 0 10px;
+
+            &+.zmz-video__doubleBox__li {
+                margin-top: 10px;
+            }
+
+            span {
+                font-size: 12px;
+            }
+
+            &:hover {
+                span {
+                    border-radius: 20px;
+                    background: rgba(#fff, .2);
+                    display: block;
+                }
+            }
+
+            &.is-active {
+                &.zmz-icon--check {
+                    display: block;
+
+                    &:before {
+                        position: absolute;
+                        left: 15px;
+                    }
+
+                    ;
+
+                    span {
+                        border-radius: 20px;
+                        background: rgba(#fff, .2);
+                        display: block;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+
+    // 清晰度
+    @{e}definition {
+        position: relative;
+
+        @{e}wrap {
+            display: none;
+            position: absolute;
+            bottom: 40px;
+            padding: 10px 0;
+            width: 90px;
+            border-radius: 5px;
+            z-index: 9;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-width: 5px;
+            border-style: solid;
+            border-color: rgba(#000, .5) transparent transparent transparent;
+        }
+    }
+
+    @{e}definitionBox {
+        background: rgba(#000, .5);
+        border-radius: 5px;
+        padding: 10px 0;
+
+        @{e}li {
+            line-height: 25px;
+            padding: 0 10px;
+
+            &+.zmz-video__definitionBox__li {
+                margin-top: 10px;
+            }
+
+            span {
+                font-size: 12px;
+            }
+
+            &:hover {
+                span {
+                    border-radius: 20px;
+                    background: rgba(#fff, .2);
+                    display: block;
+                }
+            }
+
+            &.is-active {
+                &.zmz-icon--check {
+                    display: block;
+
+                    &:before {
+                        position: absolute;
+                        left: 15px;
+                    }
+
+                    ;
+
+                    span {
+                        border-radius: 20px;
+                        background: rgba(#fff, .2);
+                        display: block;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+
+    // 控制器结束
+
+    // 进度条
+    @{e}timeaxis {
+        position: absolute;
+        bottom: 40px;
+        height: 6px;
+        left: 0px;
+        right: 0px;
+    }
+
+    @{e}progress {
+        width: 100%;
+        height: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        transition: all .5s;
+
+        &:hover {
+            height: 100%;
+
+            .zmz-video__progress__played {
+                height: 100%;
+            }
+
+            .zmz-video__progress__bar {
+                height: 100%;
+            }
+
+            .zmz-video__progress__dot {
+                opacity: 1;
+            }
+        }
+
+        @{e}bar {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(#fff, 0.3);
+            transition: all 0.2s;
+        }
+
+        @{e}dot {
+            position: absolute;
+            top: 50%;
+            right: -7px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #fff;
+            transition: all 0.2s;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(-50%);
+            transition: all 0.2s;
+        }
+
+        @{e}played {
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            height: 100%;
+            background: @global-theme-success;
+            width: 0%;
+        }
+    }
+
+    // 右键
+    @{e}rightmenu {
+        position: absolute;
+        min-width: 80px;
+        background: rgba(#000, 0.5);
+        border-radius: 5px;
+        min-width: 120px;
+        user-select: none;
+        z-index: 9;
+
+        @{e}li {
+            color: #fff;
+            font-size: 12px;
+            text-align: left;
+            cursor: pointer;
+
+            span,
+            a {
+                color: #fff;
+                padding: 10px 15px;
+                display: block;
+            }
+        }
+    }
+
+    // logo
+    @{e}logo {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        max-width: 55px;
+        max-height: 55px;
+        pointer-events: none;
+
+        @{e}img {
+            width: 100%;
+            max-height: 100%;
+        }
+    }
+
+    // 遮罩
+    @{e}mask {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 2;
+    }
+
+    // 通知
+    @{e}notice {
+        position: absolute;
+        bottom: 60px;
+        left: 20px;
+        font-size: 12px;
+        border-radius: 2px;
+        background: rgba(28, 28, 28, .9);
+        padding: 7px 20px;
+        transition: all .3s ease-in-out;
+        overflow: hidden;
+        color: #fff;
+        pointer-events: none;
+        transform: translateX(5px);
+        opacity: 1
+    }
+}
+
+.zmz-video__notice__slide--fade-enter-active {
+    transition: transform, opacity .1s;
+    opacity: 0;
+    transform: translateX(0px);
+}
+
+.zmz-video__notice__slide--fade-leave-active {
+    transition: transform, opacity .2s;
+    opacity: 0;
+    transform: translateX(0px);
+}
+
+.zmz-video__notice__slide--fade-enter,
+.zmz-video__notice__slide--fade-leave-to {
+    transform: translateX(-5px);
+    opacity: 0;
+}

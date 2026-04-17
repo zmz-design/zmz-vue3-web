@@ -1,0 +1,61 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-loupe-width: 400px;
+@zmz-loupe-height: 400px;
+@zmz-loupe-magnifier-width: 200px;
+@zmz-loupe-magnifier-height: 200px;
+@zmz-loupe-magnifier-shadow-color: #fff;
+@zmz-loupe-magnifier-image-width: 800px;
+@zmz-loupe-magnifier-image-height: 800px;
+
+@{b}zmz-loupe {
+    .theme-var(--zmz-loupe-width, @zmz-loupe-width);
+    .theme-var(--zmz-loupe-height, @zmz-loupe-height);
+    .theme-var(--zmz-loupe-magnifier-width, @zmz-loupe-magnifier-width);
+    .theme-var(--zmz-loupe-magnifier-height, @zmz-loupe-magnifier-height);
+    .theme-var(--zmz-loupe-magnifier-shadow-color, @zmz-loupe-magnifier-shadow-color);
+    .theme-var(--zmz-loupe-magnifier-image-width, @zmz-loupe-magnifier-image-width);
+    .theme-var(--zmz-loupe-magnifier-image-height, @zmz-loupe-magnifier-image-height);
+}
+
+@{b}zmz-loupe {
+    position: relative;
+    width: var(--zmz-loupe-width);
+    height: var(--zmz-loupe-height);
+
+    @{e}image {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        @{e}inner {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    }
+
+    @{e}magnifier {
+        width: var(--zmz-loupe-magnifier-width);
+        height: var(--zmz-loupe-magnifier-height);
+        background-color: rgba(171, 250, 171, 0.3);
+        position: absolute;
+        left: 100%;
+        top: 0;
+        z-index: 1;
+        overflow: hidden;
+        box-shadow: 1px 1px 20px var(--zmz-loupe-magnifier-shadow-color);
+        transition: transform 0.1s ease 0s;
+
+        @{e}image {
+            width: var(--zmz-loupe-magnifier-image-width);
+            height: var(--zmz-loupe-magnifier-image-height);
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+}

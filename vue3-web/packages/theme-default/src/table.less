@@ -1,0 +1,307 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@{b}zmz-table {
+    font-size: 14px;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+
+    tr {
+        background: #fff;
+    }
+
+    &.zmz-table--overflow-scrollx-start {
+        .zmz-table__fixed-left {
+            box-shadow: none;
+        }
+
+        .zmz-table__fixed-right {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    &.zmz-table--overflow-scrollx-center {
+        .zmz-table__fixed-left {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .zmz-table__fixed-right {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    &.zmz-table--overflow-scrollx-end {
+        .zmz-table__fixed-left {
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .zmz-table__fixed-right {
+            box-shadow: none;
+        }
+    }
+
+    // 滚动
+    @{m}overflow {
+        &-scrolly {
+            .zmz-table__tbody-wrap {
+                overflow: hidden;
+                overflow-y: auto;
+            }
+        }
+
+        &-scrollx {
+            .zmz-table__tbody-wrap {
+                overflow-x: auto;
+            }
+        }
+    }
+
+    @{e}thead {
+        table-layout: fixed;
+        border-collapse: separate;
+
+        &-wrap {
+            width: 100%;
+            overflow: hidden;
+        }
+    }
+
+    @{e}tbody {
+        table-layout: fixed;
+        border-collapse: separate;
+
+        &-wrap {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+    }
+
+    @{e}fixed {
+        &-left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+
+            @{e}thead {
+                &-wrap {
+                    position: absolute;
+                    overflow: hidden;
+                    top: 0;
+                    left: 0;
+                }
+            }
+
+            @{e}tbody {
+                &-wrap {
+                    position: absolute;
+                    overflow: hidden;
+                    left: 0;
+                }
+            }
+        }
+
+        &-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+
+            @{e}thead {
+                &-wrap {
+                    position: absolute;
+                    overflow: hidden;
+                    right: 0;
+                    top: 0;
+                }
+            }
+
+            @{e}tbody {
+                &-wrap {
+                    position: absolute;
+                    overflow: hidden;
+                    right: 0;
+                }
+            }
+
+            &--supplement {
+                position: absolute;
+                top: 0;
+                right: 0;
+                background-color: #fff;
+                border-bottom: 1px solid #ebeef5;
+                border-top: 1px solid #ebeef5;
+            }
+        }
+    }
+
+    .zmz-table__column__cell {
+        padding-left: 10px;
+        padding-right: 10px;
+        word-break: break-all;
+        white-space: normal;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        line-height: 1.2;
+    }
+
+    .zmz-table__row {
+        background: #fff;
+
+        &:hover {
+            background: #f4f5f9;
+        }
+
+        &.zmz-table__row--active {
+            background: #f4f5f9;
+        }
+
+        &.zmz-table__row--hover {
+            background: #f4f5f9;
+        }
+
+        &.zmz-table__row--stripes {
+            background: #fbfbfb;
+        }
+    }
+
+    .zmz-table__column {
+        padding: 10px 0;
+        color: #707580;
+        border-bottom: 1px solid #f2f2f3;
+        min-width: 0;
+        text-align: left;
+        word-break: break-all;
+        white-space: normal;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        box-sizing: border-box;
+
+        &.zmz-table__column--center {
+            text-align: center;
+        }
+
+        &.zmz-table__column--right {
+            text-align: right;
+        }
+
+        @{m}sortable {
+            cursor: pointer;
+
+            &-asc {
+                .zmz-table__sortable__icon--asc {
+                    border-bottom-color: @global-theme-primary;
+                }
+            }
+
+            &-desc {
+                .zmz-table__sortable__icon--desc {
+                    border-top-color: @global-theme-primary;
+                }
+            }
+        }
+    }
+
+    .zmz-table__empty {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &__text {
+            line-height: 60px;
+            color: #909399;
+            font-size: 12px;
+        }
+    }
+
+    .zmz-table__cell {
+        padding-left: 10px;
+        padding-right: 10px;
+        word-break: break-all;
+        white-space: normal;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        line-height: 1.2;
+        box-sizing: border-box;
+
+        .zmz-radio {
+            margin-right: 0;
+        }
+    }
+
+    // 降序升序
+    .zmz-table__sortable {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        height: 34px;
+        width: 24px;
+        vertical-align: middle;
+        cursor: pointer;
+        overflow: initial;
+        position: relative;
+
+        @{e}icon {
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            position: absolute;
+            left: 7px;
+
+            @{m}asc {
+                border-bottom-color: #c0c4cc;
+                top: 5px;
+            }
+
+            @{m}desc {
+                border-top-color: #c0c4cc;
+                bottom: 7px;
+            }
+        }
+    }
+
+
+    @{m}border {
+        border: 1px solid #f2f2f3;
+        border-right: none;
+        border-bottom: none;
+
+        &::after {
+            content: "";
+            display: block;
+            top: 0;
+            right: 0;
+            width: 1px;
+            height: 100%;
+            position: absolute;
+            background-color: #f2f2f3;
+            z-index: 1;
+        }
+
+        &::before {
+            content: "";
+            display: block;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 1px;
+            position: absolute;
+            background-color: #f2f2f3;
+            z-index: 1;
+        }
+
+        .zmz-table__column {
+            border-right: 1px solid #f2f2f3;
+        }
+    }
+
+    @{e}columns-hidden {
+        display: none;
+    }
+}

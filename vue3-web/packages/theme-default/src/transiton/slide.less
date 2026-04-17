@@ -1,0 +1,168 @@
+// -------------------------------------------------------------------------------------------滑块
+// --------------------------slideLeft
+// 进入开始
+.zmz-slide-left-enter-from {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.zmz-slide-left-enter,
+.zmz-slide-left-enter-active {
+  opacity: 1;
+  transform: translateX(-100%);
+  transition: transform 300ms ease, opacity 300ms ease;
+  transform-origin: center center;
+}
+
+//进入结束
+.zmz-slide-left-enter-to {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+//离开开始
+.zmz-slide-left-leave-from {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+//离开激活
+.zmz-slide-left-leave,
+.zmz-slide-left-leave-active {
+  opacity: 1;
+  transform: translateX(-100%);
+  transition: transform 300ms ease, opacity 300ms ease;
+  transform-origin: center center;
+}
+
+//离开结束
+.zmz-slide-left-leave-to {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+// --------------------------slideRight
+// 进入开始
+.zmz-slide-right-enter-from {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.zmz-slide-right-enter,
+.zmz-slide-right-enter-active {
+  opacity: 1;
+  transform: translateX(100%);
+  transition: transform 300ms ease, opacity 300ms ease;
+  transform-origin: center center;
+}
+
+//进入结束
+.zmz-slide-right-enter-to {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+//离开开始
+.zmz-slide-right-leave-from {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+//离开激活
+.zmz-slide-right-leave,
+.zmz-slide-right-leave-active {
+  opacity: 1;
+  transform: translateX(100%);
+  transition: transform 300ms ease, opacity 300ms ease;
+  transform-origin: center center;
+}
+
+//离开结束
+.zmz-slide-right-leave-to {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+// --------------------------slideTop
+// 进入开始
+.zmz-slide-top-enter-from {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.zmz-slide-top-enter,
+.zmz-slide-top-enter-active {
+  opacity: 1;
+  transform: translateY(-100%);
+  transition: transform 300ms ease, opacity 300ms ease;
+  transform-origin: center center;
+}
+
+//进入结束
+.zmz-slide-top-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+//离开开始
+.zmz-slide-top-leave-from {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+//离开激活
+.zmz-slide-top-leave,
+.zmz-slide-top-leave-active {
+  opacity: 1;
+  transform: translateY(-100%);
+  transition: transform 300ms ease, opacity 300ms ease;
+  transform-origin: center center;
+}
+
+//离开结束
+.zmz-slide-top-leave-to {
+  opacity: 0;
+  transform: translateY(-100%)
+}
+
+// --------------------------slideBottom
+// 进入开始
+.zmz-slide-bottom-enter-from {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+.zmz-slide-bottom-enter,
+.zmz-slide-bottom-enter-active {
+  opacity: 1;
+  transform: translateY(100%);
+  transition: transform 300ms ease, opacity 300ms ease;
+  transform-origin: center center;
+}
+
+//进入结束
+.zmz-slide-bottom-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+//离开开始
+.zmz-slide-bottom-leave-from {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+//离开激活
+.zmz-slide-bottom-leave,
+.zmz-slide-bottom-leave-active {
+  opacity: 1;
+  transform: translateY(100%);
+  transition: transform 300ms ease, opacity 300ms ease;
+  transform-origin: center center;
+}
+
+//离开结束
+.zmz-slide-bottom-leave-to {
+  opacity: 0;
+  transform: translateY(100%)
+}

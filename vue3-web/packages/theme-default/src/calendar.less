@@ -1,0 +1,248 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-calendar-text-size: 14px;
+@zmz-calendar-text-color: @global-theme-default;
+@zmz-calendar-item-padding: 10px;
+@zmz-calendar-item-height: 85px;
+@zmz-calendar-border-color: @global-border-color;
+@zmz-calendar-selected-color: @global-theme-primary;
+@zmz-calendar-selected-background-color: rgba(@global-theme-primary, 0.08);
+@zmz-calendar-other-month-color: rgba(@global-theme-default, 0.5);
+
+@{b}zmz-calendar {
+    .theme-var(--zmz-calendar-text-size, @zmz-calendar-text-size);
+    .theme-var(--zmz-calendar-text-color, @zmz-calendar-text-color);
+    .theme-var(--zmz-calendar-item-padding, @zmz-calendar-item-padding);
+    .theme-var(--zmz-calendar-item-height, @zmz-calendar-item-height);
+    .theme-var(--zmz-calendar-border-color, @zmz-calendar-border-color);
+    .theme-var(--zmz-calendar-selected-color, @zmz-calendar-selected-color);
+    .theme-var(--zmz-calendar-selected-background-color, @zmz-calendar-selected-background-color);
+    .theme-var(--zmz-calendar-other-month-color, @zmz-calendar-other-month-color);
+}
+
+@{b}zmz-calendar {
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    @{e}header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 10px;
+        border-bottom: 1px solid var(--zmz-calendar-border-color);
+
+        @{e}left {
+            font-weight: bold;
+            font-size: 20px;
+
+            @{e}inner {
+                font-style: normal;
+                font-size: 18px;
+                margin: 0 5px;
+            }
+        }
+
+        @{e}right {
+            display: flex;
+            align-items: center;
+
+            @{e}btn {
+                display: flex;
+                margin-left: 10px;
+
+                @{e}inner {
+                    width: 60px;
+                    height: 30px;
+                    line-height: 30px;
+                    text-align: center;
+                    display: inline-block;
+                    cursor: pointer;
+                    font-size: 12px;
+                    border: 1px solid var(--zmz-calendar-border-color);
+                    position: relative;
+
+                    @{m}left {
+                        border-top-left-radius: 3px;
+                        border-bottom-left-radius: 3px;
+                        border-right: none !important;
+
+                        &:after {
+                            right: 0;
+                        }
+                    }
+
+                    @{m}center {
+                        border-left: none !important;
+                        border-right: none !important;
+
+                        &:before {
+                            left: 0;
+                            background: @global-theme-primary;
+                        }
+                    }
+
+                    @{m}right {
+                        border-top-right-radius: 3px;
+                        border-bottom-right-radius: 3px;
+                        border-left: none !important;
+
+                        &:after {
+                            left: 0;
+                        }
+                    }
+
+                    @{m}month {
+                        border-top-left-radius: 3px;
+                        border-bottom-left-radius: 3px;
+                        border-right: none !important;
+                    }
+
+                    @{m}year {
+                        border-top-right-radius: 3px;
+                        border-bottom-right-radius: 3px;
+                        border-left: none !important;
+
+                        &:after {
+                            left: 0;
+                        }
+                    }
+
+                    &.zmz-calendar__header__right__btn__inner--active {
+                        color: @global-theme-primary;
+                        border-color: @global-theme-primary;
+
+                        &:after {
+                            content: '';
+                            top: 0;
+                            bottom: 0;
+                            position: absolute;
+                            background: @global-theme-primary;
+                            width: 1px;
+                            right: 0;
+                        }
+
+                        &:before {
+                            content: '';
+                            top: 0;
+                            bottom: 0;
+                            position: absolute;
+                            width: 1px;
+                            right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @{e}days {
+        border-top: 1px solid var(--zmz-calendar-border-color);
+
+        @{m}rows {
+            display: flex;
+        }
+
+        @{e}wrap {
+            height: var(--zmz-calendar-item-height);
+            padding: var(--zmz-calendar-item-padding);
+            border-left: 1px solid var(--zmz-calendar-border-color);
+            border-bottom: 1px solid var(--zmz-calendar-border-color);
+
+            @{e}text {
+                font-size: var(--zmz-calendar-text-size);
+                color: var(--zmz-calendar-text-color);
+            }
+
+            @{m}active {
+                background: var(--zmz-calendar-selected-background-color);
+
+                .zmz-calendar__days__wrap__text {
+                    font-weight: bold;
+                    color: var(--zmz-calendar-selected-color);
+                }
+            }
+
+            @{m}current {
+                .zmz-calendar__days__wrap__text {
+                    color: var(--zmz-calendar-selected-color);
+                }
+            }
+
+            @{m}month {
+                .zmz-calendar__days__wrap__text {
+                    color: var(--zmz-calendar-other-month-color);
+                }
+            }
+        }
+
+        @{e}li {
+            width: 14.28%;
+            flex-basis: 14.28%;
+            display: inline-block;
+
+            &:nth-child(7n) .zmz-calendar__days__wrap {
+                border-right: 1px solid var(--zmz-calendar-border-color);
+            }
+        }
+    }
+
+    @{e}weeks {
+        display: flex;
+
+        @{e}li {
+            width: 14.28%;
+            flex-basis: 14.28%;
+            line-height: 22px;
+            text-align: center;
+            padding: 10px 0;
+        }
+    }
+
+    @{e}months {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+        border-top: 1px solid var(--zmz-calendar-border-color);
+
+        @{e}wrap {
+            border-left: 1px solid var(--zmz-calendar-border-color);
+            border-bottom: 1px solid var(--zmz-calendar-border-color);
+            padding: var(--zmz-calendar-item-padding);
+            height: var(--zmz-calendar-item-height);
+            flex: 1;
+
+            @{e}text {
+                font-size: var(--zmz-calendar-text-size);
+                color: var(--zmz-calendar-text-color);
+            }
+
+            @{m}active {
+                background: var(--zmz-calendar-selected-background-color);
+
+                .zmz-calendar__months__wrap__text {
+                    font-weight: bold;
+                    color: var(--zmz-calendar-selected-color);
+                }
+            }
+
+            @{m}current {
+                .zmz-calendar__months__wrap__text {
+                    color: var(--zmz-calendar-selected-color);
+                }
+            }
+        }
+
+        @{e}li {
+            width: 33.33%;
+            flex-basis: 33.33%;
+            display: flex;
+            align-items: center;
+
+            &:nth-child(3n) .zmz-calendar__months__li__num {
+                border-right: 1px solid var(--zmz-calendar-border-color);
+            }
+        }
+    }
+}

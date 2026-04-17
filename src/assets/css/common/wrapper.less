@@ -1,0 +1,110 @@
+// 演示容器
+.docs-demo-wrapper {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: #f7f7f7;
+    border: 1px solid var(--theme-color-border);
+    margin-bottom: 20px;
+
+    pre code {
+        font-family: Consolas, Menlo, Courier, monospace;
+        line-height: 22px;
+        border: none;
+    }
+
+    // 主体
+    &__container {
+        transition: max-height 0.3s ease;
+        overflow: hidden;
+
+        // 代码
+        &__code {
+            overflow-y: auto;
+            border-bottom: 1px solid #eee;
+
+            &--expand {
+                border-color: var(--theme-color-border);
+
+                .docs-demo__meta {}
+
+                .docs-demo__triangle {
+                    transform: rotate(180deg);
+                }
+
+                .highlight-wrapper {
+                    display: block;
+
+                    p,
+                    pre {
+                        margin: 0;
+                    }
+
+                    .hljs {
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    // 按钮
+    &__btn {
+        position: relative;
+        height: 36px;
+
+        &__togglecode {
+            width: 100%;
+            line-height: 36px;
+            text-align: center;
+            display: inline-block;
+            color: var(--theme-color-text);
+            font-size: 12px;
+            padding: 0 15px;
+            background-color: var(--theme-color-subbackground);
+            cursor: pointer;
+        }
+
+        &__coderun {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            color: var(--theme-color-text);
+            font-size: 12px;
+            cursor: pointer;
+            padding: 0 15px;
+            display: flex;
+            align-items: center;
+
+            &__run {
+                font-size: 12px;
+                margin: 0 10px;
+                color: #808695;
+            }
+        }
+    }
+}
+
+// 警告容器
+.docs-warn-wrapper {
+    padding: 8px 16px;
+    background-color: var(--theme-color-background-warning);
+    border-radius: 4px;
+    border-left: 5px solid var(--theme-color-warning);
+    margin: 20px 0;
+    p.docs-warn-wrapper__title {
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    p {
+        margin: 10px 0;
+        font-size: 14px;
+        letter-spacing: 2px;
+        code {
+            letter-spacing: 0;
+        }
+    }
+}

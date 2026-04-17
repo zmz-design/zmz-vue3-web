@@ -1,0 +1,313 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-step-background-color: #fff;
+@zmz-step-text-color: @global-theme-default;
+@zmz-step-text-finish-color: @global-theme-primary;
+@zmz-step-text-process-color: @global-theme-primary;
+@zmz-step-text-error-color: @global-theme-error;
+@zmz-step-title-font-size: 14px;
+@zmz-step-describe-color: @global-theme-default;
+@zmz-step-describe-font-size: 12px;
+@zmz-step-line-color: #e3e6ef;
+@zmz-step-line-width: 1px;
+@zmz-step-num-border-color: #e3e6ef;
+@zmz-step-num-background-color: #fff;
+@zmz-step-num-border-width: 1px;
+@zmz-step-num-color: @global-theme-default;
+@zmz-step-icon-font-size: 12px;
+@zmz-step-icons-font-size: 22px;
+
+@{b}zmz-step {
+    .theme-var(--zmz-step-text-color, @zmz-step-text-color);
+    .theme-var(--zmz-step-text-finish-color, @zmz-step-text-finish-color);
+    .theme-var(--zmz-step-text-process-color, @zmz-step-text-process-color);
+    .theme-var(--zmz-step-text-error-color, @zmz-step-text-error-color);
+    .theme-var(--zmz-step-background-color, @zmz-step-background-color);
+    .theme-var(--zmz-step-title-font-size, @zmz-step-title-font-size);
+    .theme-var(--zmz-step-describe-color, @zmz-step-describe-color);
+    .theme-var(--zmz-step-describe-font-size, @zmz-step-describe-font-size);
+    .theme-var(--zmz-step-line-color, @zmz-step-line-color);
+    .theme-var(--zmz-step-line-width, @zmz-step-line-width);
+    .theme-var(--zmz-step-num-border-color, @zmz-step-num-border-color);
+    .theme-var(--zmz-step-num-background-color, @zmz-step-num-background-color);
+    .theme-var(--zmz-step-num-border-width, @zmz-step-num-border-width);
+    .theme-var(--zmz-step-num-color, @zmz-step-num-color);
+    .theme-var(--zmz-step-icon-font-size, @zmz-step-icon-font-size);
+    .theme-var(--zmz-step-icons-font-size, @zmz-step-icons-font-size);
+}
+
+
+@{b}zmz-step {
+    display: flex;
+
+    @{m}vertical {
+        height: 100%;
+        flex-flow: column;
+
+        .zmz-step__header {
+            background: none;
+        }
+
+        .zmz-step__line {
+            width: 1px;
+            height: 100%;
+            top: 20px;
+            left: 10px;
+            bottom: 0;
+            right: inherit;
+        }
+
+        .zmz-step__section {
+            padding-left: 10px;
+        }
+    }
+
+    @{m}bottom {
+        display: flex;
+
+        .zmz-step__item {
+            flex: 1;
+            flex-basis: inherit;
+            display: block;
+            position: relative;
+        }
+    }
+
+    @{m}center {
+        display: flex;
+
+        .zmz-step__item {
+            flex: 1;
+            flex-basis: inherit;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .zmz-step__line {
+            height: 1px;
+            width: 100%;
+            top: 11px;
+            left: 50%;
+            right: -50%;
+        }
+
+        .zmz-step__section {
+            margin-top: 10px;
+        }
+
+        .zmz-step__title {
+            display: block;
+            padding: 0;
+            text-align: center;
+        }
+
+        .zmz-step__describe {
+            padding: 0;
+            text-align: center;
+        }
+    }
+
+    @{m}left {
+        display: flex;
+
+        .zmz-step__item {
+            flex: 1;
+            display: flex;
+            position: relative;
+        }
+
+        .zmz-step__title {
+            padding-left: 10px;
+        }
+
+        .zmz-step__describe {
+            padding-left: 10px;
+        }
+    }
+
+    @{e}item {
+        flex: 1;
+        flex-basis: 50%;
+        display: flex;
+        position: relative;
+
+        &:last-child {
+            flex-basis: 0 !important;
+
+            .zmz-step__line {
+                display: none;
+            }
+        }
+
+        &.is-active {
+            background: @global-theme-primary;
+
+            .zmz-step__title {
+                color: @global-theme-default;
+            }
+
+            .zmz-step__describe {
+                color: @global-theme-default;
+            }
+        }
+
+        @{m}finish {
+            .zmz-step__num {
+                border-color: var(--zmz-step-text-finish-color);
+                color: var(--zmz-step-text-finish-color);
+                font-size: 12px;
+            }
+
+            .zmz-step__icons {
+                border-color: var(--zmz-step-text-finish-color);
+                color: var(--zmz-step-text-finish-color);
+            }
+
+            .zmz-step__icon {
+                border-color: var(--zmz-step-text-finish-color);
+                color: var(--zmz-step-text-finish-color);
+            }
+
+            .zmz-step__line {
+                background-color: var(--zmz-step-text-finish-color);
+            }
+
+            &.zmz-step__item--next-error {
+                .zmz-step__line {
+                    background-color: var(--zmz-step-text-error-color);
+                }
+            }
+        }
+
+        @{m}process {
+            .zmz-step__num {
+                color: #fff;
+                background: var(--zmz-step-text-process-color);
+                border-color: var(--zmz-step-text-process-color);
+            }
+
+            .zmz-step__icons {
+                color: var(--zmz-step-text-process-color);
+            }
+
+            .zmz-step__icon {
+                color: #fff;
+                background: var(--zmz-step-text-process-color);
+                border-color: var(--zmz-step-text-process-color);
+            }
+        }
+
+        @{m}error {
+            .zmz-step__num {
+                color: #fff;
+                background: var(--zmz-step-text-error-color);
+                border-color: var(--zmz-step-text-error-color);
+            }
+
+            .zmz-step__icons {
+                color: #fff;
+                background: var(--zmz-step-text-error-color);
+                border-color: var(--zmz-step-text-error-color);
+            }
+
+            .zmz-step__icon {
+                color: #fff;
+                background: var(--zmz-step-text-error-color);
+                border-color: var(--zmz-step-text-error-color);
+            }
+        }
+    }
+
+    @{e}header {
+        position: relative;
+        display: inline;
+        z-index: 9;
+    }
+
+    @{e}section {
+        position: relative;
+        z-index: 0;
+    }
+
+    @{e}title {
+        white-space: nowrap;
+        color: var(--zmz-step-text-color);
+        font-weight: bold;
+        display: inline-block;
+        padding-right: 10px;
+        font-size: var(--zmz-step-title-font-size);
+        background: var(--zmz-step-background-color);
+    }
+
+    @{e}describe {
+        color: var(--zmz-step-text-color);
+        font-size: var(--zmz-step-describe-font-size);
+        margin-top: 5px;
+    }
+
+    @{e}line {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 10px;
+        height: var(--zmz-step-line-width);
+        right: 0;
+        transition: all 1s;
+        background: var(--zmz-step-line-color);
+    }
+
+    @{e}num {
+        position: relative;
+        z-index: 0;
+        width: 20px;
+        height: 20px;
+        border: var(--zmz-step-num-border-width) solid var(--zmz-step-num-border-color);
+        background: var(--zmz-step-num-background-color);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        color: var(--zmz-step-num-color);
+        box-sizing: border-box;
+    }
+
+    @{e}icon {
+        position: relative;
+        z-index: 0;
+        width: 20px;
+        height: 20px;
+        background: var(--zmz-step-num-background-color);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 20px;
+        border: var(--zmz-step-num-border-width) solid var(--zmz-step-num-border-color);
+        color: var(--zmz-step-text-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .zmz-step__icon__inner {
+            font-size: var(--zmz-step-icon-font-size);
+        }
+    }
+
+    @{e}icons {
+        position: relative;
+        z-index: 0;
+        width: 20px;
+        height: 20px;
+        background: var(--zmz-step-num-background-color);
+        border-radius: 50%;
+        border: none;
+        text-align: center;
+        line-height: 20px;
+        color: var(--zmz-step-text-color);
+
+        .zmz-step__icons__inner {
+            font-size: var(--zmz-step-icons-font-size);
+        }
+    }
+}

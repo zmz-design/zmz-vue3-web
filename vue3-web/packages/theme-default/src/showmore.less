@@ -1,0 +1,91 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-showmore-text-size: @global-font-size;
+@zmz-showmore-text-color: @global-theme-default;
+@zmz-showmore-disabled-opacity: .5;
+@zmz-showmore-disabled-cursor: no-drop;
+@zmz-showmore-button-size: @global-font-size;
+@zmz-showmore-button-color: @global-theme-primary;
+@zmz-showmore-button-cursor: pointer;
+
+@{b}zmz-showmore {
+    .theme-var(--zmz-showmore-text-size, @zmz-showmore-text-size);
+    .theme-var(--zmz-showmore-text-color, @zmz-showmore-text-color);
+    .theme-var(--zmz-showmore-disabled-opacity, @zmz-showmore-disabled-opacity);
+    .theme-var(--zmz-showmore-disabled-cursor, @zmz-showmore-disabled-cursor);
+    .theme-var(--zmz-showmore-button-size, @zmz-showmore-button-size);
+    .theme-var(--zmz-showmore-button-color, @zmz-showmore-button-color);
+    .theme-var(--zmz-showmore-button-cursor, @zmz-showmore-button-cursor);
+
+    @{e}text {
+        font-size: var(--zmz-showmore-text-size);
+        color: var(--zmz-showmore-text-color);
+        display: inline-block;
+    }
+
+    @{m}disbaled {
+        .zmz-showmore {
+            @{e}button {
+                opacity: var(--zmz-showmore-disabled-opacity);
+                cursor: var(--zmz-showmore-disabled-cursor);
+                user-select: none;
+            }
+        }
+    }
+
+    @{m}block {
+        .zmz-showmore {
+            @{e}text {
+                display: block;
+            }
+
+            @{e}button {
+                display: block;
+            }
+        }
+
+    }
+
+    @{m}line {
+        @{e}text {
+            display: inline-block;
+        }
+
+        @{e}button {
+            display: inline-block;
+        }
+    }
+
+    @{e}button {
+        font-size: var(--zmz-showmore-button-size);
+        color: var(--zmz-showmore-button-color);
+        display: inline-block;
+        cursor: var(--zmz-showmore-button-cursor);
+    }
+
+    // 样式
+    @{m}default {
+        .theme-var(--zmz-showmore-button-color, @global-theme-default);
+    }
+
+    @{m}info {
+        .theme-var(--zmz-showmore-button-color, @global-theme-info);
+    }
+
+    @{m}success {
+        .theme-var(--zmz-showmore-button-color, @global-theme-success);
+    }
+
+    @{m}primary {
+        .theme-var(--zmz-showmore-button-color, @global-theme-primary);
+    }
+
+    @{m}warning {
+        .theme-var(--zmz-showmore-button-color, @global-theme-warning);
+    }
+
+    @{m}error {
+        .theme-var(--zmz-showmore-button-color, @global-theme-error);
+    }
+}

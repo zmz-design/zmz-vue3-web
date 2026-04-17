@@ -1,0 +1,300 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-upload-border-radius: 3px;
+@zmz-upload-border-color: @global-border-color;
+@zmz-upload-tip-font-size: 12px;
+@zmz-upload-tip-color: @global-theme-default;
+
+@{b}zmz-upload {
+    .theme-var(--zmz-upload-border-color, @zmz-upload-border-color);
+    .theme-var(--zmz-upload-border-radius, @zmz-upload-border-radius);
+    .theme-var(--zmz-upload-tip-font-size, @zmz-upload-tip-font-size);
+    .theme-var(--zmz-upload-tip-color, @zmz-upload-tip-color);
+}
+
+@{b}zmz-upload {
+    @{e}wrap {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    @{e}tip {
+        margin-top: 10px;
+        font-size: var(--zmz-upload-tip-font-size);
+        color: var(--zmz-upload-tip-color);
+    }
+
+    @{m}disabled {
+        cursor: no-drop;
+        opacity: 0.5;
+        user-select: none;
+
+        .zmz-button {
+            cursor: no-drop;
+        }
+    }
+
+    @{m}readonly {
+        user-select: none;
+
+        .zmz-button {
+            cursor: no-drop;
+        }
+    }
+
+    @{m}picture-card {
+        display: block;
+
+        .zmz-upload__wrap {
+            width: 120px;
+            height: 120px;
+            box-sizing: border-box;
+            border: 1px dashed var(--zmz-upload-border-color);
+            display: inline-block;
+            text-align: center;
+            line-height: 118px;
+
+            .zmz-upload__wrap__icon {
+                font-size: 22px;
+            }
+        }
+
+        .zmz-upload__list {
+            margin: 0;
+            display: inline;
+            vertical-align: top;
+
+            @{e}item {
+                width: 120px;
+                height: 120px;
+                margin: 0;
+                margin-right: 10px;
+                margin-bottom: 10px;
+                padding: 0;
+                display: inline-block;
+                box-sizing: border-box;
+                border-radius: var(--zmz-upload-border-radius);
+                border: 1px solid var(--zmz-upload-border-color);
+                position: relative;
+                overflow: hidden;
+
+                &:hover {
+                    .zmz-upload__list__item__operation {
+                        opacity: 1;
+                    }
+                }
+
+                @{e}file {
+                    height: 120px;
+
+                    .zmz-upload__list__item__file__wrap {
+                        margin-right: 0;
+                    }
+                }
+
+                @{e}wrap {
+                    width: 100%;
+                    height: 100%;
+                    margin-right: 0;
+                    overflow: hidden;
+
+                    @{e}image {
+                        object-fit: contain;
+                    }
+
+                }
+
+                @{e}operation {
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background-color: rgba(0, 0, 0, 0.5);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    opacity: 0;
+                    transition: all .5s;
+                    margin-left: 0;
+
+                    @{e}icon {
+                        cursor: pointer;
+                        margin: 0 10px;
+
+                        .zmz-icon--enlarge {
+                            font-size: 20px;
+                            color: #fff;
+                        }
+
+                        .zmz-icon--del {
+                            font-size: 20px;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @{m}picture {
+        .zmz-upload__list {
+            @{e}item {
+                display: flex;
+                align-items: center;
+                padding: 5px;
+                transition: all 0.3s;
+                border: 1px solid var(--zmz-upload-border-color);
+                border-radius: var(--zmz-upload-border-radius);
+                padding: 10px 10px;
+                position: relative;
+                overflow: hidden;
+
+                &+.zmz-upload__list__item {
+                    margin-top: 10px;
+                }
+
+                @{e}file {
+                    @{e}wrap {
+                        color: #909399;
+                        font-size: 14px;
+                        width: 70px;
+                        height: 70px;
+
+                        @{e}image {
+                            width: 70px;
+                            height: 70px;
+                            display: block;
+                        }
+                    }
+
+                    @{e}name {
+                        color: #3f536e;
+                        font-size: 14px;
+                        margin-left: 15px;
+                    }
+                }
+
+                @{e}operation {
+                    margin-left: 0;
+                    top: 10px;
+                }
+            }
+        }
+    }
+
+    @{m}text {
+        .zmz-upload__list {
+            @{e}item {
+
+                &+.zmz-upload__list__item {
+                    margin-top: 10px;
+                }
+
+                &:hover {
+                    background-color: #f4f5f9;
+                    cursor: pointer;
+
+                    .zmz-upload__list__item__file__name {
+                        color: @global-theme-primary;
+                    }
+                }
+            }
+        }
+    }
+
+    @{e}list {
+        margin-top: 10px;
+
+        @{e}item {
+            display: flex;
+            align-items: center;
+            padding: 5px;
+            transition: all 0.3s;
+            position: relative;
+
+            @{m}success {
+                .zmz-icon--success {
+                    color: @global-theme-success;
+                }
+
+                .zmz-icon--del {
+                    color: @global-theme-default;
+                }
+            }
+
+            &:hover {
+                background-color: #f4f5f9;
+                cursor: pointer;
+
+                .zmz-upload__list__item__file__name {
+                    color: @global-theme-primary;
+                }
+            }
+
+            @{e}file {
+                flex: 1;
+                display: flex;
+                align-items: center;
+
+                @{e}wrap {
+                    margin-right: 5px;
+                    color: #909399;
+                    font-size: 14px;
+                }
+
+                @{e}name {
+                    color: #606266;
+                    font-size: 14px;
+                }
+            }
+
+            @{e}operation {
+                margin-left: 5px;
+                color: #909399;
+                font-size: 14px;
+                position: absolute;
+                right: 10px;
+
+                @{e}icon {
+                    margin-left: 5px;
+                    color: #909399;
+                    font-size: 14px;
+
+                }
+
+                .zmz-icon--loading {
+                    animation: zmz-upload-loading 1s linear infinite;
+                }
+            }
+        }
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+
+    @{e}input {
+        display: none;
+        width: 0;
+        height: 0;
+
+        @{e}inner {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+    }
+}
+
+@keyframes zmz-upload-loading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

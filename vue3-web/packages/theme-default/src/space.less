@@ -1,0 +1,48 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-space-title-margin-bottom: 20px;
+@zmz-space-interval-margin-bottom: 20px;
+
+@{b}zmz-space {
+    .theme-var(--zmz-space-title-margin-bottom, @zmz-space-title-margin-bottom);
+    .theme-var(--zmz-space-interval-margin-bottom, @zmz-space-interval-margin-bottom);
+}
+
+@{b}zmz-space {
+
+    // 垂直
+    @{m}vertical {
+        display: flex;
+        flex-direction: column;
+
+        .zmz-space__content {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    // 水平
+    @{m}horizontal {
+        display: flex;
+        flex-wrap: wrap;
+
+        .zmz-space__content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    &.zmz-space--title {
+        display: flex;
+        flex-direction: column;
+    }
+
+    @{e}title {
+        margin-bottom: 20px;
+    }
+
+    @{m}interval {
+        margin-bottom: 20px;
+    }
+}

@@ -1,0 +1,62 @@
+@charset "utf-8";
+@import './common/index.less';
+// 容器
+@zmz-signed-padding: 10px 0;
+@zmz-signed-paint-item-width: 20px;
+@zmz-signed-paint-item-height: 20px;
+@zmz-signed-paint-item-border-radius: 5px;
+@zmz-signed-paint-item-border-width: 3px;
+@zmz-signed-paint-item-border-color: transparent;
+@zmz-signed-paint-item-selected-border-color: @global-theme-success;
+@zmz-signed-paint-padding: 5px;
+
+@{b}zmz-signed {
+    .theme-var(--zmz-signed-padding, @zmz-signed-padding);
+    .theme-var(--zmz-signed-paint-padding, @zmz-signed-paint-padding);
+    .theme-var(--zmz-signed-paint-item-width, @zmz-signed-paint-item-width);
+    .theme-var(--zmz-signed-paint-item-height, @zmz-signed-paint-item-height);
+    .theme-var(--zmz-signed-paint-item-border-radius, @zmz-signed-paint-item-border-radius);
+    .theme-var(--zmz-signed-paint-item-border-width, @zmz-signed-paint-item-border-width);
+    .theme-var(--zmz-signed-paint-item-border-color, @zmz-signed-paint-item-border-color);
+    .theme-var(--zmz-signed-paint-item-selected-border-color, @zmz-signed-paint-item-selected-border-color);
+}
+
+@{b}zmz-signed {
+    @{e}wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: var(--zmz-signed-padding);
+    }
+
+    @{e}paint {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+
+        @{e}item {
+            padding: var(--zmz-signed-paint-padding);
+
+            @{e}inner {
+                display: block;
+                width: var(--zmz-signed-paint-item-width);
+                height: var(--zmz-signed-paint-item-height);
+                border-radius: var(--zmz-signed-paint-item-border-radius);
+                border: var(--zmz-signed-paint-item-border-width) solid var(--zmz-signed-paint-item-border-color);
+
+                @{m}selected {
+                    border-color: var(--zmz-signed-paint-item-selected-border-color);
+                }
+            }
+        }
+    }
+
+    @{e}button {
+        display: flex;
+        align-items: center;
+
+        @{e}item {
+            margin-left: 10px;
+        }
+    }
+}

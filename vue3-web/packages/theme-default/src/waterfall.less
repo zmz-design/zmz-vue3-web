@@ -1,0 +1,83 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-waterfall-button-padding: 20px 0;
+@zmz-waterfall-loading-padding: 20px 0;
+@zmz-waterfall-loading-color: #999;
+@zmz-waterfall-loading-font-size: 12px;
+@zmz-waterfall-loading-icon-size: 12px;
+@zmz-waterfall-loading-text-margin-left: 10px;
+
+@{b}zmz-waterfall {
+    .theme-var(--zmz-waterfall-button-padding, @zmz-waterfall-button-padding);
+    .theme-var(--zmz-waterfall-loading-padding, @zmz-waterfall-loading-padding);
+    .theme-var(--zmz-waterfall-loading-color, @zmz-waterfall-loading-color);
+    .theme-var(--zmz-waterfall-loading-font-size, @zmz-waterfall-loading-font-size);
+    .theme-var(--zmz-waterfall-loading-icon-size, @zmz-waterfall-loading-icon-size);
+    .theme-var(--zmz-waterfall-loading-text-margin-left, @zmz-waterfall-loading-text-margin-left);
+}
+
+@{b}zmz-waterfall {
+    @{e}wrap {
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+    }
+
+    @{e}item {
+        box-sizing: content-box;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.5s 0.15s, left 0.3s, top 0.3s;
+
+        @{e}loaded {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    @{e}button {
+        text-align: center;
+        padding: var(--zmz-waterfall-button-padding);
+
+        @{e}inner {
+            display: inline-block;
+            cursor: pointer;
+        }
+    }
+
+    @{e}loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--zmz-waterfall-loading-color);
+        padding: var(--zmz-waterfall-loading-padding);
+
+        .zmz-waterfall__button__icon {
+            display: inline-block;
+            vertical-align: middle;
+            animation: zmzWaterfallLoading 1s linear infinite;
+            font-size: var(--zmz-waterfall-loading-icon-size);
+        }
+
+        .zmz-waterfall__button__text {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 10px;
+            font-size: var(--zmz-waterfall-loading-font-size);
+        }
+    }
+
+    @keyframes zmzWaterfallLoading {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}

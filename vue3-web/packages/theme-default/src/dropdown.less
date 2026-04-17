@@ -1,0 +1,194 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-dropdown-header-color: @global-theme-default;
+@zmz-dropdown-header-font-size: 12px;
+@zmz-dropdown-menu-box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
+@zmz-dropdown-menu-background-color: #fff;
+@zmz-dropdown-menu-border-radius: 3px;
+@zmz-dropdown-item-color: @global-theme-default;
+@zmz-dropdown-item-height: 30px;
+@zmz-dropdown-item-font-size: 12px;
+@zmz-dropdown-item-active-color: @global-theme-primary;
+@zmz-dropdown-item-hover-color: @global-theme-primary;
+@zmz-dropdown-item-hover-background-color: rgba(@global-theme-primary, 0.05);
+@zmz-dropdown-item-disabled-background-color: #fff;
+
+
+@{b}zmz-dropdown {
+    .theme-var(--zmz-dropdown-header-color, @zmz-dropdown-header-color);
+    .theme-var(--zmz-dropdown-header-font-size, @zmz-dropdown-header-font-size);
+    .theme-var(--zmz-dropdown-menu-box-shadow, @zmz-dropdown-menu-box-shadow);
+    .theme-var(--zmz-dropdown-menu-background-color, @zmz-dropdown-menu-background-color);
+    .theme-var(--zmz-dropdown-menu-border-radius, @zmz-dropdown-menu-border-radius);
+    .theme-var(--zmz-dropdown-item-color, @zmz-dropdown-item-color);
+    .theme-var(--zmz-dropdown-item-height, @zmz-dropdown-item-height);
+    .theme-var(--zmz-dropdown-item-font-size, @zmz-dropdown-item-font-size);
+    .theme-var(--zmz-dropdown-item-active-color, @zmz-dropdown-item-active-color);
+    .theme-var(--zmz-dropdown-item-hover-color, @zmz-dropdown-item-hover-color);
+    .theme-var(--zmz-dropdown-item-hover-background-color, @zmz-dropdown-item-hover-background-color);
+    .theme-var(--zmz-dropdown-item-disabled-background-color, @zmz-dropdown-item-disabled-background-color);
+}
+
+@{b}zmz-dropdown {
+    display: inline-block;
+    position: relative;
+
+    &.zmz-dropdown--disabled {
+        .zmz-dropdown__header {
+            cursor: no-drop;
+            opacity: 0.5;
+            user-select: none;
+        }
+    }
+
+    @{e}header {
+        cursor: pointer;
+        font-size: var(--zmz-dropdown-header-font-size);
+        display: inline-block;
+        outline: 0;
+        color: var(--zmz-dropdown-header-color);
+        box-sizing: border-box;
+        line-height: initial;
+    }
+
+    @{e}menu {
+        box-shadow: var(--zmz-dropdown-menu-box-shadow);
+        cursor: pointer;
+        padding: 5px 0;
+        display: block;
+        border-radius: var(--zmz-dropdown-menu-border-radius);
+        outline: 0;
+        background-color: var(--zmz-dropdown-menu-background-color);
+        box-sizing: border-box;
+    }
+
+    @{e}item {
+        font-size: var(--zmz-dropdown-item-font-size);
+        height: var(--zmz-dropdown-item-height);
+        line-height: var(--zmz-dropdown-item-height);
+        padding: 0 15px;
+        white-space: pre;
+        color: var(--zmz-dropdown-item-color);
+
+        &.zmz-dropdown__item--active {
+            color: var(--zmz-dropdown-item-active-color);
+
+            &.zmz-dropdown__item--disabled {
+                color: var(--zmz-dropdown-item-active-color);
+                background: var(--zmz-dropdown-item-disabled-background-color);
+
+                &:hover {
+                    color: var(--zmz-dropdown-item-active-color);
+                    background: var(--zmz-dropdown-item-disabled-background-color);
+                }
+            }
+        }
+
+        &.zmz-dropdown__item--disabled {
+            opacity: 0.5;
+            color: var(--zmz-dropdown-item-color);
+            background: var(--zmz-dropdown-item-disabled-background-color);
+
+            &:hover {
+                color: var(--zmz-dropdown-item-color);
+                background: var(--zmz-dropdown-item-disabled-background-color);
+            }
+        }
+
+        &:hover {
+            color: var(--zmz-dropdown-item-hover-color);
+            background: var(--zmz-dropdown-item-hover-background-color);
+        }
+    }
+}
+
+
+.zmz-teleportdom.zmz-teleportdom--dropdown {
+    .zmz-tooltip__content {
+        background-color: #fff;
+        color: @global-theme-default;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
+    }
+
+    &[data-popper-placement="top"],
+    &[data-popper-placement="top-start"],
+    &[data-popper-placement="top-end"] {
+        transform-origin: center bottom;
+        .zmz-teleportdom {
+            &__arrow {
+                bottom: -6px;
+                border-width: 7px 7px 0px 7px;
+                border-top-color: rgba(75, 94, 114, 5%);
+
+                &:before {
+                    bottom: 1px;
+                    margin-left: -7px;
+                    border-top-color: #fff;
+                    border-bottom-width: 0
+                }
+            }
+        }
+    }
+
+    &[data-popper-placement="bottom"],
+    &[data-popper-placement="bottom-start"],
+    &[data-popper-placement="bottom-end"] {
+        transform-origin: center top;
+        .zmz-teleportdom {
+            &__arrow {
+                top: -6px;
+                border-width: 0px 7px 7px 7px;
+                border-bottom-color: rgba(75, 94, 114, 5%);
+
+                &:before {
+                    top: 1px;
+                    margin-left: -7px;
+                    border-bottom-color: #fff;
+                    border-top-width: 0
+                }
+            }
+        }
+    }
+
+    &[data-popper-placement="left"],
+    &[data-popper-placement="left-start"],
+    &[data-popper-placement="left-end"] {
+        transform-origin: right center;
+        .zmz-teleportdom {
+            &__arrow {
+                right: -6px;
+                border-width: 7px 0px 7px 7px;
+                border-left-color: rgba(75, 94, 114, 5%);
+
+                &:before {
+                    right: 1px;
+                    margin-top: -7px;
+                    border-left-color: #fff;
+                    border-right-width: 0
+                }
+            }
+        }
+    }
+
+    &[data-popper-placement="right"],
+    &[data-popper-placement="right-start"],
+    &[data-popper-placement="right-end"] {
+        transform-origin: left center;
+
+        .zmz-teleportdom {
+            &__arrow {
+                left: -6px;
+                border-width: 7px 7px 7px 0;
+                border-right-color: rgba(75, 94, 114, 5%);
+
+                &:before {
+                    left: 1px;
+                    margin-top: -7px;
+                    border-right-color: #fff;
+                    border-left-width: 0
+                }
+            }
+        }
+    }
+}

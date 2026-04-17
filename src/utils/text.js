@@ -1,0 +1,112 @@
+export const baseText = [{
+    "name": "文本",
+    "color": "#707d8c",
+    "textColor": "#FFF",
+    "base": "500",
+    "children": [{
+        "name": "主文本",
+        "describes": "标题、正文内容、按钮文字",
+        "color": "#1D2129",
+        "textColor": "#FFF",
+        "background": "#1D2129"
+    }, {
+        "name": "次文本",
+        "describes": "辅助说明、列表副标题",
+        "color": "#4E5969",
+        "textColor": "#FFF",
+        "background": "#4E5969"
+    }, {
+        "name": "弱文本",
+        "describes": "备注、占位符提示、失效状态文字",
+        "color": "#86909C",
+        "textColor": "#FFF",
+        "background": "#86909C"
+    }, {
+        "name": "禁用文本",
+        "describes": "禁用按钮文字、不可点击项文字",
+        "color": "#C9CDD4",
+        "textColor": "#FFF",
+        "background": "#C9CDD4"
+    }]
+}, {
+    "name": "边框",
+    "color": "#707d8c",
+    "textColor": "#213547",
+    "base": "500",
+    "children": [{
+        "name": "强边框",
+        "describes": "卡片边框、弹窗边框、输入框边框、按钮边框",
+        "color": "#C9CDD4",
+        "textColor": "#213547",
+        "background": "#C9CDD4"
+    }, {
+        "name": "弱边框",
+        "describes": "列表项分割线",
+        "color": "#E5E8EB",
+        "textColor": "#213547",
+        "background": "#E5E8EB"
+
+    }, {
+        "name": "极弱边框",
+        "describes": "标签内部分隔、轻量组件描边",
+        "color": "#F2F3F5",
+        "textColor": "#213547",
+        "background": "#F2F3F5"
+    }]
+}, {
+    "name": "占位符",
+    "color": "#707d8c",
+    "textColor": "#213547",
+    "base": "500",
+    "children": [{
+        "name": "占位符背景",
+        "describes": "输入框占位、空状态背景",
+        "color": "#F2F3F5",
+        "textColor": "#213547",
+        "background": "#F2F3F5"
+    }, {
+        "name": "卡片背景",
+        "describes": "普通卡片、模块背景",
+        "color": "#FFFFFF",
+        "textColor": "#213547",
+        "background": "#FFFFFF"
+    }, {
+        "name": "页面背景(选中)",
+        "describes": "鼠标悬浮卡片、选中项背景",
+        "color": "#F7F8FA",
+        "textColor": "#213547",
+        "background": "#F7F8FA"
+    }, {
+        "name": "页面背景",
+        "describes": "全局页面底色、弹窗蒙层底色",
+        "color": "#FAFAFA",
+        "textColor": "#213547",
+        "background": "#FAFAFA"
+    }]
+}, {
+    "name": "其他基础",
+    "color": "#707d8c",
+    "textColor": "#213547",
+    "base": "500",
+    "children": [{
+        "name": "基础白色",
+        "describes": "基础白色",
+        "color": "#FFFFFF",
+        "textColor": "#213547",
+        "background": "#FFFFFF"
+    }, {
+        "name": "基础黑色",
+        "describes": "基础黑色",
+        "color": "#000000",
+        "textColor": "#fff",
+        "background": "#000000"
+    }, {
+        "name": "基础透明",
+        "describes": "基础透明",
+        "color": "Transparent",
+        "textColor": "#213547",
+        "background": "linear-gradient(45deg,#f4f4f5 25%,#f000 25%),linear-gradient(135deg,#f4f4f5 25%,#0000 25%),linear-gradient(45deg,#0000 75%,#f4f4f5 75%),linear-gradient(135deg,#0000 75%,#f4f4f5 75%)"
+    }]
+}]
+
+

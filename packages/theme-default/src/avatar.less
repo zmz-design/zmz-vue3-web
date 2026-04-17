@@ -1,0 +1,201 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-avatar-width: 32px;
+@zmz-avatar-height: 32px;
+@zmz-avatar-icon-color: #fff;
+@zmz-avatar-icon-font-size: 18px;
+@zmz-avatar-background-color: #c2c4c9;
+@zmz-avatar-custom-text-color: #fff;
+@zmz-avatar-custom-font-size: 12px;
+@zmz-avatar-circle-radius: 50%;
+@zmz-avatar-more-background-color: rgba(0, 0, 0, 0.5);
+@zmz-avatar-more-text-color: #fff;
+@zmz-avatar-more-font-size: 12px;
+
+@{b}zmz-avatar,
+@{b}zmz-avatar-group {
+    .theme-var(--zmz-avatar-width, @zmz-avatar-width);
+    .theme-var(--zmz-avatar-height, @zmz-avatar-height);
+    .theme-var(--zmz-avatar-icon-color, @zmz-avatar-icon-color);
+    .theme-var(--zmz-avatar-icon-font-size, @zmz-avatar-icon-font-size);
+    .theme-var(--zmz-avatar-background-color, @zmz-avatar-background-color);
+    .theme-var(--zmz-avatar-custom-text-color, @zmz-avatar-custom-text-color);
+    .theme-var(--zmz-avatar-custom-font-size, @zmz-avatar-custom-font-size);
+    .theme-var(--zmz-avatar-circle-radius, @zmz-avatar-circle-radius);
+    .theme-var(--zmz-avatar-more-background-color, @zmz-avatar-more-background-color);
+    .theme-var(--zmz-avatar-more-text-color, @zmz-avatar-more-text-color);
+    .theme-var(--zmz-avatar-more-font-size, @zmz-avatar-more-font-size);
+}
+
+@{b}zmz-avatar {
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    height: var(--zmz-avatar-height);
+    width: var(--zmz-avatar-width);
+    line-height: var(--zmz-avatar-height);
+    border-radius: var(--zmz-avatar-circle-radius);
+
+    @{e}icon {
+        background: var(--zmz-avatar-background-color);
+
+        .zmz-avatar__icon__inner {
+            font-size: var(--zmz-avatar-icon-font-size);
+            color: var(--zmz-avatar-icon-color);
+        }
+    }
+
+    @{e}img {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .zmz-avatar__img__inner {
+            height: 100%;
+            width: 100%;
+            display: block;
+        }
+    }
+
+    @{e}custom {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: var(--zmz-avatar-custom-font-size);
+        background: var(--zmz-avatar-background-color);
+        color: var(--zmz-avatar-custom-text-color);
+        display: block;
+    }
+
+    // 尺寸
+    // 大
+    @{m}size-large {
+        .theme-var(--zmz-avatar-width, 40px);
+        .theme-var(--zmz-avatar-height, 40px);
+    }
+
+    // 中
+    @{m}size-medium {
+        .theme-var(--zmz-avatar-width, 36px);
+        .theme-var(--zmz-avatar-height, 36px);
+    }
+
+    // 默认
+    @{m}size-default {
+        .theme-var(--zmz-avatar-width, 32px);
+        .theme-var(--zmz-avatar-height, 32px);
+    }
+
+    // 小
+    @{m}size-small {
+        .theme-var(--zmz-avatar-width, 28px);
+        .theme-var(--zmz-avatar-height, 28px);
+    }
+
+    // 迷你
+    @{m}size-mini {
+        .theme-var(--zmz-avatar-width, 24px);
+        .theme-var(--zmz-avatar-height, 24px);
+    }
+
+    @{m}circle {
+        .theme-var(--zmz-avatar-circle-radius, 50%);
+    }
+
+    @{m}square {
+        .theme-var(--zmz-avatar-circle-radius, 3px);
+    }
+}
+
+@{b}zmz-avatar-group {
+    display: flex;
+
+    @{e}icon {
+        background: var(--zmz-avatar-background-color);
+
+        .zmz-avatar-group__icon__inner {
+            font-size: var(--zmz-avatar-icon-font-size);
+            color: var(--zmz-avatar-icon-color);
+        }
+    }
+
+    @{e}item {
+        display: inline-block;
+        overflow: hidden;
+        position: relative;
+        height: var(--zmz-avatar-height);
+        width: var(--zmz-avatar-width);
+        line-height: var(--zmz-avatar-height);
+        border-radius: var(--zmz-avatar-circle-radius);
+    }
+
+    @{e}img {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .zmz-avatar-group__img__inner {
+            height: 100%;
+            width: 100%;
+            display: block;
+        }
+    }
+
+    @{e}more {
+        font-size: var(--zmz-avatar-more-font-size);
+        background: var(--zmz-avatar-more-background-color);
+        color: var(--zmz-avatar-more-text-color);
+        display: block;
+        text-align: center;
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+    }
+
+    // 尺寸
+    // 大
+    @{m}size-large {
+        .theme-var(--zmz-avatar-width, 40px);
+        .theme-var(--zmz-avatar-height, 40px);
+    }
+
+    // 中
+    @{m}size-medium {
+        .theme-var(--zmz-avatar-width, 36px);
+        .theme-var(--zmz-avatar-height, 36px);
+    }
+
+    // 默认
+    @{m}size-default {
+        .theme-var(--zmz-avatar-width, 32px);
+        .theme-var(--zmz-avatar-height, 32px);
+    }
+
+    // 小
+    @{m}size-small {
+        .theme-var(--zmz-avatar-width, 28px);
+        .theme-var(--zmz-avatar-height, 28px);
+    }
+
+    // 迷你
+    @{m}size-mini {
+        .theme-var(--zmz-avatar-width, 24px);
+        .theme-var(--zmz-avatar-height, 24px);
+    }
+
+    @{m}circle {
+        .theme-var(--zmz-avatar-circle-radius, 50%);
+    }
+
+    @{m}square {
+        .theme-var(--zmz-avatar-circle-radius, 3px);
+    }
+}

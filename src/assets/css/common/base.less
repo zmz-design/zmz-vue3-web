@@ -1,0 +1,140 @@
+article,
+aside,
+blockquote,
+body,
+button,
+code,
+dd,
+details,
+div,
+dl,
+dt,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+hr,
+input,
+legend,
+li,
+menu,
+nav,
+ol,
+p,
+pre,
+section,
+td,
+textarea,
+th,
+ul {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: Consolas, Menlo, Courier, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.grid(@n, @i: 5) when (@i =< @n) {
+
+  // margin
+  .zmz-mt-@{i} {
+    margin-top: @i+ 0px;
+  }
+
+  .zmz-mb-@{i} {
+    margin-bottom: @i+ 0px;
+  }
+
+  .zmz-ml-@{i} {
+    margin-left: @i+ 0px;
+  }
+
+  .zmz-mr-@{i} {
+    margin-right: @i+ 0px;
+  }
+
+  .zmz-mtrbl-@{i} {
+    margin: @i+ 0px;
+  }
+
+  .zmz-mlr-@{i} {
+    margin: 0 @i+ 0px;
+  }
+
+  .zmz-mtb-@{i} {
+    margin: @i+ 0px 0;
+  }
+
+  // pading
+  .zmz-pt-@{i} {
+    padding-top: @i+ 0px;
+  }
+
+  .zmz-pb-@{i} {
+    padding-bottom: @i+ 0px;
+  }
+
+  .zmz-pl-@{i} {
+    padding-left: @i+ 0px;
+  }
+
+  .zmz-pr-@{i} {
+    padding-right: @i+ 0px;
+  }
+
+  .zmz-ptrbl-@{i} {
+    padding: @i+ 0px;
+  }
+
+  .zmz-plr-@{i} {
+    padding: 0 @i+ 0px;
+  }
+
+  .zmz-ptb-@{i} {
+    padding: @i+ 0px 0;
+  }
+
+  .grid(@n, (@i + 1));
+}
+
+.grid(100);
+
+.gridFoot(@n, @i: 12) when (@i =< @n) {
+
+  // font 
+  .zmz-fs-@{i} {
+    font-size: @i + 0px;
+  }
+
+  .gridFoot(@n, (@i + 2));
+}
+
+.gridFoot(30);

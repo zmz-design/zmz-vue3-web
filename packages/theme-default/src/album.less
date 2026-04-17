@@ -1,0 +1,80 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-album-error-background-color: #f4f5f9;
+@zmz-album-error-text-color: #c0c4cc;
+@zmz-album-error-font-size: 12px;
+@zmz-album-preview-cursor: pointer;
+@zmz-album-more-background-color: rgba(0, 0, 0, 0.5);
+@zmz-album-more-text-color: #fff;
+@zmz-album-more-font-size: 16px;
+
+@{b}zmz-album {
+    .theme-var(--zmz-album-error-background-color, @zmz-album-error-background-color);
+    .theme-var(--zmz-album-error-text-color, @zmz-album-error-text-color);
+    .theme-var(--zmz-album-error-font-size, @zmz-album-error-font-size);
+    .theme-var(--zmz-album-more-background-color, @zmz-album-more-background-color);
+    .theme-var(--zmz-album-more-text-color, @zmz-album-more-text-color);
+    .theme-var(--zmz-album-more-font-size, @zmz-album-more-font-size);
+    .theme-var(--zmz-album-preview-cursor, @zmz-album-preview-cursor);
+}
+
+@{b}zmz-album {
+    display: inline-block;
+    overflow: hidden;
+
+    @{e}text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--zmz-album-more-background-color);
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: var(--zmz-album-more-font-size);
+        color: var(--zmz-album-more-text-color);
+
+        &.zmz-album__preview {
+            cursor: var(--zmz-album-preview-cursor);
+        }
+    }
+
+    @{e}row {
+        display: flex;
+    }
+
+    @{e}item {
+        position: relative;
+        overflow: hidden;
+    }
+
+    @{e}wrap {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    @{e}img {
+        height: 100%;
+        width: 100%;
+        display: block;
+
+        &.zmz-album__preview {
+            cursor: var(--zmz-album-preview-cursor);
+        }
+    }
+
+    @{e}error {
+        min-height: 100px;
+        min-width: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--zmz-album-error-background-color);
+        color: var(--zmz-album-error-text-color);
+        font-size: var(--zmz-album-error-font-size);
+    }
+}

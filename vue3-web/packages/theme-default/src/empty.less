@@ -1,0 +1,68 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-empty-padding: 40px 0;
+@zmz-empty-height: 100%;
+@zmz-empty-icon-size: 90px;
+@zmz-empty-icon-color: rgba(@global-theme-default, .1);
+@zmz-empty-title-font-size: 14px;
+@zmz-empty-title-color: @global-theme-default;
+@zmz-empty-title-margin-top: 20px;
+@zmz-empty-describe-font-size: 12px;
+@zmz-empty-describe-color: @global-theme-default;
+@zmz-empty-describe-margin-top: 10px;
+@zmz-empty-custom-margin-top: 30px;
+
+@{b}zmz-empty {
+    .theme-var(--zmz-empty-padding, @zmz-empty-padding);
+    .theme-var(--zmz-empty-height, @zmz-empty-height);
+    .theme-var(--zmz-empty-icon-size, @zmz-empty-icon-size);
+    .theme-var(--zmz-empty-icon-color, @zmz-empty-icon-color);
+    .theme-var(--zmz-empty-title-font-size, @zmz-empty-title-font-size);
+    .theme-var(--zmz-empty-title-color, @zmz-empty-title-color);
+    .theme-var(--zmz-empty-title-margin-top, @zmz-empty-title-margin-top);
+    .theme-var(--zmz-empty-describe-font-size, @zmz-empty-describe-font-size);
+    .theme-var(--zmz-empty-describe-color, @zmz-empty-describe-color);
+    .theme-var(--zmz-empty-describe-margin-top, @zmz-empty-describe-margin-top);
+}
+
+@{b}zmz-empty {
+    padding: var(--zmz-empty-padding);
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    box-sizing: border-box;
+
+    @{e}icon {
+        .zmz-empty__icon__inner {
+            font-size: var(--zmz-empty-icon-size);
+            color: var(--zmz-empty-icon-color);
+        }
+
+        .zmz-empty__icon__image {
+            width: var(--zmz-empty-icon-size);
+            height: var(--zmz-empty-icon-size);
+            display: block;
+            border: 0;
+        }
+    }
+
+    @{e}title {
+        margin-top: var(--zmz-empty-title-margin-top);
+        font-size: var(--zmz-empty-title-font-size);
+        color: var(--zmz-empty-title-color);
+    }
+
+    @{e}describe {
+        margin-top: var(--zmz-empty-title-margin-top);
+        font-size: var(--zmz-empty-title-font-size);
+        color: var(--zmz-empty-title-color);
+    }
+
+    @{e}custom {
+        margin-top: var(--zmz-empty-custom-margin-top);
+    }
+}

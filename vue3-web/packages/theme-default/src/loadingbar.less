@@ -1,0 +1,74 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-loadingbar-height: 3px;
+@zmz-loadingbar-icon-size: 18px;
+@zmz-loadingbar-icon-color: @global-theme-primary;
+@zmz-loadingbar-icon-error-color: @global-theme-error;
+@zmz-loadingbar-transition: all 0.2s cubic-bezier(0, 0, 0.76, 0.76);
+@zmz-loadingbar-background-color: transparent;
+@zmz-loadingbar-loading-background-color: @global-theme-primary;
+@zmz-loadingbar-error-background-color: @global-theme-error;
+
+@{b}zmz-loadingbar {
+    .theme-var(--zmz-loadingbar-height, @zmz-loadingbar-height);
+    .theme-var(--zmz-loadingbar-icon-size, @zmz-loadingbar-icon-size);
+    .theme-var(--zmz-loadingbar-icon-color, @zmz-loadingbar-icon-color);
+    .theme-var(--zmz-loadingbar-icon-error-color, @zmz-loadingbar-icon-error-color);
+    .theme-var(--zmz-loadingbar-transition, @zmz-loadingbar-transition);
+    .theme-var(--zmz-loadingbar-background-color, @zmz-loadingbar-background-color);
+    .theme-var(--zmz-loadingbar-loading-background-color, @zmz-loadingbar-loading-background-color);
+    .theme-var(--zmz-loadingbar-error-background-color, @zmz-loadingbar-error-background-color);
+}
+
+@{b}zmz-loadingbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--zmz-loadingbar-height);
+    background: var(--zmz-loadingbar-background-color);
+
+    @{e}bar {
+        width: 0;
+        height: 100%;
+        transition: var(--zmz-loadingbar-transition);
+        background: var(--zmz-loadingbar-loading-background-color);
+
+        @{m}error {
+            background: var(--zmz-loadingbar-error-background-color);
+        }
+    }
+
+    @{e}spinner {
+        display: block;
+        position: fixed;
+        top: 15px;
+        right: 15px;
+
+        @{e}icon {
+            width: var(--zmz-loadingbar-icon-size);
+            height: var(--zmz-loadingbar-icon-size);
+            box-sizing: border-box;
+            border: solid 2px transparent;
+            border-top-color: var(--zmz-loadingbar-icon-color);
+            border-left-color: var(--zmz-loadingbar-icon-color);
+            border-radius: 50%;
+        }
+
+        @{e}icon--error {
+            border-top-color: var(--zmz-loadingbar-icon-error-color);
+            border-left-color: var(--zmz-loadingbar-icon-error-color);
+        }
+    }
+}
+
+@keyframes zmz-loadingbar-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,18 @@
+@charset "utf-8";
+@import './common/index.less';
+// 容器
+@zmz-shutters-transition: all 0.5s;
+
+@{b}zmz-shutters {
+    .theme-var(--zmz-shutters-transition, @zmz-shutters-transition);
+}
+
+@{b}zmz-shutters {
+    display: flex;
+    overflow: hidden;
+
+    @{e}item {
+        overflow: hidden;
+        transition: var(--zmz-shutters-transition);
+    }
+}

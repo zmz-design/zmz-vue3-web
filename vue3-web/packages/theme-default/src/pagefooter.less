@@ -1,0 +1,43 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-pagefooter-background-color: #fff;
+@zmz-pagefooter-content-padding: 20px;
+@zmz-pagefooter-content-font-size: 12px;
+@zmz-pagefooter-content-text-color: #495565;
+@zmz-pagefooter-copyright-padding: 20px;
+@zmz-pagefooter-copyright-font-size: 12px;
+@zmz-pagefooter-copyright-text-color: #495565;
+
+@{b}zmz-pagefooter {
+    .theme-var(--zmz-pagefooter-background-color, @zmz-pagefooter-background-color);
+    .theme-var(--zmz-pagefooter-content-padding, @zmz-pagefooter-content-padding);
+    .theme-var(--zmz-pagefooter-content-font-size, @zmz-pagefooter-content-font-size);
+    .theme-var(--zmz-pagefooter-content-text-color, @zmz-pagefooter-content-text-color);
+    .theme-var(--zmz-pagefooter-copyright-padding, @zmz-pagefooter-copyright-padding);
+    .theme-var(--zmz-pagefooter-copyright-font-size, @zmz-pagefooter-copyright-font-size);
+    .theme-var(--zmz-pagefooter-copyright-text-color, @zmz-pagefooter-copyright-text-color);
+}
+
+
+@{b}zmz-pagefooter {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    background: var(--zmz-pagefooter-background-color);
+
+    @{e}copyright {
+        width: 100%;
+        padding: var(--zmz-pagefooter-copyright-padding);
+        text-align: center;
+        box-sizing: border-box;
+        font-size: var(--zmz-pagefooter-copyright-font-size);
+        color: var(--zmz-pagefooter-copyright-text-color);
+    }
+
+    @{e}content {
+        padding: var(--zmz-pagefooter-content-padding);
+        font-size: var(--zmz-pagefooter-content-font-size);
+        color: var(--zmz-pagefooter-content-text-color);
+    }
+}

@@ -1,0 +1,194 @@
+// -------------------------------------------------------------------------------------------淡入淡出
+// --------------------------fade
+// 进入开始
+.zmz-fade-enter-from {
+  opacity: 0;
+}
+
+.zmz-fade-enter,
+.zmz-fade-enter-active {
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+//进入结束
+.zmz-fade-enter-to {
+  opacity: 1;
+}
+
+//离开开始
+.zmz-fade-leave-from {
+  opacity: 1;
+}
+
+//离开激活
+.zmz-fade-leave,
+.zmz-fade-leave-active {
+  opacity: 0;
+  transition: opacity 300ms ease-out;
+}
+
+//离开结束
+.zmz-fade-leave-to {
+  opacity: 0;
+}
+
+// --------------------------fadeLeft
+// 进入开始
+.zmz-fade-left-enter-from {
+  opacity: 0;
+  transform: translateX(-20px)
+}
+
+.zmz-fade-left-enter,
+.zmz-fade-left-enter-active {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+//进入结束
+.zmz-fade-left-enter-to {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+//离开开始
+.zmz-fade-left-leave-from {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+//离开激活
+.zmz-fade-left-leave,
+.zmz-fade-left-leave-active {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+//离开结束
+.zmz-fade-left-leave-to {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+
+// --------------------------fadeRight
+// 进入开始
+.zmz-fade-right-enter-from {
+  opacity: 0;
+  transform: translateX(20px)
+}
+
+.zmz-fade-right-enter,
+.zmz-fade-right-enter-active {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+//进入结束
+.zmz-fade-right-enter-to {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+//离开开始
+.zmz-fade-right-leave-from {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+//离开激活
+.zmz-fade-right-leave,
+.zmz-fade-right-leave-active {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+//离开结束
+.zmz-fade-right-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+// -------------------------- fadeBottom
+// 进入开始
+.zmz-fade-bottom-enter-from {
+  opacity: 0;
+  transform: translateY(20px)
+}
+
+.zmz-fade-bottom-enter,
+.zmz-fade-bottom-enter-active {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+//进入结束
+.zmz-fade-bottom-enter-to {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+//离开开始
+.zmz-fade-bottom-leave-from {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+//离开激活
+.zmz-fade-bottom-leave,
+.zmz-fade-bottom-leave-active {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+//离开结束
+.zmz-fade-bottom-leave-to {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+// --------------------------fadeTop
+// 进入开始
+.zmz-fade-top-enter-from {
+  opacity: 0;
+  transform: translateY(-20px)
+}
+
+.zmz-fade-top-enter,
+.zmz-fade-top-enter-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+//进入结束
+.zmz-fade-top-enter-to {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+//离开开始
+.zmz-fade-top-leave-from {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+//离开激活
+.zmz-fade-top-leave,
+.zmz-fade-top-leave-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+//离开结束
+.zmz-fade-top-leave-to {
+  transform: translateY(-20px);
+  opacity: 0;
+}

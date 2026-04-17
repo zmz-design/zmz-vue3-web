@@ -1,0 +1,262 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-alert-padding: 10px 15px;
+@zmz-alert-border-radius: 3px;
+@zmz-alert-icon-size: 16px;
+@zmz-alert-icon-color: @global-theme-default;
+@zmz-alert-title-font-size: 14px;
+@zmz-alert-title-font-bold: bold;
+@zmz-alert-title-color: @global-theme-default;
+@zmz-alert-describe-color: @global-theme-default;
+@zmz-alert-describe-font-size: 12px;
+@zmz-alert-describe-margin-top: 10px;
+@zmz-alert-background-color: @global-color-background-default;
+@zmz-alert-border-color: @global-border-color;
+@zmz-alert-closebtn-size: 12px;
+@zmz-alert-closebtn-color: @global-theme-default;
+
+@{b}zmz-alert {
+    .theme-var(--zmz-alert-padding, @zmz-alert-padding);
+    .theme-var(--zmz-alert-border-radius, @zmz-alert-border-radius);
+    .theme-var(--zmz-alert-icon-size, @zmz-alert-icon-size);
+    .theme-var(--zmz-alert-icon-color, @zmz-alert-icon-color);
+    .theme-var(--zmz-alert-title-font-size, @zmz-alert-title-font-size);
+    .theme-var(--zmz-alert-title-font-bold, @zmz-alert-title-font-bold);
+    .theme-var(--zmz-alert-title-color, @zmz-alert-title-color);
+    .theme-var(--zmz-alert-describe-color, @zmz-alert-title-color);
+    .theme-var(--zmz-alert-describe-font-size, @zmz-alert-describe-font-size);
+    .theme-var(--zmz-alert-describe-margin-top, @zmz-alert-describe-margin-top);
+    .theme-var(--zmz-alert-background-color, @zmz-alert-background-color);
+    .theme-var(--zmz-alert-border-color, @zmz-alert-border-color);
+    .theme-var(--zmz-alert-closebtn-size, @zmz-alert-closebtn-size);
+    .theme-var(--zmz-alert-closebtn-color, @zmz-alert-closebtn-color);
+}
+
+@{b}zmz-alert {
+    position: relative;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    font-size: var(--zmz-alert-title-font-size);
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--zmz-alert-border-color);
+    background: var(--zmz-alert-background-color);
+    padding: var(--zmz-alert-padding);
+    border-radius: var(--zmz-alert-border-radius);
+
+
+    &.zmz-alert {
+        @{m}center {
+            justify-content: center;
+        }
+    }
+
+    @{m}default {
+        .theme-var(--zmz-alert-icon-color, @global-basic-white);
+        .theme-var(--zmz-alert-title-color, @global-basic-white);
+        .theme-var(--zmz-alert-describe-color, @global-basic-white);
+        .theme-var(--zmz-alert-background-color, @global-theme-default);
+        .theme-var(--zmz-alert-border-color, @global-theme-default);
+        .theme-var(--zmz-alert-closebtn-color, @global-basic-white);
+
+        &.zmz-alert--plain {
+            .theme-var(--zmz-alert-icon-color, @global-theme-default);
+            .theme-var(--zmz-alert-title-color, @global-theme-default);
+            .theme-var(--zmz-alert-describe-color, @global-theme-default);
+            .theme-var(--zmz-alert-background-color, rgba(@global-theme-default, 0.1));
+            .theme-var(--zmz-alert-border-color, @global-theme-default);
+            .theme-var(--zmz-alert-closebtn-color, @global-theme-default);
+        }
+
+        &.zmz-alert--linear {
+            .theme-var(--zmz-alert-icon-color, @global-theme-default);
+            .theme-var(--zmz-alert-title-color, @global-theme-default);
+            .theme-var(--zmz-alert-describe-color, @global-theme-default);
+            .theme-var(--zmz-alert-background-color, @global-basic-white);
+            .theme-var(--zmz-alert-border-color, @global-theme-default);
+            .theme-var(--zmz-alert-closebtn-color, @global-theme-default);
+        }
+    }
+
+    @{m}info {
+        .theme-var(--zmz-alert-icon-color, @global-basic-white);
+        .theme-var(--zmz-alert-title-color, @global-basic-white);
+        .theme-var(--zmz-alert-describe-color, @global-basic-white);
+        .theme-var(--zmz-alert-background-color, @global-theme-info);
+        .theme-var(--zmz-alert-border-color, @global-theme-info);
+        .theme-var(--zmz-alert-closebtn-color, @global-basic-white);
+
+        &.zmz-alert--plain {
+            .theme-var(--zmz-alert-icon-color, @global-theme-info);
+            .theme-var(--zmz-alert-title-color, @global-theme-info);
+            .theme-var(--zmz-alert-describe-color, @global-theme-info);
+            .theme-var(--zmz-alert-background-color, rgba(@global-theme-info, 0.1));
+            .theme-var(--zmz-alert-border-color, @global-theme-info);
+            .theme-var(--zmz-alert-closebtn-color, @global-theme-info);
+        }
+
+        &.zmz-alert--linear {
+            .theme-var(--zmz-alert-icon-color, @global-theme-info);
+            .theme-var(--zmz-alert-title-color, @global-theme-info);
+            .theme-var(--zmz-alert-describe-color, @global-theme-info);
+            .theme-var(--zmz-alert-background-color, @global-basic-white);
+            .theme-var(--zmz-alert-border-color, @global-theme-info);
+            .theme-var(--zmz-alert-closebtn-color, @global-theme-info);
+        }
+    }
+
+    @{m}primary {
+        .theme-var(--zmz-alert-icon-color, @global-basic-white);
+        .theme-var(--zmz-alert-title-color, @global-basic-white);
+        .theme-var(--zmz-alert-describe-color, @global-basic-white);
+        .theme-var(--zmz-alert-background-color, @global-theme-primary);
+        .theme-var(--zmz-alert-border-color, @global-theme-primary);
+        .theme-var(--zmz-alert-closebtn-color, @global-basic-white);
+
+        &.zmz-alert--plain {
+            .theme-var(--zmz-alert-icon-color, @global-theme-primary);
+            .theme-var(--zmz-alert-title-color, @global-theme-primary);
+            .theme-var(--zmz-alert-describe-color, @global-theme-primary);
+            .theme-var(--zmz-alert-background-color, rgba(@global-theme-primary, 0.1));
+            .theme-var(--zmz-alert-border-color, @global-theme-primary);
+            .theme-var(--zmz-alert-closebtn-color, @global-theme-primary);
+        }
+
+        &.zmz-alert--linear {
+            .theme-var(--zmz-alert-icon-color, @global-theme-primary);
+            .theme-var(--zmz-alert-title-color, @global-theme-primary);
+            .theme-var(--zmz-alert-describe-color, @global-theme-primary);
+            .theme-var(--zmz-alert-background-color, @global-basic-white);
+            .theme-var(--zmz-alert-border-color, @global-theme-primary);
+            .theme-var(--zmz-alert-closebtn-color, @global-theme-primary);
+        }
+    }
+
+    @{m}success {
+        .theme-var(--zmz-alert-icon-color, @global-basic-white);
+        .theme-var(--zmz-alert-title-color, @global-basic-white);
+        .theme-var(--zmz-alert-describe-color, @global-basic-white);
+        .theme-var(--zmz-alert-background-color, @global-theme-success);
+        .theme-var(--zmz-alert-border-color, @global-theme-success);
+        .theme-var(--zmz-alert-closebtn-color, @global-basic-white);
+
+        &.zmz-alert--plain {
+            .theme-var(--zmz-alert-icon-color, @global-theme-success);
+            .theme-var(--zmz-alert-title-color, @global-theme-success);
+            .theme-var(--zmz-alert-describe-color, @global-theme-success);
+            .theme-var(--zmz-alert-background-color, rgba(@global-theme-success, 0.1));
+            .theme-var(--zmz-alert-border-color, @global-theme-success);
+            .theme-var(--zmz-alert-closebtn-color, @global-theme-success);
+        }
+
+        &.zmz-alert--linear {
+            .theme-var(--zmz-alert-icon-color, @global-theme-success);
+            .theme-var(--zmz-alert-title-color, @global-theme-success);
+            .theme-var(--zmz-alert-describe-color, @global-theme-success);
+            .theme-var(--zmz-alert-background-color, @global-basic-white);
+            .theme-var(--zmz-alert-border-color, @global-theme-success);
+            .theme-var(--zmz-alert-closebtn-color, @global-theme-success);
+        }
+    }
+
+    @{m}warning {
+        .theme-var(--zmz-alert-icon-color, @global-basic-white);
+        .theme-var(--zmz-alert-title-color, @global-basic-white);
+        .theme-var(--zmz-alert-describe-color, @global-basic-white);
+        .theme-var(--zmz-alert-background-color, @global-theme-warning);
+        .theme-var(--zmz-alert-border-color, @global-theme-warning);
+        .theme-var(--zmz-alert-closebtn-color, @global-basic-white);
+
+        &.zmz-alert--plain {
+            .theme-var(--zmz-alert-icon-color, @global-theme-warning);
+            .theme-var(--zmz-alert-title-color, @global-theme-warning);
+            .theme-var(--zmz-alert-describe-color, @global-theme-warning);
+            .theme-var(--zmz-alert-background-color, rgba(@global-theme-warning, 0.1));
+            .theme-var(--zmz-alert-border-color, @global-theme-warning);
+            .theme-var(--zmz-alert-closebtn-color, @global-theme-warning);
+        }
+
+        &.zmz-alert--linear {
+            .theme-var(--zmz-alert-icon-color, @global-theme-warning);
+            .theme-var(--zmz-alert-title-color, @global-theme-warning);
+            .theme-var(--zmz-alert-describe-color, @global-theme-warning);
+            .theme-var(--zmz-alert-background-color, @global-basic-white);
+            .theme-var(--zmz-alert-border-color, @global-theme-warning);
+            .theme-var(--zmz-alert-closebtn-color, @global-theme-warning);
+        }
+    }
+
+    @{m}error {
+        .theme-var(--zmz-alert-icon-color, @global-basic-white);
+        .theme-var(--zmz-alert-title-color, @global-basic-white);
+        .theme-var(--zmz-alert-describe-color, @global-basic-white);
+        .theme-var(--zmz-alert-background-color, @global-theme-error);
+        .theme-var(--zmz-alert-border-color, @global-theme-error);
+        .theme-var(--zmz-alert-closebtn-color, @global-basic-white);
+
+        &.zmz-alert--plain {
+            .theme-var(--zmz-alert-icon-color, @global-theme-error);
+            .theme-var(--zmz-alert-title-color, @global-theme-error);
+            .theme-var(--zmz-alert-describe-color, @global-theme-error);
+            .theme-var(--zmz-alert-background-color, rgba(@global-theme-error, 0.1));
+            .theme-var(--zmz-alert-border-color, @global-theme-error);
+            .theme-var(--zmz-alert-closebtn-color, @global-theme-error);
+        }
+
+        &.zmz-alert--linear {
+            .theme-var(--zmz-alert-icon-color, @global-theme-error);
+            .theme-var(--zmz-alert-title-color, @global-theme-error);
+            .theme-var(--zmz-alert-describe-color, @global-theme-error);
+            .theme-var(--zmz-alert-background-color, @global-basic-white);
+            .theme-var(--zmz-alert-border-color, @global-theme-error);
+            .theme-var(--zmz-alert-closebtn-color, @global-theme-error);
+        }
+    }
+
+    @{e}wrap {
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .zmz-alert__icon {
+        font-size: var(--zmz-alert-icon-size);
+        color: var(--zmz-alert-icon-color);
+    }
+
+    @{e}title {
+        font-size: var(--zmz-alert-title-font-size);
+        color: var(--zmz-alert-title-color);
+
+        @{m}bold {
+            font-weight: var(--zmz-alert-title-font-bold);
+        }
+    }
+
+    @{e}description {
+        font-size: var(--zmz-alert-describe-font-size);
+        color: var(--zmz-alert-describe-color);
+        margin-top: var(--zmz-alert-describe-margin-top);
+        line-height: 1.5;
+    }
+
+    .zmz-alert__closebtn {
+        font-size: var(--zmz-alert-closebtn-size);
+        color: var(--zmz-alert-closebtn-color);
+        cursor: pointer;
+        position: absolute;
+        right: 15px;
+        top: 10px;
+        width: 18px;
+        height: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @{m}text {
+            font-style: normal;
+        }
+    }
+}

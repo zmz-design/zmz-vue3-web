@@ -1,0 +1,174 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-notice-background-color: #fff;
+@zmz-notice-border-color: #fff;
+@zmz-notice-padding: 14px 26px 14px 13px;
+@zmz-notice-border-radius: 3px;
+@zmz-notice-border-width: 1px;
+@zmz-notice-border-style: solid;
+@zmz-notice-box-shadow: @global-box-shadow;
+@zmz-notice-width: 300px;
+@zmz-notice-icon-size: 20px;
+@zmz-notice-icon-color: @global-theme-default;
+@zmz-notice-title-line-height: 1;
+@zmz-notice-content-line-height: 1;
+@zmz-notice-title-color: @global-theme-default;
+@zmz-notice-title-font-size: 16px;
+@zmz-notice-content-margin-top: 6px;
+@zmz-notice-content-color: @global-theme-info;
+@zmz-notice-content-font-size: 12px;
+@zmz-notice-close-color: @global-theme-info;
+@zmz-notice-close-font-size: 12px;
+
+
+@{b}zmz-notice {
+  .theme-var(--zmz-notice-background-color, @zmz-notice-background-color);
+  .theme-var(--zmz-notice-border-color, @zmz-notice-border-color);
+  .theme-var(--zmz-notice-border-width, @zmz-notice-border-width);
+  .theme-var(--zmz-notice-border-style, @zmz-notice-border-style);
+  .theme-var(--zmz-notice-width, @zmz-notice-width);
+  .theme-var(--zmz-notice-border-radius, @zmz-notice-border-radius);
+  .theme-var(--zmz-notice-box-shadow, @zmz-notice-box-shadow);
+  .theme-var(--zmz-notice-icon-size, @zmz-notice-icon-size);
+  .theme-var(--zmz-notice-icon-color, @zmz-notice-icon-color);
+  .theme-var(--zmz-notice-content-line-height, @zmz-notice-content-line-height);
+  .theme-var(--zmz-notice-title-line-height, @zmz-notice-title-line-height);
+  .theme-var(--zmz-notice-title-color, @zmz-notice-title-color);
+  .theme-var(--zmz-notice-title-font-size, @zmz-notice-title-font-size);
+  .theme-var(--zmz-notice-content-margin-top, @zmz-notice-content-margin-top);
+  .theme-var(--zmz-notice-content-color, @zmz-notice-content-color);
+  .theme-var(--zmz-notice-content-font-size, @zmz-notice-content-font-size);
+  .theme-var(--zmz-notice-padding, @zmz-notice-padding);
+  .theme-var(--zmz-notice-close-color, @zmz-notice-close-color);
+  .theme-var(--zmz-notice-close-font-size, @zmz-notice-close-font-size);
+}
+
+@{b}zmz-notice {
+  display: flex;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: var(--zmz-notice-border-radius);
+  padding: var(--zmz-notice-padding);
+  width: var(--zmz-notice-width);
+  box-shadow: var(--zmz-notice-box-shadow);
+  border-style: var(--zmz-notice-border-style);
+  border-width: var(--zmz-notice-border-width);
+  background-color: var(--zmz-notice-background-color);
+  border-color: var(--zmz-notice-border-color);
+
+  &.zmz-notice--default {
+    .theme-var(--zmz-notice-icon-color, @global-theme-default);
+  }
+
+  &.zmz-notice--success {
+    .theme-var(--zmz-notice-icon-color, @global-theme-success);
+  }
+
+  &.zmz-notice--warning {
+    .theme-var(--zmz-notice-icon-color, @global-theme-warning);
+  }
+
+  &.zmz-notice--error {
+    .theme-var(--zmz-notice-icon-color, @global-theme-error);
+  }
+
+  &.zmz-notice--primary {
+    .theme-var(--zmz-notice-icon-color, @global-theme-primary);
+  }
+
+  &.zmz-notice--info {
+    .theme-var(--zmz-notice-icon-color, @global-theme-info);
+  }
+
+  .zmz-notice__icon {
+    font-size: var(--zmz-notice-icon-size);
+    color: var(--zmz-notice-icon-color);
+  }
+
+  @{m}background {
+    &-default {
+      .theme-var(--zmz-notice-background-color, lighten(hsl(@global-theme-default), 80%));
+      .theme-var(--zmz-notice-border-color, lighten(hsl(@global-theme-default), 80%));
+      .theme-var(--zmz-notice-text-color, @global-theme-default);
+      .theme-var(--zmz-notice-icon-color, @global-theme-default);
+    }
+
+    &-primary {
+      .theme-var(--zmz-notice-background-color, lighten(hsl(@global-theme-primary), 43%));
+      .theme-var(--zmz-notice-border-color, lighten(hsl(@global-theme-primary), 43%));
+      .theme-var(--zmz-notice-text-color, @global-theme-primary);
+      .theme-var(--zmz-notice-icon-color, @global-theme-primary);
+    }
+
+    &-success {
+      .theme-var(--zmz-notice-background-color, lighten(hsl(@global-theme-success), 43%));
+      .theme-var(--zmz-notice-border-color, lighten(hsl(@global-theme-success), 43%));
+      .theme-var(--zmz-notice-text-color, @global-theme-success);
+      .theme-var(--zmz-notice-icon-color, @global-theme-success);
+    }
+
+    &-warning {
+      .theme-var(--zmz-notice-background-color, lighten(hsl(@global-theme-warning), 43%));
+      .theme-var(--zmz-notice-border-color, lighten(hsl(@global-theme-warning), 43%));
+      .theme-var(--zmz-notice-text-color, @global-theme-warning);
+      .theme-var(--zmz-notice-icon-color, @global-theme-warning);
+    }
+
+    &-error {
+      .theme-var(--zmz-notice-background-color, lighten(hsl(@global-theme-error), 43%));
+      .theme-var(--zmz-notice-border-color, lighten(hsl(@global-theme-error), 43%));
+      .theme-var(--zmz-notice-text-color, @global-theme-error);
+      .theme-var(--zmz-notice-icon-color, @global-theme-error);
+    }
+
+    &-info {
+      .theme-var(--zmz-notice-background-color, lighten(hsl(@global-theme-info), 43%));
+      .theme-var(--zmz-notice-border-color, lighten(hsl(@global-theme-info), 43%));
+      .theme-var(--zmz-notice-text-color, @global-theme-info);
+      .theme-var(--zmz-notice-icon-color, @global-theme-info);
+    }
+  }
+
+  @{e}close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    .zmz-notice__close__btn {
+      cursor: pointer;
+      color: var(--zmz-notice-close-color);
+      font-size: var(--zmz-notice-close-font-size) !important;
+    }
+  }
+
+  @{e}wrap {
+    padding-left: 10px;
+    padding-right: 10px;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  @{e}title {
+    font-size: var(--zmz-notice-title-font-size);
+    line-height: var(--zmz-notice-title-line-height);
+    color: var(--zmz-notice-title-color);
+    font-weight: bold;
+
+    &.zmz-notice--center {
+      text-align: center;
+    }
+  }
+
+  @{e}content {
+    font-size: var(--zmz-notice-content-font-size);
+    line-height: var(--zmz-notice-content-line-height);
+    color: var(--zmz-notice-content-color);
+    margin-top: var(--zmz-notice-content-margin-top);
+
+    &:focus {
+      outline-width: 0;
+    }
+  }
+
+}

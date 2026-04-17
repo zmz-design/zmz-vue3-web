@@ -1,0 +1,304 @@
+// 基础背景颜色
+@default: #3f536e; // 默认按钮
+@primary: #2d8ff4; // 主要按钮
+@success: #23c171; // 成功按钮
+@warning: #e08c45; // 警告按钮
+@error: #de4e4e; // 错误按钮
+@dark: #4a5d71; // 暗黑按钮
+// 基础尺寸
+@large: 45px; // 超大
+@large-size: 18px; // 超大字体
+
+@normal: 38px; // 默认
+@normal-size: 14px; // 默认字体
+
+@medium: 32px; // 中
+@medium-size: 14px; // 中字体
+
+@small: 27px; // 小
+@small-size: 12px; // 小字体
+
+@mini: 24px; // 迷你
+@mini-size: 12px; // 迷你字体
+
+// 统一圆角
+@border-radius-large: 50%;
+@border-radius-normal: 20px;
+@border-radius-medium: 10px;
+@border-radius-small: 6px;
+@border-radius-mini: 4px;
+
+// 基础字体
+@font-large: 20px;
+@font-normal: 18px;
+@font-medium: 16px;
+@font-small: 14px;
+@font-mini: 12px;
+
+// 基础透明
+@opacity-large: 1;
+@opacity-normal: 0.5;
+@opacity-medium: 0.4;
+@opacity-small: 0.3;
+@opacity-mini: 0.2;
+
+// 基础文字颜色
+@white: #ffffff; //白色
+@black: @default; // 黑色
+@blue: @primary; // 蓝色
+@green: @success; // 绿色
+@orange: @warning; // 橙色
+@red: @error; // 橙色
+// 基础栅格 24
+@grid: 24;
+
+// 默认边线
+@default-border: #e3e4e6;
+@default-color: #3f536e;
+@default-background: #fff;
+@default-border-width: 1px;
+
+// 基础行高
+@line-height-normal: 1;
+
+// 基础内边距
+@padding-large: 25px;
+@padding-normal: 20px;
+@padding-medium: 15px;
+@padding-small: 10px;
+@padding-mini: 5px;
+
+// 基础外边距
+@margin-large: 25px;
+@margin-normal: 20px;
+@margin-medium: 15px;
+@margin-small: 10px;
+@margin-mini: 5px;
+
+//动画时间
+@animation-time-large: 0.2s;
+@animation-time-normal: 0.2s;
+@animation-timet-medium: 0.2s;
+@animation-time-small: 0.2s;
+@animation-time-mini: 0.2s;
+
+// 动画时间
+@transition-time-large: 0.2s;
+@transition-time-normal: 0.2s;
+@transition-timet-medium: 0.2s;
+@transition-time-small: 0.2s;
+@transition-time-mini: 0.2s;
+
+// 字体默认厚度
+@fontweight-large: bolder;
+@fontweight-normal: 500;
+@fontweight-medium: 400;
+@fontweight-small: 300;
+@fontweight-mini: 200;
+
+// 字体默认
+@font-size-h1: (@basic-font+20);
+@font-size-h2: (@basic-font+12);
+@font-size-h3: (@basic-font+6);
+@font-size-h4: (@basic-font+4);
+@font-size-h5: (@basic-font+2);
+@font-size-h6: @basic-font;
+@font-size-normal: @basic-font;
+
+// 默认阴影
+@box-shadow-large: bolder;
+@box-shadow-normal: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+@box-shadow-medium: 400;
+@box-shadow-small: 300;
+@box-shadow-mini: 200;
+
+// 基础样式修改下
+// 基础主题颜色
+@basic-theme: @primary;
+@basic-success: @success;
+@basic-error: @error;
+@basic-white: @white;
+@basic-black: #000;
+
+@basic-textColor: @default-color;
+// 基础背景颜色默认
+@basic-background: @default-background;
+@basic-backgroundColor: rgba(@primary, 0.05);
+// 基础字体默认
+@basic-font: 12px;
+// 基础高度默认
+@basic-height: 38px;
+// 基础宽度默认
+@basic-width: 300px;
+// 基础内边距默认
+@basic-padding: 20px;
+// 基础外边距默认
+@basic-margin: 20px;
+// 基础边线宽度默认
+@basic-borderWidth: @default-border-width;
+@basic-borderColor: rgba(@default-border, 0.5);
+@basic-borderRadius: 5px;
+@basic-borderRadiusRound: 50%;
+
+// 基础阴影默认
+@basic-boxShadow: @box-shadow-normal;
+// 基础透明默认
+@basic-opacity: .5;
+// 基础定位默认
+@basic-positionRight: 20px;
+@basic-positionLeft: 20px;
+@basic-positionTop: 20px;
+@basic-positionBottom: 20px;
+@basic-positionZIndex: 0;
+// 基础行高
+@basic-lineHeight: 40px;
+@basic-lineHeightNum: 1;
+// 基础动画
+@basic-transitionTime: 0.2s;
+@basic-animationTime: 0.2s;
+// 基础字体厚度
+@basic-fontWeight: 500;
+// 基础滚动条
+@basic-scrollbarthumb-background: @basic-theme;
+@basic-scrollbarthumb-borderRadius: @basic-borderRadius;
+@basic-scrollbarthumb-width: 5px;
+// 基础间隔
+
+:root {
+  --theme-header-height: 60px;
+  --theme-font-size: 12px;
+  --theme-color-hover-text: #41b883;
+  --theme-color-border: rgba(60, 60, 60, 0.12);
+  --theme-color-hover-text: #41b883;
+  --theme-color-background-text: #41b883;
+  --theme-color-background-linear-gradient: linear-gradient(#32d1ce 0%, #264797 90%);
+  --theme-color-background-linear-gradient-green-blue: linear-gradient(#32d1ce 0%, #264797 90%);
+  --theme-color-background-linear-gradient-green-green: linear-gradient(#32d19e 0%, #269797 90%);
+  --theme-color-background-linear-gradient-text: -webkit-linear-gradient(315deg, #cc2b39 25%, #647eff);
+  --theme-animate-button: animate;
+  --theme-color-text: #213547;
+
+  // 主要颜色 start
+  --theme-color-default: #3f536e;
+  --theme-color-background-default: rgba(#3f536e, 0.1);
+  --theme-color-primary: #2d8ff4;
+  --theme-color-background-primary: rgba(#2d8ff4, 0.1);
+  --theme-color-dark: #4a5d71;
+  --theme-color-background-dark: rgba(#4a5d71, 0.1);
+  --theme-color-success: #23c171;
+  --theme-color-background-success: rgba(#23c171, 0.1);
+  --theme-color-warning: #e08c45;
+  --theme-color-background-warning: rgba(#e08c45, 0.1);
+  --theme-color-error: #ff6767;
+  --theme-color-background-error: rgba(#ff6767, 0.1);
+
+  // 主要颜色 end
+  // 背景色 start
+  --theme-color-background: #fff;
+  --theme-color-background-error: #cc2b39;
+  --theme-color-subbackground: #fff;
+  --theme-color-threebackground: #f9f9f9;
+  --theme-color-background-5: #f5f7fa;
+  --theme-color-background-6: #f3f5f7;
+  --theme-color-background-7: #f1f3f5;
+
+  // 背景色 end
+
+  --theme-color-text: #213547;
+  --theme-color-subtext: #213547;
+  --theme-color-onetext: #213547;
+  --theme-color-twotext: #495565;
+  --theme-color-threetext: #4e5c6f;
+  --theme-color-border: #e9e9e9;
+  --theme-color-table-header-background: #f7f7f7;
+  --theme-color-table-border: #e9e9e9;
+  --theme-color-table-text: #424242;
+  --theme-color-box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
+  // code 颜色 start
+  --theme-code-color-background: #f5f7fa;
+  --theme-code-color-text: #41b883;
+
+  // code 颜色 end
+}
+
+:root[zmz-theme="dark"] {
+  // 主要颜色 start
+  --theme-color-default: #3f536e;
+  --theme-color-primary: #2d8ff4;
+  --theme-color-dark: #4a5d71;
+  --theme-color-success: #23c171;
+  --theme-color-warning: #e08c45;
+  --theme-color-error: #ff6767;
+  // 主要颜色 end
+  --theme-color-text: #fff;
+  --theme-color-subtext: #213547;
+  --theme-color-onetext: #e5eaf3;
+  --theme-color-twotext: #979799;
+  --theme-color-threetext: #cfd3dc;
+  --theme-color-background: #1a1a1a;
+  --theme-color-background-error: #cc2b39;
+  --theme-color-subbackground: #242424;
+  --theme-color-threebackground: #242424;
+  --theme-color-border: #363636;
+  --theme-color-table-header-background: #1a1a1a;
+  --theme-color-table-border: #424242;
+  --theme-color-table-text: #cfd3dc;
+  --theme-color-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+
+  // 背景色 start
+  --theme-color-background-6: #212121;
+  --theme-color-background-7: #242424;
+
+  // 背景色 end
+
+  // code 颜色 start
+  --theme-code-color-background: #262727;
+  --theme-code-color-text: #41b883;
+  // code 颜色 end
+}
+
+:root[zmz-theme="light"] {
+  // 主要颜色 start
+  --theme-color-default: #3f536e;
+  --theme-color-background-default: rgba(#3f536e, 0.1);
+  --theme-color-primary: #2d8ff4;
+  --theme-color-background-primary: rgba(#2d8ff4, 0.1);
+  --theme-color-dark: #4a5d71;
+  --theme-color-background-dark: rgba(#4a5d71, 0.1);
+  --theme-color-success: #23c171;
+  --theme-color-background-success: rgba(#23c171, 0.1);
+  --theme-color-warning: #e08c45;
+  --theme-color-background-warning: rgba(#e08c45, 0.1);
+  --theme-color-error: #ff6767;
+  --theme-color-background-error: rgba(#ff6767, 0.1);
+
+  // 主要颜色 end
+  // 背景色 start
+  --theme-color-background: #fff;
+  --theme-color-background-error: #cc2b39;
+  --theme-color-subbackground: #fff;
+  --theme-color-threebackground: #f9f9f9;
+  --theme-color-background-5: #f5f7fa;
+  --theme-color-background-6: #f3f5f7;
+  --theme-color-background-7: #f1f3f5;
+
+  // 背景色 end
+
+  --theme-color-text: #213547;
+  --theme-color-subtext: #213547;
+  --theme-color-onetext: #213547;
+  --theme-color-twotext: #495565;
+  --theme-color-threetext: #4e5c6f;
+  --theme-color-border: #e9e9e9;
+  --theme-color-table-header-background: #f7f7f7;
+  --theme-color-table-border: #e9e9e9;
+  --theme-color-table-text: #424242;
+  --theme-color-box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
+  // code 颜色 start
+  --theme-code-color-background: #f5f7fa;
+  --theme-code-color-text: #41b883;
+
+  // code 颜色 end
+}
+
+:export {}

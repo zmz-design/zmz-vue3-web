@@ -1,0 +1,221 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-toast-padding: 12px 25px;
+@zmz-toast-max-width: 400px;
+@zmz-toast-border-radius: 3px;
+@zmz-toast-text-font-size: 12px;
+@zmz-toast-text-color: #fff;
+@zmz-toast-text-margin-top: 10px;
+@zmz-toast-icon-size: 36px;
+@zmz-toast-icon-color: #fff;
+@zmz-toast-background-color: rgba(0, 0, 0, 0.6);
+
+
+@{b}zmz-toast {
+    .theme-var(--zmz-toast-padding, @zmz-toast-padding);
+    .theme-var(--zmz-toast-max-width, @zmz-toast-max-width);
+    .theme-var(--zmz-toast-border-radius, @zmz-toast-border-radius);
+    .theme-var(--zmz-toast-text-font-size, @zmz-toast-text-font-size);
+    .theme-var(--zmz-toast-text-color, @zmz-toast-text-color);
+    .theme-var(--zmz-toast-text-margin-top, @zmz-toast-text-margin-top);
+    .theme-var(--zmz-toast-icon-color, @zmz-toast-icon-color);
+    .theme-var(--zmz-toast-icon-size, @zmz-toast-icon-size);
+    .theme-var(--zmz-toast-background-color, @zmz-toast-background-color);
+}
+
+@{b}zmz-toast {
+    position: fixed;
+    left: 50%;
+
+    @{e}wrap {
+        white-space: pre-wrap;
+        background-color: var(--zmz-toast-background-color);
+        border-radius: var(--zmz-toast-border-radius);
+        box-sizing: content-box;
+        word-break: break-all;
+        overflow: hidden;
+        max-width: var(--zmz-toast-max-width);
+        text-align: center;
+    }
+
+    .zmz-toast__wrap {
+        padding: var(--zmz-toast-padding);
+    }
+
+    @{m}top {
+        top: 10%;
+        transform: translate(-50%, -10%);
+    }
+
+    @{m}center {
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    @{m}bottom {
+        bottom: 10%;
+        transform: translate(-50%, -10%);
+    }
+
+    @{m}text {
+        .zmz-toast__wrap {
+            .theme-var(--zmz-toast-padding, 12px 25px);
+        }
+    }
+
+    @{m}icon {
+
+        .zmz-toast__wrap {
+            .theme-var(--zmz-toast-padding, 30px);
+        }
+
+        & + .zmz-toast__text {
+            margin-top: var(--zmz-toast-text-margin-top);
+        }
+    }
+
+    @{m}text-icon,
+    @{m}success,
+    @{m}warning,
+    @{m}error,
+    @{m}loading {
+        .zmz-toast__wrap {
+            .theme-var(--zmz-toast-padding, 20px 30px);
+        }
+    }
+
+    @{e}text {
+        font-size: var(--zmz-toast-text-font-size);
+        color: var(--zmz-toast-text-color);
+    }
+
+
+    .zmz-toast__icon {
+        font-size: var(--zmz-toast-icon-size);
+        color: var(--zmz-toast-icon-color);
+
+        @{m}rotate {
+            animation: loading 1.4s linear infinite;
+        }
+    }
+
+}
+
+@{b}zmz-toast-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+
+// 进入开始
+.zmz-scales-center-enter-from {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+
+.zmz-scales-center-enter,
+.zmz-scales-center-enter-active {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+//进入结束
+.zmz-scales-center-enter-to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+//离开开始
+.zmz-scales-center-leave-from {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+//离开激活
+.zmz-scales-center-leave,
+.zmz-scales-center-leave-active {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+//离开结束
+.zmz-scales-center-leave-to {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+
+
+
+// 进入开始
+.zmz-scales-top-enter-from {
+    transform: translate(-50%, -10%) scale(0);
+    opacity: 0;
+}
+
+.zmz-scales-top-enter,
+.zmz-scales-top-enter-active {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+//进入结束
+.zmz-scales-top-enter-to {
+    transform: translate(-50%, -10%) scale(1);
+    opacity: 1;
+}
+
+//离开开始
+.zmz-scales-top-leave-from {
+    transform: translate(-50%, -10%) scale(1);
+    opacity: 1;
+}
+
+//离开激活
+.zmz-scales-top-leave,
+.zmz-scales-top-leave-active {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+//离开结束
+.zmz-scales-top-leave-to {
+    transform: translate(-50%, -10%) scale(0);
+    opacity: 0;
+}
+
+
+// 进入开始
+.zmz-scales-bottom-enter-from {
+    transform: translate(-50%, -10%) scale(0);
+    opacity: 0;
+}
+
+.zmz-scales-bottom-enter,
+.zmz-scales-bottom-enter-active {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+//进入结束
+.zmz-scales-bottom-enter-to {
+    transform: translate(-50%, -10%) scale(1);
+    opacity: 1;
+}
+
+//离开开始
+.zmz-scales-bottom-leave-from {
+    transform: translate(-50%, -10%) scale(1);
+    opacity: 1;
+}
+
+//离开激活
+.zmz-scales-bottom-leave,
+.zmz-scales-bottom-leave-active {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+//离开结束
+.zmz-scales-bottom-leave-to {
+    transform: translate(-50%, -10%) scale(0);
+    opacity: 0;
+}

@@ -1,0 +1,19 @@
+# .npmignore 文件内容
+.vscode/                            # 排除 VS Code 配置目录
+node_modules/                       # 排除依赖（NPM 会自动忽略，但手动声明更保险）
+public/                             # 排除公共文件
+scripts/                            # 排除脚本
+src/                                # 排除源代码目录（使用者无需）
+unplugin-vue-markdown/              # 排除源代码目录（使用者无需）
+vue3-web/                           # 排除源代码目录（使用者无需）
+zmz-vue3-web/                       # 排除源代码目录（使用者无需）
+vite.config.js                      # 排除 Vite 配置文件（开发用）
+.gitignore                          # 排除 Git 忽略规则（与 NPM 包无关）
+.editorconfig                       # 排除
+.prettierrc.json                    # 排除
+components.d.ts                     # 排除
+eslint.config.js                    # 排除
+index.html                          # 排除
+jsconfig.json                       # 排除
+vite.config.js                      # 排除
+yarn.lock                           # 排除

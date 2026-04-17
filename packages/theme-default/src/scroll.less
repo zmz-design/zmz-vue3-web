@@ -1,0 +1,25 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-scroll-width: 100%;
+@zmz-scroll-height: 200px;
+
+@{b}zmz-scroll {
+    .theme-var(--zmz-scroll-width, @zmz-scroll-width);
+    .theme-var(--zmz-scroll-height, @zmz-scroll-height);
+}
+
+@{b}zmz-scroll {
+    overflow: hidden;
+    overflow-y: auto;
+
+    &.zmz-scroll--y {
+        overflow: hidden;
+        overflow-y: auto;
+    }
+
+    &.zmz-scroll--x {
+        overflow: hidden;
+        overflow-x: auto;
+    }
+}

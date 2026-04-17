@@ -1,0 +1,255 @@
+// -------------------------------------------------------------------------------------------缩放
+// --------------------------foldCenterY
+// 进入开始
+.zmz-fold-center-y-enter-from {
+  opacity: 0;
+  transform: scaleY(0);
+}
+
+.zmz-fold-center-y-enter,
+.zmz-fold-center-y-enter-active {
+  opacity: 1;
+  transform: scaleY(0);
+  transition: transform 200ms ease-in, opacity 200ms ease-in;
+  transform-origin: center center;
+}
+
+//进入结束
+.zmz-fold-center-y-enter-to {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+//离开开始
+.zmz-fold-center-y-leave-from {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+//离开激活
+.zmz-fold-center-y-leave,
+.zmz-fold-center-y-leave-active {
+  opacity: 0;
+  transform: scaleY(1);
+  transition: transform 200ms ease-in, opacity 200ms ease-in;
+  transform-origin: center center;
+
+}
+
+//离开结束
+.zmz-fold-center-y-leave-to {
+  opacity: 0;
+  transform: scaleY(0);
+}
+
+// --------------------------foldCenterX
+// 进入开始
+.zmz-fold-center-x-enter-from {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.zmz-fold-center-x-enter,
+.zmz-fold-center-x-enter-active {
+  opacity: 1;
+  transform: scaleX(0);
+  transition: transform 200ms ease-in, opacity 200ms ease-in;
+  transform-origin: center center;
+}
+
+//进入结束
+.zmz-fold-center-x-enter-to {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+//离开开始
+.zmz-fold-center-x-leave-from {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+//离开激活
+.zmz-fold-center-x-leave,
+.zmz-fold-center-x-leave-active {
+  opacity: 0;
+  transform: scaleX(1);
+  transition: transform 200ms ease-in, opacity 200ms ease-in;
+  transform-origin: center center;
+
+}
+
+//离开结束
+.zmz-fold-center-x-leave-to {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+// --------------------------foldTop
+// 进入开始
+.zmz-fold-top-enter-from {
+  opacity: 0;
+  transform: scaleY(0);
+}
+
+.zmz-fold-top-enter,
+.zmz-fold-top-enter-active {
+  opacity: 1;
+  transform: scaleY(0);
+  transition: transform 200ms ease, opacity 200ms ease;
+  transform-origin: center top;
+}
+
+//进入结束
+.zmz-fold-top-enter-to {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+//离开开始
+.zmz-fold-top-leave-from {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+//离开激活
+.zmz-fold-top-leave,
+.zmz-fold-top-leave-active {
+  opacity: 0;
+  transform: scaleY(0);
+  transition: transform 200ms ease, opacity 200ms ease;
+  transform-origin: center top;
+}
+
+//离开结束
+.zmz-fold-top-leave-to {
+  opacity: 0;
+  transform: scaleY(0);
+}
+
+
+// --------------------------foldBottom
+// 进入开始
+.zmz-fold-bottom-enter-from {
+  opacity: 0;
+  transform: scaleY(0);
+}
+
+.zmz-fold-bottom-enter,
+.zmz-fold-bottom-enter-active {
+  opacity: 1;
+  transform: scaleY(0);
+  transition: transform 200ms ease, opacity 200ms ease;
+  transform-origin: center bottom;
+}
+
+//进入结束
+.zmz-fold-bottom-enter-to {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+//离开开始
+.zmz-fold-bottom-leave-from {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+//离开激活
+.zmz-fold-bottom-leave,
+.zmz-fold-bottom-leave-active {
+  opacity: 0;
+  transform: scaleY(0);
+  transition: transform 200ms ease, opacity 200ms ease;
+  transform-origin: center bottom;
+}
+
+//离开结束
+.zmz-fold-bottom-leave-to {
+  opacity: 0;
+  transform: scaleY(0);
+}
+
+// --------------------------foldRight
+// 进入开始
+.zmz-fold-right-enter-from {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.zmz-fold-right-enter,
+.zmz-fold-right-enter-active {
+  opacity: 1;
+  transform: scaleX(0);
+  transition: transform 200ms ease, opacity 200ms ease;
+  transform-origin: right center;
+}
+
+//进入结束
+.zmz-fold-right-enter-to {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+//离开开始
+.zmz-fold-right-leave-from {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+//离开激活
+.zmz-fold-right-leave,
+.zmz-fold-right-leave-active {
+  opacity: 0;
+  transform: scaleX(0);
+  transition: transform 200ms ease, opacity 200ms ease;
+  transform-origin: right center;
+}
+
+//离开结束
+.zmz-fold-right-leave-to {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+// --------------------------foldLeft
+// 进入开始
+.zmz-fold-left-enter-from {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.zmz-fold-left-enter,
+.zmz-fold-left-enter-active {
+  opacity: 1;
+  transform: scaleX(0);
+  transition: transform 200ms ease, opacity 200ms ease;
+  transform-origin: left center;
+}
+
+//进入结束
+.zmz-fold-left-enter-to {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+//离开开始
+.zmz-fold-left-leave-from {
+  transform: scaleX(1);
+  opacity: 1;
+}
+
+//离开激活
+.zmz-fold-left-leave,
+.zmz-fold-left-leave-active {
+  opacity: 0;
+  transform: scaleX(0);
+  transition: transform 200ms ease, opacity 200ms ease;
+  transform-origin: left center;
+}
+
+//离开结束
+.zmz-fold-left-leave-to {
+  opacity: 0;
+  transform: scaleX(0);
+}

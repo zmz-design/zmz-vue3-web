@@ -1,0 +1,93 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-loading-content-color: @global-theme;
+@zmz-loading-animation-name: zmz-loading;
+@zmz-loading-animation-duration: 1.4s;
+@zmz-loading-animation-timing: linear;
+@zmz-loading-animation-iteration: infinite;
+@zmz-loading-background-color: rgba(255, 255, 255, 0.9);
+
+
+@{b}zmz-loading {
+    .theme-var(--zmz-loading-content-color, @zmz-loading-content-color);
+    .theme-var(--zmz-loading-animation-name, @zmz-loading-animation-name);
+    .theme-var(--zmz-loading-animation-duration, @zmz-loading-animation-duration);
+    .theme-var(--zmz-loading-animation-timing, @zmz-loading-animation-timing);
+    .theme-var(--zmz-loading-animation-iteration, @zmz-loading-animation-iteration);
+    .theme-var(--zmz-loading-background-color, @zmz-loading-background-color);
+}
+
+
+@{b}zmz-loading {
+    position: absolute;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--zmz-loading-background-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @{m}vertical {
+        .zmz-loading__wrap {
+            flex-direction: column;
+            align-items: center;
+
+            .zmz-loading__content {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    @{m}horizontal {
+        .zmz-loading__wrap {
+            align-items: center;
+            justify-content: center;
+
+            .zmz-loading__content {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    @{e}wrap {
+        display: flex;
+    }
+
+    @{m}parent {
+        position: relative !important;
+    }
+
+    @{m}fullscreen {
+        position: fixed;
+    }
+
+    @{e}icon {
+        @{e}inner {
+            font-size: 20px;
+            color: var(--zmz-loading-content-color);
+        }
+
+        @{e}rotate {
+            animation: var(--zmz-loading-animation-name) var(--zmz-loading-animation-duration) var(--zmz-loading-animation-timing) var(--zmz-loading-animation-iteration);
+        }
+    }
+
+    @{e}content {
+        font-size: 12px;
+        color: var(--zmz-loading-content-color);
+    }
+
+    @keyframes zmz-loading {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}

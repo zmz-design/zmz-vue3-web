@@ -1,0 +1,199 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-result-padding: 8px 15px;
+@zmz-result-title-color: #17233d;
+@zmz-result-title-font-size: 20px;
+@zmz-result-title-margin-top: 20px;
+@zmz-result-describes-color: #808695;
+@zmz-result-describes-font-size: 14px;
+@zmz-result-describes-margin-top: 10px;
+@zmz-result-extra-margin-top: 30px;
+@zmz-result-extra-background-color: #f8f8f9;
+@zmz-result-extra-text-color: #515a6e;
+@zmz-result-extra-padding: 24px 40px;
+@zmz-result-extra-border-radius: 4px;
+@zmz-result-actions-margin-top: 30px;
+
+@{b}zmz-result {
+    .theme-var(--zmz-result-padding, @zmz-result-padding);
+    .theme-var(--zmz-result-title-color, @zmz-result-title-color);
+    .theme-var(--zmz-result-title-font-size, @zmz-result-title-font-size);
+    .theme-var(--zmz-result-title-margin-top, @zmz-result-title-margin-top);
+    .theme-var(--zmz-result-describes-color, @zmz-result-describes-color);
+    .theme-var(--zmz-result-describes-font-size, @zmz-result-describes-font-size);
+    .theme-var(--zmz-result-describes-margin-top, @zmz-result-describes-margin-top);
+    .theme-var(--zmz-result-extra-margin-top, @zmz-result-extra-margin-top);
+    .theme-var(--zmz-result-extra-background-color, @zmz-result-extra-background-color);
+    .theme-var(--zmz-result-extra-text-color, @zmz-result-extra-text-color);
+    .theme-var(--zmz-result-extra-padding, @zmz-result-extra-padding);
+    .theme-var(--zmz-result-extra-border-radius, @zmz-result-extra-border-radius);
+    .theme-var(--zmz-result-actions-margin-top, @zmz-result-actions-margin-top);
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: var(--zmz-result-padding);
+
+    @{e}icon {
+        [class^="zmz-icon--"] {
+            font-size: 72px;
+        }
+
+        @{m}success {
+            color: @global-theme-success;
+        }
+
+        @{m}error {
+            color: @global-theme-error;
+        }
+
+        @{m}warning {
+            color: @global-theme-warning;
+        }
+
+        @{m}info {
+            color: @global-theme-info;
+        }
+    }
+
+    @{e}title {
+        margin-top: var(--zmz-result-title-margin-top);
+        font-size: var(--zmz-result-title-font-size);
+        color: var(--zmz-result-title-color);
+    }
+
+    @{e}describes {
+        margin-top: var(--zmz-result-describes-margin-top);
+        font-size: var(--zmz-result-describes-font-size);
+        color: var(--zmz-result-describes-color);
+    }
+
+    @{e}extra {
+        margin-top: var(--zmz-result-extra-margin-top);
+        padding: var(--zmz-result-extra-padding);
+        text-align: left;
+        background: var(--zmz-result-extra-background-color);
+        color: var(--zmz-result-extra-text-color);
+        border-radius: var(--zmz-result-extra-border-radius);
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    @{e}actions {
+        margin-top: var(--zmz-result-actions-margin-top);
+    }
+
+    &.is-center {
+        justify-content: center;
+    }
+
+    @{m}default {
+        color: @global-theme-default;
+        background: @global-color-background-default;
+        border: 1px solid @global-border-color;
+
+        &.is-plain {
+            background: rgba(@global-color-background-default, 0.1);
+            border-color: rgba(@global-border-color, 0.5);
+            color: rgba(@global-theme-default, 0.8);
+        }
+    }
+
+    @{m}info {
+        color: @global-basic-white;
+        background: @global-theme-info;
+
+        &.is-plain {
+            background: rgba(@global-theme-info, 0.1);
+            border-color: rgba(@global-theme-info, 0.8);
+            color: rgba(@global-theme-info, 0.8);
+        }
+    }
+
+    @{m}primary {
+        color: @global-basic-white;
+        background: @global-theme-primary;
+
+        &.is-plain {
+            background: rgba(@global-theme-primary, 0.1);
+            border-color: rgba(@global-theme-primary, 0.8);
+            color: rgba(@global-theme-primary, 0.8);
+        }
+    }
+
+    @{m}success {
+        color: @global-basic-white;
+        background: @global-theme-success;
+
+        &.is-plain {
+            background: rgba(@global-theme-success, 0.1);
+            border-color: rgba(@global-theme-success, 0.8);
+            color: rgba(@global-theme-success, 0.8);
+        }
+    }
+
+    @{m}warning {
+        color: @global-basic-white;
+        background: @global-theme-warning;
+
+        &.is-plain {
+            background: rgba(@global-theme-warning, 0.1);
+            border-color: rgba(@global-theme-warning, 0.8);
+            color: rgba(@global-theme-warning, 0.8);
+        }
+    }
+
+    @{m}error {
+        color: @global-basic-white;
+        background: @global-theme-error;
+
+        &.is-plain {
+            background: rgba(@global-theme-error, 0.1);
+            border-color: rgba(@global-theme-error, 0.8);
+            color: rgba(@global-theme-error, 0.8);
+        }
+    }
+
+    @{e}icon {
+        font-size: 12px;
+
+        &.is-big {
+            font-size: 22px;
+        }
+    }
+
+    @{e}content {
+        padding: 0 8px;
+        line-height: 1;
+        vertical-align: middle;
+
+        &--title {
+            font-size: 12px;
+            line-height: 1;
+
+            &.is-bold {
+                font-weight: bold;
+            }
+        }
+
+        &--description {
+            font-size: 12px;
+            margin-top: 10px;
+            color: inherit;
+        }
+    }
+
+    @{e}closebtn {
+        font-size: 12px !important;
+        cursor: pointer;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+
+        &.is-customed {
+            font-style: normal;
+        }
+    }
+}

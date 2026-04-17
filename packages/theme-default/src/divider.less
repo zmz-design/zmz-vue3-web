@@ -1,0 +1,90 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-divider-text-size: 12px;
+@zmz-divider-text-padding: 0 20px;
+@zmz-divider-margin: 0 24px;
+@zmz-divider-text-background: #fff;
+@zmz-divider-text-color: #515a6e;
+@zmz-divider-line-color: #dcdfe6;
+@zmz-divider-line-width: 1px;
+@zmz-divider-line-style: solid;
+@zmz-divider-width: 100%;
+
+@{b}zmz-divider {
+    .theme-var(--zmz-divider-text-size, @zmz-divider-text-size);
+    .theme-var(--zmz-divider-text-padding, @zmz-divider-text-padding);
+    .theme-var(--zmz-divider-margin, @zmz-divider-margin);
+    .theme-var(--zmz-divider-text-background, @zmz-divider-text-background);
+    .theme-var(--zmz-divider-text-color, @zmz-divider-text-color);
+    .theme-var(--zmz-divider-line-color, @zmz-divider-line-color);
+    .theme-var(--zmz-divider-line-width, @zmz-divider-line-width);
+    .theme-var(--zmz-divider-line-style, @zmz-divider-line-style);
+    .theme-var(--zmz-divider-width, @zmz-divider-width);
+}
+
+@{b}zmz-divider {
+    position: relative;
+    margin: var(--zmz-divider-margin);
+    width: var(--zmz-divider-width);
+    border-color: var(--zmz-divider-line-color);
+
+    @{m}center {
+        .zmz-divider__text {
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+    }
+
+    @{m}right {
+        .zmz-divider__text {
+            right: 20px;
+        }
+    }
+
+    @{m}left {
+        .zmz-divider__text {
+            left: 20px;
+        }
+    }
+
+    @{m}horizontal {
+        .theme-var(--zmz-divider-margin, 24px 0);
+        .theme-var(--zmz-divider-width, 100%);
+        display: block;
+        border-top-width: var(--zmz-divider-line-width);
+        border-top-style: var(--zmz-divider-line-style);
+
+        &.zmz-divider--dashed {
+            border-top-style: dashed;
+        }
+    }
+
+    @{m}vertical {
+        .theme-var(--zmz-divider-margin, 0 24px);
+        .theme-var(--zmz-divider-width, 1px);
+        display: inline-block;
+        height: 1em;
+        margin: var(--zmz-divider-margin);
+        vertical-align: middle;
+        border-right-width: var(--zmz-divider-line-width);
+        border-right-style: var(--zmz-divider-line-style);
+        
+
+        &.zmz-divider--dashed {
+            border-right-style: dashed;
+        }
+    }
+
+    @{e}text {
+        overflow: hidden;
+        position: absolute;
+        padding: var(--zmz-divider-text-padding);
+        font-size: var(--zmz-divider-text-size);
+        background: var(--zmz-divider-text-background);
+        color: var(--zmz-divider-text-color);
+        top: 50%;
+        transform: translateY(-50%);
+        white-space: nowrap;
+    }
+}

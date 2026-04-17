@@ -1,0 +1,70 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-skeleton-animation: zmz-skeleton-loading 1.4s ease infinite;
+@zmz-skeleton-animation-background-color: linear-gradient(90deg, #f4f5f9 25%, #eff0f1 37%, #f4f5f9 63%);
+@zmz-skeleton-animation-background-size: 500% 100%;
+@zmz-skeleton-margin-top: 15px;
+@zmz-skeleton-image-color: 8px;
+@zmz-skeleton-image-radius: 3px;
+@zmz-skeleton-image-color: #f4f5f9;
+@zmz-skeleton-text-radius: 3px;
+@zmz-skeleton-text-color: #f4f5f9;
+@zmz-skeleton-text-height: 20px;
+
+@{b}zmz-skeleton {
+    .theme-var(--zmz-skeleton-animation, @zmz-skeleton-animation);
+    .theme-var(--zmz-skeleton-animation-background-color, @zmz-skeleton-animation-background-color);
+    .theme-var(--zmz-skeleton-animation-background-size, @zmz-skeleton-animation-background-size);
+    .theme-var(--zmz-skeleton-margin-top, @zmz-skeleton-margin-top);
+    .theme-var(--zmz-skeleton-image-color, @zmz-skeleton-image-color);
+    .theme-var(--zmz-skeleton-image-radius, @zmz-skeleton-image-radius);
+    .theme-var(--zmz-skeleton-text-radius, @zmz-skeleton-text-radius);
+    .theme-var(--zmz-skeleton-text-color, @zmz-skeleton-text-color);
+    .theme-var(--zmz-skeleton-text-height, @zmz-skeleton-text-height);
+}
+
+@{b}zmz-skeleton {
+
+    @{m}animation {
+        .zmz-skeleton__item {
+            background-image: var(--zmz-skeleton-animation-background-color);
+            background-size: var(--zmz-skeleton-animation-background-size);
+            animation: var(--zmz-skeleton-animation);
+        }
+    }
+
+    @{e}item {
+        display: block;
+
+        @{m}image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--zmz-skeleton-image-radius);
+            background: var(--zmz-skeleton-image-color);
+            width: 100%;
+        }
+
+        @{m}text {
+            height: var(--zmz-skeleton-text-height);
+            border-radius: var(--zmz-skeleton-text-radius);
+            background-color: var(--zmz-skeleton-text-color);
+            width: 100%;
+        }
+
+        &:not(:first-child) {
+            margin-top: var(--zmz-skeleton-margin-top);
+        }
+    }
+}
+
+@keyframes zmz-skeleton-loading {
+    0% {
+        background-position: 100% 50%;
+    }
+
+    to {
+        background-position: 0 50%;
+    }
+}

@@ -1,0 +1,294 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-checkbox-icon-size: 0px;
+@zmz-checkbox-height: @global-default-size;
+@zmz-checkbox-padding: @global-default-padding;
+@zmz-checkbox-font-size: @global-default-font;
+@zmz-checkbox-background-color: #fff;
+@zmz-checkbox-border-color: @global-border-color;
+@zmz-checkbox-border-radius: 3px;
+@zmz-checkbox-text-color: @global-theme-default;
+
+@{b}zmz-checkbox,
+@{b}zmz-checkboxgroup {
+    .theme-var(--zmz-checkbox-height, @zmz-checkbox-height);
+    .theme-var(--zmz-checkbox-icon-size, @zmz-checkbox-icon-size);
+    .theme-var(--zmz-checkbox-font-size, @zmz-checkbox-font-size);
+    .theme-var(--zmz-checkbox-background-color, @zmz-checkbox-background-color);
+    .theme-var(--zmz-checkbox-border-radius, @zmz-checkbox-border-radius);
+    .theme-var(--zmz-checkbox-border-color, @zmz-checkbox-border-color);
+    .theme-var(--zmz-checkbox-text-color, @zmz-checkbox-text-color);
+}
+
+
+@{b}zmz-checkbox {
+    cursor: pointer;
+    margin-right: 15px;
+    height: var(--zmz-checkbox-height);
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    user-select: none;
+
+    // 尺寸
+    // 大
+    @{m}size-large {
+        .theme-var(--zmz-checkbox-height, @global-large-size);
+        .theme-var(--zmz-checkbox-font-size, @global-large-font);
+        .theme-var(--zmz-checkbox-icon-size, @global-large-font);
+        .theme-var(--zmz-checkbox-padding, @global-large-padding);
+    }
+
+    // 中
+    @{m}size-medium {
+        .theme-var(--zmz-checkbox-height, @global-medium-size);
+        .theme-var(--zmz-checkbox-font-size, @global-medium-font);
+        .theme-var(--zmz-checkbox-icon-size, @global-medium-font);
+        .theme-var(--zmz-checkbox-padding, @global-medium-padding);
+    }
+
+    // 默认
+    @{m}size-default {
+        .theme-var(--zmz-checkbox-height, @global-default-size);
+        .theme-var(--zmz-checkbox-font-size, @global-default-font);
+        .theme-var(--zmz-checkbox-icon-size, @global-default-font);
+        .theme-var(--zmz-checkbox-padding, @global-default-padding);
+    }
+
+    // 小
+    @{m}size-small {
+        .theme-var(--zmz-checkbox-height, @global-small-size);
+        .theme-var(--zmz-checkbox-font-size, @global-small-font);
+        .theme-var(--zmz-checkbox-icon-size, @global-small-font);
+        .theme-var(--zmz-checkbox-padding, @global-small-padding);
+    }
+
+    // 迷你
+    @{m}size-mini {
+        .theme-var(--zmz-checkbox-height, @global-mini-size);
+        .theme-var(--zmz-checkbox-font-size, @global-mini-font);
+        .theme-var(--zmz-checkbox-icon-size, @global-mini-font);
+        .theme-var(--zmz-checkbox-padding, @global-mini-padding);
+    }
+
+    @{m}border {
+        border: 1px solid var(--zmz-checkbox-border-color);
+        padding: 0 var(--zmz-checkbox-padding);
+        border-radius: var(--zmz-checkbox-border-radius);
+    }
+
+    @{e}wrap {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    @{e}text {
+        display: inline-block;
+        font-size: var(--zmz-checkbox-font-size);
+        color: var(--zmz-checkbox-text-color);
+        margin-left: 6px;
+    }
+
+    @{e}icon {
+        width: calc(var(--zmz-checkbox-height) / 2);
+        height: calc(var(--zmz-checkbox-height) / 2);
+        border: 1px solid var(--zmz-checkbox-border-color);
+        background: var(--zmz-checkbox-background-color);
+        display: inline-block;
+        border-radius: var(--zmz-checkbox-border-radius);
+        margin-right: 6px;
+        position: relative;
+        box-sizing: border-box;
+        transition: all .2s ease-in-out;
+
+        @{e}inner {
+            display: inline-block;
+            width: 0px;
+            height: 0px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: calc(var(--zmz-checkbox-icon-size) / 4);
+            height: calc(var(--zmz-checkbox-icon-size) / 2);
+            border-style: solid;
+            border-width: 0 1px 1px 0;
+            border-color: #fff;
+            transition: all .2s ease-in-out;
+            transform: translate(-50%, -50%) rotate(45deg) scaleY(0);
+        }
+    }
+
+    @{e}input {
+        width: 0;
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+
+    @{m}checked {
+        .theme-var(--zmz-checkbox-text-color, @global-theme-primary);
+        .theme-var(--zmz-checkbox-background-color, @global-theme-primary);
+        .theme-var(--zmz-checkbox-border-color, @global-theme-primary);
+
+        .zmz-checkbox__icon__inner {
+            transform: translate(-50%, -50%) rotate(45deg) scaleY(1);
+        }
+    }
+
+    @{m}semiselection {
+        .theme-var(--zmz-checkbox-text-color, @global-theme-primary);
+        .theme-var(--zmz-checkbox-background-color, @global-theme-primary);
+        .theme-var(--zmz-checkbox-border-color, @global-theme-primary);
+
+        .zmz-checkbox__icon__inner {
+            border-width: 0 0 1px 0;
+            width: calc(var(--zmz-checkbox-icon-size) / 2);
+            height: 2px;
+            transform: translate(-50%, -60%) rotate(0deg) scaleY(1);
+        }
+    }
+
+    &.zmz-checkbox {
+        @{m}disabled {
+            cursor: no-drop;
+            opacity: .5;
+        }
+
+        @{m}readonly {
+            cursor: initial;
+        }
+    }
+}
+
+@{b}zmz-checkboxgroup {
+    display: inline-block;
+
+    @{m}vertical {
+        .zmz-checkbox {
+            display: flex;
+
+            &.zmz-checkbox--border {
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+    @{m}button {
+        .theme-var(--zmz-checkbox-text-color, #fff);
+        .theme-var(--zmz-checkbox-background-color, @global-theme-primary);
+        .theme-var(--zmz-checkbox-border-color, @global-theme-primary);
+
+
+        &.zmz-checkboxgroup--button-border {
+            .theme-var(--zmz-checkbox-text-color, #fff);
+            .theme-var(--zmz-checkbox-background-color, #fff);
+            .theme-var(--zmz-checkbox-border-color, @global-theme-primary);
+
+            .zmz-checkbox--checked {
+                .theme-var(--zmz-checkbox-text-color, @global-theme-primary);
+                .theme-var(--zmz-checkbox-background-color, #fff);
+                .theme-var(--zmz-checkbox-border-color, @global-theme-primary);
+                box-shadow: -1px 0 0 0 var(--zmz-checkbox-border-color);
+                z-index: 1;
+                border-right-color: var(--zmz-checkbox-border-color);
+            }
+
+            .zmz-checkbox {
+                &:first-child {
+                    &.zmz-checkbox--checked {
+                        box-shadow: none;
+                        border-color: var(--zmz-checkbox-border-color);
+                        border-right-color: var(--zmz-checkbox-border-color);
+                    }
+                }
+            }
+        }
+
+        .zmz-checkbox {
+            background: var(--zmz-checkbox-background-color);
+            border: 1px solid var(--zmz-checkbox-border-color);
+            padding: 0 var(--zmz-checkbox-padding);
+            color: var(--zmz-checkbox-text-color);
+            border-radius: 0;
+            margin-right: 0;
+            border-left: 0;
+
+            @{m}checked {
+                .theme-var(--zmz-checkbox-text-color, #fff);
+                .theme-var(--zmz-checkbox-border-color, @global-theme-primary);
+                .theme-var(--zmz-checkbox-background-color, @global-theme-primary);
+                border-right-color: #fff;
+            }
+
+            &:first-child {
+                border-radius: var(--zmz-checkbox-border-radius) 0 0 var(--zmz-checkbox-border-radius);
+                border-left: 1px solid var(--zmz-checkbox-border-color);
+
+                &.zmz-checkbox--checked {
+                    box-shadow: none;
+                    border-color: var(--zmz-checkbox-border-color);
+                    border-right-color: #fff;
+                }
+            }
+
+            &:last-child {
+                border-radius: 0 var(--zmz-checkbox-border-radius) var(--zmz-checkbox-border-radius) 0;
+            }
+        }
+    }
+
+    // 尺寸
+    // 大
+    &.zmz-checkboxgroup {
+        @{m}size-large {
+            .zmz-checkbox {
+                .theme-var(--zmz-checkbox-height, @global-large-size);
+                .theme-var(--zmz-checkbox-font-size, @global-large-font);
+                .theme-var(--zmz-checkbox-icon-size, @global-large-font);
+                .theme-var(--zmz-checkbox-padding, @global-large-padding);
+            }
+        }
+
+        // 中
+        @{m}size-medium {
+            .zmz-checkbox {
+                .theme-var(--zmz-checkbox-height, @global-medium-size);
+                .theme-var(--zmz-checkbox-font-size, @global-medium-font);
+                .theme-var(--zmz-checkbox-icon-size, @global-medium-font);
+                .theme-var(--zmz-checkbox-padding, @global-medium-padding);
+            }
+        }
+
+        // 默认
+        @{m}size-default {
+            .zmz-checkbox {
+                .theme-var(--zmz-checkbox-height, @global-default-size);
+                .theme-var(--zmz-checkbox-font-size, @global-default-font);
+                .theme-var(--zmz-checkbox-icon-size, @global-default-font);
+                .theme-var(--zmz-checkbox-padding, @global-default-padding);
+            }
+        }
+
+        // 小
+        @{m}size-small {
+            .zmz-checkbox {
+                .theme-var(--zmz-checkbox-height, @global-small-size);
+                .theme-var(--zmz-checkbox-font-size, @global-small-font);
+                .theme-var(--zmz-checkbox-icon-size, @global-small-font);
+                .theme-var(--zmz-checkbox-padding, @global-small-padding);
+            }
+        }
+
+        // 迷你
+        @{m}size-mini {
+            .zmz-checkbox {
+                .theme-var(--zmz-checkbox-height, @global-mini-size);
+                .theme-var(--zmz-checkbox-font-size, @global-mini-font);
+                .theme-var(--zmz-checkbox-icon-size, @global-mini-font);
+                .theme-var(--zmz-checkbox-padding, @global-mini-padding);
+            }
+        }
+    }
+
+}

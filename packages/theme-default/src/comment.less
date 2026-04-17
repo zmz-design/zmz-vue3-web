@@ -1,0 +1,104 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-comment-title-font-size: 14px;
+@zmz-comment-title-color: #282828;
+@zmz-comment-content-font-size: 12px;
+@zmz-comment-content-color: #282828;
+@zmz-comment-date-font-size: 12px;
+@zmz-comment-date-color: #BFC4CD;
+@zmz-comment-item-padding: 20px 15px;
+@zmz-comment-avatar-width: 50px;
+@zmz-comment-avatar-height: 50px;
+@zmz-comment-avatar-radius: 50%;
+@zmz-comment-border-color: #f1f1f1;
+
+@{b}zmz-comment {
+    .theme-var(--zmz-comment-title-font-size, @zmz-comment-title-font-size);
+    .theme-var(--zmz-comment-title-color, @zmz-comment-title-color);
+    .theme-var(--zmz-comment-content-font-size, @zmz-comment-content-font-size);
+    .theme-var(--zmz-comment-content-color, @zmz-comment-content-color);
+    .theme-var(--zmz-comment-date-font-size, @zmz-comment-date-font-size);
+    .theme-var(--zmz-comment-date-color, @zmz-comment-date-color);
+    .theme-var(--zmz-comment-item-padding, @zmz-comment-item-padding);
+    .theme-var(--zmz-comment-avatar-width, @zmz-comment-avatar-width);
+    .theme-var(--zmz-comment-avatar-height, @zmz-comment-avatar-height);
+    .theme-var(--zmz-comment-avatar-radius, @zmz-comment-avatar-radius);
+    .theme-var(--zmz-comment-border-color, @zmz-comment-border-color);
+}
+
+@{b}zmz-comment {
+    position: relative;
+
+    @{e}item {
+        &:not(:first-child) {
+            border-top: 1px solid var(--zmz-comment-border-color);
+        }
+
+        margin-bottom: 20px;
+    }
+
+    @{e}nested {
+        margin-left: 70px;
+    }
+
+    @{e}avatar {
+        width: var(--zmz-comment-avatar-width);
+        height: var(--zmz-comment-avatar-height);
+        border-radius: var(--zmz-comment-avatar-radius);
+        overflow: hidden;
+
+        @{e}inner {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+    }
+
+    // 标题
+    @{e}title {
+        font-size: var(--zmz-comment-title-font-size);
+        color: var(--zmz-comment-title-color);
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+
+    // 内容
+    @{e}content {
+        font-size: var(--zmz-comment-content-font-size);
+        color: var(--zmz-comment-content-color);
+        margin-bottom: 10px;
+    }
+
+    // 操作
+    @{e}operation {
+        font-size: var(--zmz-comment-date-font-size);
+        color: var(--zmz-comment-date-color);
+        display: flex;
+        align-items: center;
+    }
+
+    @{e}date {
+        margin-right: 15px;
+    }
+
+    @{e}button {
+        display: flex;
+        align-items: center;
+    }
+
+    @{e}wrap {
+        display: flex;
+        padding: var(--zmz-comment-item-padding);
+
+        @{e}left {
+            display: flex;
+            align-items: flex-start;
+            margin-right: 20px;
+        }
+
+        @{e}right {
+            flex: 1;
+        }
+    }
+}

@@ -1,0 +1,161 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-model-header-padding: 12px 16px;
+@zmz-model-mask-background-color: rgba(0,0,0,.5);
+@zmz-model-border-color: #e3e6ef;
+@zmz-model-border-width: 1px;
+@zmz-model-border-style: solid;
+@zmz-model-body-padding: 16px;
+@zmz-model-footer-padding: 12px 16px;
+@zmz-model-border-radius: 3px;
+@zmz-model-background-color: #fff;
+@zmz-model-close-icon-size: 12px;
+@zmz-model-close-icon-color: @global-theme-default;
+@zmz-model-title-font-size: 16px;
+@zmz-model-title-color: @global-theme-default;
+@zmz-model-body-font-size: 14px;
+@zmz-model-body-color: @global-theme-default;
+@zmz-model-footer-font-size: 14px;
+@zmz-model-footer-color: @global-theme-default;
+
+
+@{b}zmz-model {
+    .theme-var(--zmz-model-header-padding, @zmz-model-header-padding);
+    .theme-var(--zmz-model-mask-background-color, @zmz-model-mask-background-color);
+    .theme-var(--zmz-model-footer-padding, @zmz-model-footer-padding);
+    .theme-var(--zmz-model-body-padding, @zmz-model-body-padding);
+    .theme-var(--zmz-model-border-color, @zmz-model-border-color);
+    .theme-var(--zmz-model-border-width, @zmz-model-border-width);
+    .theme-var(--zmz-model-border-style, @zmz-model-border-style);
+    .theme-var(--zmz-model-border-radius, @zmz-model-border-radius);
+    .theme-var(--zmz-model-background-color, @zmz-model-background-color);
+    .theme-var(--zmz-model-close-icon-size, @zmz-model-close-icon-size);
+    .theme-var(--zmz-model-close-icon-color, @zmz-model-close-icon-color);
+    .theme-var(--zmz-model-title-font-size, @zmz-model-title-font-size);
+    .theme-var(--zmz-model-title-color, @zmz-model-title-color);
+    .theme-var(--zmz-model-body-font-size, @zmz-model-body-font-size);
+    .theme-var(--zmz-model-body-color, @zmz-model-body-color);
+    .theme-var(--zmz-model-footer-font-size, @zmz-model-footer-font-size);
+    .theme-var(--zmz-model-footer-color, @zmz-model-footer-color);
+}
+
+@{b}zmz-model {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+    overflow-y: auto;
+
+    @{m}center {
+        display: flex;
+        align-items: center;
+
+        @{b}zmz-model {
+            @{e}wrap {
+                top: 0;
+            }
+
+            @{e}header {
+                @{m}title {
+                    justify-content: center;
+                }
+            }
+
+            @{e}body {
+                justify-content: center;
+            }
+
+            @{e}footer {
+                justify-content: center;
+            }
+        }
+    }
+
+    @{m}border {
+        @{b}zmz-model {
+            @{e}header {
+                border-bottom: var(--zmz-model-border-width) var(--zmz-model-border-style) var(--zmz-model-border-color);
+            }
+
+            @{e}footer {
+                border-top: var(--zmz-model-border-width) var(--zmz-model-border-style) var(--zmz-model-border-color);
+            }
+        }
+    }
+
+    @{e}mask {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        top: 0;
+        background-color: var(--zmz-model-mask-background-color);
+        overflow: hidden;
+    }
+
+    @{e}wrap {
+        border-radius: var(--zmz-model-border-radius);
+        background-color: var(--zmz-model-background-color);
+        margin: 0 auto;
+        top: 100px;
+        position: relative;
+    }
+
+    @{e}header {
+        padding: var(--zmz-model-header-padding);
+        position: relative;
+
+        @{m}center {
+            .zmz-model__header--title {
+                justify-content: center;
+            }
+        }
+
+        @{m}title {
+            color: var(--zmz-model-title-color);
+            font-size: var(--zmz-model-title-font-size);
+            justify-content: flex-start;
+            display: flex;
+            font-weight: 500;
+        }
+
+        @{m}close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            cursor: pointer;
+
+            @{e}icon[class*='zmz-icon--'] {
+                font-size: var(--zmz-model-close-icon-size);
+                color: var(--zmz-model-close-icon-color);
+                transition: all 0.2s;
+            }
+        }
+    }
+
+    @{e}body {
+        padding: var(--zmz-model-body-padding);
+        color: var(--zmz-model-body-color);
+        font-size: var(--zmz-model-body-font-size);
+
+        @{m}center {
+            justify-content: center;
+        }
+    }
+
+    @{e}footer {
+        padding: var(--zmz-model-footer-padding);
+        color: var(--zmz-model-footer-color);
+        font-size: var(--zmz-model-footer-font-size);
+        justify-content: flex-end;
+        display: flex;
+
+
+        @{m}center {
+            justify-content: center;
+        }
+    }
+}

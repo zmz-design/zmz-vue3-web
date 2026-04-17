@@ -1,0 +1,638 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-button-text-size: 12px;
+@zmz-button-height: 32px;
+@zmz-button-padding: 12px;
+@zmz-button-border-radius: @global-border-radius;
+@zmz-button-text-color: @global-theme-default;
+@zmz-button-text-hover-color: @global-theme-primary;
+@zmz-button-text-active-color: @global-theme-primary;
+@zmz-button-border-color: @global-border-color;
+@zmz-button-border-hover-color: lighten(hsl(@global-theme-primary), 10%);
+@zmz-button-border-active-color: desaturate(hsl(@global-theme-primary), 10%);
+@zmz-button-background-color: @global-basic-white;
+@zmz-button-background-hover-color: @global-basic-white;
+@zmz-button-background-active-color: @global-basic-white;
+
+@{b}zmz-button {
+  .theme-var(--zmz-button-text-size, @zmz-button-text-size);
+  .theme-var(--zmz-button-height, @zmz-button-height);
+  .theme-var(--zmz-button-padding, @zmz-button-padding);
+  .theme-var(--zmz-button-border-radius, @zmz-button-border-radius);
+  .theme-var(--zmz-button-text-color, @zmz-button-text-color);
+  .theme-var(--zmz-button-text-hover-color, @zmz-button-text-hover-color);
+  .theme-var(--zmz-button-text-active-color, @zmz-button-text-active-color);
+  .theme-var(--zmz-button-border-color, @zmz-button-border-color);
+  .theme-var(--zmz-button-border-hover-color, @zmz-button-border-hover-color);
+  .theme-var(--zmz-button-border-active-color, @zmz-button-border-active-color);
+  .theme-var(--zmz-button-background-color, @zmz-button-background-color);
+  .theme-var(--zmz-button-background-hover-color, @zmz-button-background-hover-color);
+  .theme-var(--zmz-button-background-active-color, @zmz-button-background-active-color);
+}
+
+@{b}zmz-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  appearance: none;
+  box-sizing: border-box;
+  line-height: 1;
+  outline: none;
+  margin: 0;
+  border-radius: var(--zmz-button-border-radius);
+  padding: 0 var(--zmz-button-padding);
+  font-size: var(--zmz-button-text-size);
+  transition: all @global-time-transition;
+  user-select: none;
+  height: var(--zmz-button-height);
+  border-color: var(--zmz-button-border-color);
+  background: var(--zmz-button-background-color);
+  color: var(--zmz-button-text-color);
+
+  &:hover {
+    background: var(--zmz-button-background-hover-color);
+    border-color: var(--zmz-button-border-hover-color);
+    color: var(--zmz-button-text-hover-color);
+  }
+
+  &:active {
+    background: var(--zmz-button-background-active-color);
+    border-color: var(--zmz-button-border-active-color);
+    color: var(--zmz-button-text-active-color);
+  }
+
+  @{e}inner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .zmz-button__icon+.zmz-button__inner {
+    margin-left: 5px;
+  }
+
+  @{m}long {
+    width: 100%;
+  }
+
+  // 圆角
+  &.zmz-button--round {
+    .theme-var(--zmz-button-border-radius, 18px);
+  }
+
+  // 圆形
+  &.zmz-button--circle {
+    .theme-var(--zmz-button-border-radius, 50%);
+    height: var(--zmz-button-height);
+    width: var(--zmz-button-height);
+    padding: 0;
+  }
+
+  // 公共文字类型
+  &.zmz-button--text {
+    .theme-var(--zmz-button-background-color, transparent);
+    .theme-var(--zmz-button-border-color, transparent);
+
+    &.zmz-button--text-bg {
+      .theme-var(--zmz-button-background-color, #f5f7fa);
+        .theme-var(--zmz-button-border-hover-color, #f5f7fa);
+
+      &:hover {
+        .theme-var(--zmz-button-background-hover-color, darken(hsl(#f5f7fa), 2%));
+        .theme-var(--zmz-button-border-hover-color, darken(hsl(#f5f7fa), 2%));
+      }
+
+      &:active {
+        .theme-var(--zmz-button-background-active-color, darken(hsl(#f5f7fa), 4%));
+        .theme-var(--zmz-button-border-active-color, darken(hsl(#f5f7fa), 4%));
+      }
+    }
+
+    &:hover {
+      .theme-var(--zmz-button-background-hover-color, #f5f7fa);
+      .theme-var(--zmz-button-border-hover-color, transparent);
+    }
+
+    &:active {
+      .theme-var(--zmz-button-background-active-color, #f0f2f5);
+      .theme-var(--zmz-button-border-active-color, transparent);
+    }
+  }
+
+  // 公共禁用
+  &.zmz-button--disabled {
+    opacity: @global-disabled-opacity;
+    cursor: @global-disabled-cursor;
+    background: var(--zmz-button-background-color);
+    color: var(--zmz-button-text-color);
+    border-color: var(--zmz-button-border-color);
+
+    &:hover {
+      background: var(--zmz-button-background-color);
+      border-color: var(--zmz-button-border-color);
+      color: var(--zmz-button-text-color);
+    }
+
+    &:active {
+      background: var(--zmz-button-background-color);
+      border-color: var(--zmz-button-border-color);
+      color: var(--zmz-button-text-color);
+    }
+
+    &.zmz-button--text {
+      background: transparent;
+
+      &:hover {
+        background: transparent;
+      }
+
+      &:active {
+        background: transparent;
+      }
+    }
+
+    &.zmz-button--link {
+      background: transparent;
+
+      &:hover {
+        background: transparent;
+      }
+
+      &:active {
+        background: transparent;
+      }
+    }
+  }
+
+  // 链接
+  &.zmz-button--link {
+    padding: 2px;
+    height: auto;
+    border-width: 0;
+    background: transparent;
+
+    &:hover,
+    &:active {
+      background: transparent;
+    }
+  }
+
+  // 加载
+  &.zmz-button--loading {
+    opacity: @global-loading-opacity;
+
+    &:hover {
+      background: var(--zmz-button-background-color);
+      border-color: var(--zmz-button-border-color);
+      color: var(--zmz-button-text-color);
+    }
+
+    &:active {
+      background: var(--zmz-button-background-color);
+      border-color: var(--zmz-button-border-color);
+      color: var(--zmz-button-text-color);
+    }
+
+    .zmz-button__icon {
+      animation: zmz-buuton-loading 1.4s linear infinite;
+    }
+  }
+
+  // 尺寸
+  &.zmz-button {
+
+    // 大
+    @{m}size-large {
+      .theme-var(--zmz-button-height, @global-large-size);
+      .theme-var(--zmz-button-padding, 12px);
+      .theme-var(--zmz-button-text-size, @global-large-font);
+    }
+
+    // 中
+    @{m}size-medium {
+      .theme-var(--zmz-button-height, @global-medium-size);
+      .theme-var(--zmz-button-padding, 12px);
+      .theme-var(--zmz-button-text-size, @global-medium-font);
+    }
+
+    // 默认
+    @{m}size-default {
+      .theme-var(--zmz-button-height, @global-default-size);
+      .theme-var(--zmz-button-padding, 12px);
+      .theme-var(--zmz-button-text-size, @global-default-font);
+    }
+
+
+    // 小
+    @{m}size-small {
+      .theme-var(--zmz-button-height, @global-small-size);
+      .theme-var(--zmz-button-padding, 12px);
+      .theme-var(--zmz-button-text-size, @global-small-font);
+    }
+
+    // 小
+    @{m}size-mini {
+      .theme-var(--zmz-button-height, @global-mini-size);
+      .theme-var(--zmz-button-padding, 12px);
+      .theme-var(--zmz-button-text-size, @global-mini-font);
+    }
+  }
+
+  // 颜色类型
+  // 默认
+  @{m}default {
+    .theme-var(--zmz-button-text-color, @global-theme-default);
+    .theme-var(--zmz-button-text-hover-color, @global-theme-primary);
+    .theme-var(--zmz-button-text-active-color, @global-theme-primary);
+    .theme-var(--zmz-button-border-color, @global-border-color);
+    .theme-var(--zmz-button-border-hover-color, rgba(@global-theme-primary, 0.5));
+    .theme-var(--zmz-button-border-active-color, rgba(@global-theme-primary, 0.8));
+    .theme-var(--zmz-button-background-color, @global-basic-white);
+    .theme-var(--zmz-button-background-hover-color, @global-basic-white);
+    .theme-var(--zmz-button-background-active-color, @global-basic-white);
+
+    // 朴素
+    &.zmz-button--plain {
+      .theme-var(--zmz-button-text-color, @global-theme-default);
+      .theme-var(--zmz-button-text-hover-color, @global-theme-primary);
+      .theme-var(--zmz-button-text-active-color, @global-theme-primary);
+      .theme-var(--zmz-button-border-color, @global-border-color);
+      .theme-var(--zmz-button-border-hover-color, rgba(@global-theme-primary, 0.5));
+      .theme-var(--zmz-button-border-active-color, rgba(@global-theme-primary, 0.8));
+      .theme-var(--zmz-button-background-color, @global-basic-white);
+      .theme-var(--zmz-button-background-hover-color, @global-basic-white);
+      .theme-var(--zmz-button-background-active-color, @global-basic-white);
+    }
+
+    // 链接
+    &.zmz-button--link {
+      .theme-var(--zmz-button-text-color, @global-theme-default);
+
+      &:hover {
+        .theme-var(--zmz-button-text-hover-color, rgba(@global-theme-default, 0.5));
+      }
+
+      &:active {
+        .theme-var(--zmz-button-text-active-color, @global-theme-default);
+      }
+
+    }
+
+    // 文字类型
+    &.zmz-button--text {
+      .theme-var(--zmz-button-text-color, @global-theme-default);
+
+      &:hover {
+        .theme-var(--zmz-button-text-hover-color, @global-theme-default);
+      }
+
+      &:active {
+        .theme-var(--zmz-button-text-active-color, @global-theme-default);
+      }
+    }
+  }
+
+  // 消息
+  @{m}info {
+    .theme-var(--zmz-button-text-color, @global-basic-white);
+    .theme-var(--zmz-button-text-hover-color, @global-basic-white);
+    .theme-var(--zmz-button-text-active-color, @global-basic-white);
+    .theme-var(--zmz-button-border-color, @global-theme-info);
+    .theme-var(--zmz-button-border-hover-color, lighten(hsl(@global-theme-info), 10%));
+    .theme-var(--zmz-button-border-active-color, desaturate(hsl(@global-theme-info), 10%));
+    .theme-var(--zmz-button-background-color, @global-theme-info);
+    .theme-var(--zmz-button-background-hover-color, lighten(hsl(@global-theme-info), 10%));
+    .theme-var(--zmz-button-background-active-color, desaturate(hsl(@global-theme-info), 10%));
+
+    // 朴素
+    &.zmz-button--plain {
+      .theme-var(--zmz-button-text-color, rgba(@global-theme-info, 0.8));
+      .theme-var(--zmz-button-text-hover-color, @global-basic-white);
+      .theme-var(--zmz-button-text-active-color, @global-basic-white);
+      .theme-var(--zmz-button-border-color, rgba(@global-theme-info, 0.8));
+      .theme-var(--zmz-button-border-hover-color, @global-theme-info);
+      .theme-var(--zmz-button-border-active-color, desaturate(hsl(@global-theme-info), 10%));
+      .theme-var(--zmz-button-background-color, rgba(@global-theme-info, 0.05));
+      .theme-var(--zmz-button-background-hover-color, @global-theme-info);
+      .theme-var(--zmz-button-background-active-color, desaturate(hsl(@global-theme-info), 20%));
+    }
+
+    // 链接
+    &.zmz-button--link {
+      .theme-var(--zmz-button-text-color, @global-theme-info);
+
+      &:hover {
+        .theme-var(--zmz-button-text-hover-color, rgba(@global-theme-info, 0.5));
+      }
+
+      &:active {
+        .theme-var(--zmz-button-text-active-color, rgba(@global-theme-info, 0.8));
+      }
+    }
+
+    // 文字类型
+    &.zmz-button--text {
+      .theme-var(--zmz-button-text-color, @global-theme-info);
+
+      &:hover {
+        .theme-var(--zmz-button-text-hover-color, @global-theme-info);
+      }
+
+      &:active {
+        .theme-var(--zmz-button-text-active-color, @global-theme-info);
+      }
+    }
+  }
+
+  // 主要
+  @{m}primary {
+    .theme-var(--zmz-button-text-color, @global-basic-white);
+    .theme-var(--zmz-button-text-hover-color, @global-basic-white);
+    .theme-var(--zmz-button-text-active-color, @global-basic-white);
+    .theme-var(--zmz-button-border-color, @global-theme-primary);
+    .theme-var(--zmz-button-border-hover-color, lighten(hsl(@global-theme-primary), 10%));
+    .theme-var(--zmz-button-border-active-color, desaturate(hsl(@global-theme-primary), 10%));
+    .theme-var(--zmz-button-background-color, @global-theme-primary);
+    .theme-var(--zmz-button-background-hover-color, lighten(hsl(@global-theme-primary), 10%));
+    .theme-var(--zmz-button-background-active-color, desaturate(hsl(@global-theme-primary), 10%));
+
+    // 朴素
+    &.zmz-button--plain {
+      .theme-var(--zmz-button-text-color, @global-theme-primary);
+      .theme-var(--zmz-button-text-hover-color, @global-basic-white);
+      .theme-var(--zmz-button-text-active-color, @global-basic-white);
+      .theme-var(--zmz-button-border-color, @global-theme-primary);
+      .theme-var(--zmz-button-border-hover-color, @global-theme-primary);
+      .theme-var(--zmz-button-border-active-color, desaturate(hsl(@global-theme-primary), 10%));
+      .theme-var(--zmz-button-background-color, rgba(@global-theme-primary, 0.05));
+      .theme-var(--zmz-button-background-hover-color, @global-theme-primary);
+      .theme-var(--zmz-button-background-active-color, desaturate(hsl(@global-theme-primary), 20%));
+    }
+
+    // 链接
+    &.zmz-button--link {
+      .theme-var(--zmz-button-text-color, @global-theme-primary);
+
+      &:hover {
+        .theme-var(--zmz-button-text-hover-color, rgba(@global-theme-primary, 0.5));
+      }
+
+      &:active {
+        .theme-var(--zmz-button-text-active-color, rgba(@global-theme-primary, 0.8));
+      }
+    }
+
+    // 文字类型
+    &.zmz-button--text {
+      .theme-var(--zmz-button-text-color, @global-theme-primary);
+
+      &:hover {
+        .theme-var(--zmz-button-text-hover-color, @global-theme-primary);
+      }
+
+      &:active {
+        .theme-var(--zmz-button-text-active-color, @global-theme-primary);
+      }
+    }
+  }
+
+  // 成功
+  @{m}success {
+    .theme-var(--zmz-button-text-color, @global-basic-white);
+    .theme-var(--zmz-button-text-hover-color, @global-basic-white);
+    .theme-var(--zmz-button-text-active-color, @global-basic-white);
+    .theme-var(--zmz-button-border-color, @global-theme-success);
+    .theme-var(--zmz-button-border-hover-color, lighten(hsl(@global-theme-success), 10%));
+    .theme-var(--zmz-button-border-active-color, desaturate(hsl(@global-theme-success), 10%));
+    .theme-var(--zmz-button-background-color, @global-theme-success);
+    .theme-var(--zmz-button-background-hover-color, lighten(hsl(@global-theme-success), 10%));
+    .theme-var(--zmz-button-background-active-color, desaturate(hsl(@global-theme-success), 10%));
+
+    // 朴素
+    &.zmz-button--plain {
+      .theme-var(--zmz-button-text-color, rgba(@global-theme-success, 0.8));
+      .theme-var(--zmz-button-text-hover-color, @global-basic-white);
+      .theme-var(--zmz-button-text-active-color, @global-basic-white);
+      .theme-var(--zmz-button-border-color, rgba(@global-theme-success, 0.8));
+      .theme-var(--zmz-button-border-hover-color, @global-theme-success);
+      .theme-var(--zmz-button-border-active-color, desaturate(hsl(@global-theme-success), 10%));
+      .theme-var(--zmz-button-background-color, rgba(@global-theme-success, 0.05));
+      .theme-var(--zmz-button-background-hover-color, @global-theme-success);
+      .theme-var(--zmz-button-background-active-color, desaturate(hsl(@global-theme-success), 20%));
+    }
+
+    // 链接
+    &.zmz-button--link {
+      .theme-var(--zmz-button-text-color, @global-theme-success);
+
+      &:hover {
+        .theme-var(--zmz-button-text-hover-color, rgba(@global-theme-success, 0.5));
+      }
+
+      &:active {
+        .theme-var(--zmz-button-text-active-color, rgba(@global-theme-success, 0.8));
+      }
+    }
+
+    // 文字类型
+    &.zmz-button--text {
+      .theme-var(--zmz-button-text-color, @global-theme-success);
+
+      &:hover {
+        .theme-var(--zmz-button-text-hover-color, @global-theme-success);
+      }
+
+      &:active {
+        .theme-var(--zmz-button-text-active-color, @global-theme-success);
+      }
+    }
+  }
+
+  // 警告
+  @{m}warning {
+    .theme-var(--zmz-button-text-color, @global-basic-white);
+    .theme-var(--zmz-button-text-hover-color, @global-basic-white);
+    .theme-var(--zmz-button-text-active-color, @global-basic-white);
+    .theme-var(--zmz-button-border-color, @global-theme-warning);
+    .theme-var(--zmz-button-border-hover-color, lighten(hsl(@global-theme-warning), 10%));
+    .theme-var(--zmz-button-border-active-color, desaturate(hsl(@global-theme-warning), 10%));
+    .theme-var(--zmz-button-background-color, @global-theme-warning);
+    .theme-var(--zmz-button-background-hover-color, lighten(hsl(@global-theme-warning), 10%));
+    .theme-var(--zmz-button-background-active-color, desaturate(hsl(@global-theme-warning), 10%));
+
+    // 朴素
+    &.zmz-button--plain {
+      .theme-var(--zmz-button-text-color, rgba(@global-theme-warning, 0.8));
+      .theme-var(--zmz-button-text-hover-color, @global-basic-white);
+      .theme-var(--zmz-button-text-active-color, @global-basic-white);
+      .theme-var(--zmz-button-border-color, rgba(@global-theme-warning, 0.8));
+      .theme-var(--zmz-button-border-hover-color, @global-theme-warning);
+      .theme-var(--zmz-button-border-active-color, desaturate(hsl(@global-theme-warning), 10%));
+      .theme-var(--zmz-button-background-color, rgba(@global-theme-warning, 0.05));
+      .theme-var(--zmz-button-background-hover-color, @global-theme-warning);
+      .theme-var(--zmz-button-background-active-color, desaturate(hsl(@global-theme-warning), 20%));
+    }
+
+    // 链接
+    &.zmz-button.zmz-button--link {
+      .theme-var(--zmz-button-text-color, @global-theme-warning);
+
+      &:hover {
+        .theme-var(--zmz-button-text-hover-color, rgba(@global-theme-warning, 0.5));
+      }
+
+      &:active {
+        .theme-var(--zmz-button-text-active-color, rgba(@global-theme-warning, 0.8));
+      }
+    }
+
+    // 文字类型
+    &.zmz-button--text {
+      .theme-var(--zmz-button-text-color, @global-theme-warning);
+
+      &:hover {
+        .theme-var(--zmz-button-text-hover-color, @global-theme-warning);
+      }
+
+      &:active {
+        .theme-var(--zmz-button-text-active-color, @global-theme-warning);
+      }
+    }
+  }
+
+  // 错误
+  @{m}error {
+    .theme-var(--zmz-button-text-color, @global-basic-white);
+    .theme-var(--zmz-button-text-hover-color, @global-basic-white);
+    .theme-var(--zmz-button-text-active-color, @global-basic-white);
+    .theme-var(--zmz-button-border-color, @global-theme-error);
+    .theme-var(--zmz-button-border-hover-color, lighten(hsl(@global-theme-error), 10%));
+    .theme-var(--zmz-button-border-active-color, desaturate(hsl(@global-theme-error), 10%));
+    .theme-var(--zmz-button-background-color, @global-theme-error);
+    .theme-var(--zmz-button-background-hover-color, lighten(hsl(@global-theme-error), 10%));
+    .theme-var(--zmz-button-background-active-color, desaturate(hsl(@global-theme-error), 10%));
+
+    // 朴素
+    &.zmz-button--plain {
+      .theme-var(--zmz-button-text-color, rgba(@global-theme-error, 0.8));
+      .theme-var(--zmz-button-text-hover-color, @global-basic-white);
+      .theme-var(--zmz-button-text-active-color, @global-basic-white);
+      .theme-var(--zmz-button-border-color, rgba(@global-theme-error, 0.8));
+      .theme-var(--zmz-button-border-hover-color, @global-theme-error);
+      .theme-var(--zmz-button-border-active-color, desaturate(hsl(@global-theme-error), 10%));
+      .theme-var(--zmz-button-background-color, rgba(@global-theme-error, 0.05));
+      .theme-var(--zmz-button-background-hover-color, @global-theme-error);
+      .theme-var(--zmz-button-background-active-color, desaturate(hsl(@global-theme-error), 20%));
+    }
+
+    // 链接
+    &.zmz-button.zmz-button--link {
+      .theme-var(--zmz-button-text-color, @global-theme-error);
+
+      &:hover {
+        .theme-var(--zmz-button-text-hover-color, rgba(@global-theme-error, 0.5));
+      }
+
+      &:active {
+        .theme-var(--zmz-button-text-active-color, rgba(@global-theme-error, 0.8));
+      }
+    }
+
+    // 文字
+    &.zmz-button--text {
+      .theme-var(--zmz-button-text-color, @global-theme-error);
+
+      &:hover {
+        .theme-var(--zmz-button-text-hover-color, @global-theme-error);
+      }
+
+      &:active {
+        .theme-var(--zmz-button-text-active-color, @global-theme-error);
+      }
+    }
+  }
+}
+
+@{b}zmz-button-group {
+  display: inline-flex;
+  align-items: center;
+
+  &>.zmz-button {
+    position: relative;
+
+    &.zmz-button--default {
+      &:not(:first-child):not(:last-child) {
+        border-radius: 0;
+        border-left-color: rgba(@global-theme-default, 0.3);
+        border-right-color: rgba(@global-theme-default, 0.3);
+
+        &:hover {
+          border-left-color: rgba(@global-theme-primary, 0.5);
+          border-right-color: rgba(@global-theme-primary, 0.5);
+        }
+
+        &:active {
+          border-left-color: rgba(@global-theme-primary, 0.5);
+          border-right-color: rgba(@global-theme-primary, 0.5);
+        }
+      }
+
+      &:first-child {
+        border-right-color: rgba(@global-theme-primary, 0.3);
+      }
+
+      &:last-child {
+        border-left-color: rgba(@global-theme-primary, 0.3);
+      }
+
+      &:hover {
+        border-left-color: rgba(@global-theme-primary, 0.5);
+      }
+
+      &:active {
+        border-left-color: rgba(@global-theme-primary, 0.5);
+      }
+    }
+
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right-color: rgba(@global-basic-white, 0.5);
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+      border-left-color: rgba(@global-basic-white, 0.5);
+      border-right-color: rgba(@global-basic-white, 0.5);
+    }
+
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left-color: rgba(@global-basic-white, 0.5);
+    }
+
+    &:not(:last-child) {
+      margin-right: -1px;
+    }
+
+    &:hover {
+      z-index: 1;
+    }
+  }
+}
+
+@keyframes zmz-buuton-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

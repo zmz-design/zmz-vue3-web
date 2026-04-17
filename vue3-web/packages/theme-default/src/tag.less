@@ -1,0 +1,189 @@
+@charset "utf-8";
+@import './common/index.less';
+@zmz-tag-text-color: @global-theme-default;
+@zmz-tag-background-color: @global-basic-white;
+@zmz-tag-border-color: rgba(@global-theme-default, 0.1);
+@zmz-tag-border-radius: 3px;
+@zmz-tag-font-size: 12px;
+@zmz-tag-size-default: 6px 8px;
+
+@{b}zmz-tag {
+    .theme-var(--zmz-tag-text-color, @zmz-tag-text-color);
+    .theme-var(--zmz-tag-background-color, @zmz-tag-background-color);
+    .theme-var(--zmz-tag-border-color, @zmz-tag-border-color);
+    .theme-var(--zmz-tag-border-radius, @zmz-tag-border-radius);
+    .theme-var(--zmz-tag-size-default, @zmz-tag-size-default);
+    .theme-var(--zmz-tag-font-size, @zmz-tag-font-size);
+}
+
+@{b}zmz-tag {
+    display: inline-flex;
+    align-items: center;
+    line-height: 1;
+    white-space: nowrap;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 3px;
+    outline: 0;
+    user-select: none;
+    color: var(--zmz-tag-text-color);
+    background-color: var(--zmz-tag-background-color);
+    border-color: var(--zmz-tag-border-color);
+    padding: var(--zmz-tag-size);
+
+    .zmz-tag {
+        @{e}icon {
+            font-size: 12px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        @{e}text {
+            font-size: var(--zmz-tag-font-size);
+        }
+    }
+
+    // 大
+    @{m}size-large {
+        .theme-var(--zmz-tag-size, 10px 12px);
+    }
+
+    // 中
+    @{m}size-medium {
+        .theme-var(--zmz-tag-size, 8px 10px);
+    }
+
+    // 默认
+    @{m}size-default {
+        .theme-var(--zmz-tag-size, 6px 8px);
+    }
+
+    // 小
+    @{m}size-small {
+        .theme-var(--zmz-tag-size, 4px 6px);
+    }
+
+    // 迷你
+    @{m}size-mini {
+        .theme-var(--zmz-tag-size, 2px 4px);
+    }
+
+    // 朴素按钮
+    @{m}plain {
+        &.zmz-tag {
+            @{m}default {
+                .theme-var(--zmz-tag-text-color, @global-theme-default);
+                .theme-var(--zmz-tag-background-color, rgba(@global-color-background-default, 0.05));
+                .theme-var(--zmz-tag-border-color, rgba(@global-theme-default, 0.11));
+            }
+
+            @{m}success {
+                .theme-var(--zmz-tag-text-color, @global-theme-success);
+                .theme-var(--zmz-tag-background-color, rgba(@global-theme-success, 0.05));
+                .theme-var(--zmz-tag-border-color, rgba(@global-theme-success, 0.1));
+            }
+
+            @{m}info {
+                .theme-var(--zmz-tag-text-color, @global-theme-info);
+                .theme-var(--zmz-tag-background-color, rgba(@global-theme-info, 0.05));
+                .theme-var(--zmz-tag-border-color, rgba(@global-theme-info, 0.1));
+            }
+
+            @{m}primary {
+                .theme-var(--zmz-tag-text-color, @global-theme-primary);
+                .theme-var(--zmz-tag-background-color, rgba(@global-theme-primary, 0.05));
+                .theme-var(--zmz-tag-border-color, rgba(@global-theme-primary, 0.1));
+            }
+
+            @{m}warning {
+                .theme-var(--zmz-tag-text-color, @global-theme-warning);
+                .theme-var(--zmz-tag-background-color, rgba(@global-theme-warning, 0.05));
+                .theme-var(--zmz-tag-border-color, rgba(@global-theme-warning, 0.1));
+            }
+
+            @{m}error {
+                .theme-var(--zmz-tag-text-color, @global-theme-error);
+                .theme-var(--zmz-tag-background-color, rgba(@global-theme-error, 0.05));
+                .theme-var(--zmz-tag-border-color, rgba(@global-theme-error, 0.1));
+            }
+        }
+    }
+
+    // 线性按钮
+    @{m}linear {
+        &.zmz-tag {
+            @{m}default {
+                .theme-var(--zmz-tag-text-color, @global-theme-default);
+                .theme-var(--zmz-tag-background-color, @global-color-background-default);
+                .theme-var(--zmz-tag-border-color, rgba(@global-theme-default, 0.27));
+            }
+
+            @{m}success {
+                .theme-var(--zmz-tag-text-color, @global-theme-success);
+                .theme-var(--zmz-tag-background-color, @global-basic-white);
+                .theme-var(--zmz-tag-border-color, @global-theme-success);
+            }
+
+            @{m}info {
+                .theme-var(--zmz-tag-text-color, @global-theme-info);
+                .theme-var(--zmz-tag-background-color, @global-basic-white);
+                .theme-var(--zmz-tag-border-color, @global-theme-info);
+            }
+
+            @{m}primary {
+                .theme-var(--zmz-tag-text-color, @global-theme-primary);
+                .theme-var(--zmz-tag-background-color, @global-basic-white);
+                .theme-var(--zmz-tag-border-color, @global-theme-primary);
+            }
+
+            @{m}warning {
+                .theme-var(--zmz-tag-text-color, @global-theme-warning);
+                .theme-var(--zmz-tag-background-color, @global-basic-white);
+                .theme-var(--zmz-tag-border-color, @global-theme-warning);
+            }
+
+            @{m}error {
+                .theme-var(--zmz-tag-text-color, @global-theme-error);
+                .theme-var(--zmz-tag-background-color, @global-basic-white);
+                .theme-var(--zmz-tag-border-color, @global-theme-error);
+            }
+        }
+    }
+
+    // 样式
+    @{m}default {
+        .theme-var(--zmz-tag-text-color, @global-theme-default);
+        .theme-var(--zmz-tag-background-color, @global-basic-white);
+        .theme-var(--zmz-tag-border-color, rgba(@global-theme-default, 0.1));
+    }
+
+    @{m}info {
+        .theme-var(--zmz-tag-text-color, @global-basic-white);
+        .theme-var(--zmz-tag-background-color, @global-theme-info);
+        .theme-var(--zmz-tag-border-color, @global-theme-info);
+    }
+
+    @{m}success {
+        .theme-var(--zmz-tag-text-color, @global-basic-white);
+        .theme-var(--zmz-tag-background-color, @global-theme-success);
+        .theme-var(--zmz-tag-border-color, @global-theme-success);
+    }
+
+    @{m}primary {
+        .theme-var(--zmz-tag-text-color, @global-basic-white);
+        .theme-var(--zmz-tag-background-color, @global-theme-primary);
+        .theme-var(--zmz-tag-border-color, @global-theme-primary);
+    }
+
+    @{m}warning {
+        .theme-var(--zmz-tag-text-color, @global-basic-white);
+        .theme-var(--zmz-tag-background-color, @global-theme-warning);
+        .theme-var(--zmz-tag-border-color, @global-theme-warning);
+    }
+
+    @{m}error {
+        .theme-var(--zmz-tag-text-color, @global-basic-white);
+        .theme-var(--zmz-tag-background-color, @global-theme-error);
+        .theme-var(--zmz-tag-border-color, @global-theme-error);
+    }
+}

@@ -1,0 +1,81 @@
+{
+  "name": "zmz-ui3",
+  "version": "0.1.81",
+  "private": false,
+  "type": "module",
+  "license": "MIT",
+  "author": "zmz <jiawenguang0213@sina.com>",
+  "description": "A user UI library based on Vue3",
+  "main": "cjs/zmz-vue3-web.cjs.js",
+  "style": "dist/zmz-vue3-web.min.css",
+  "module": "es/zmz-vue3-web.esm.js",
+  "unpkg": "dist/zmz-vue3-web.umd.min.js",
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "keywords": [
+    "zmz",
+    "vue",
+    "vue3",
+    "vue3组件库",
+    "vue组件库",
+    "vue库",
+    "zmz库",
+    "zmz组件库"
+  ],
+  "files": [
+    "cjs",
+    "dist",
+    "es",
+    "js",
+    "favicon.ico",
+    "LICENSE",
+    "package.json",
+    "README.md",
+    "packages"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitee.com/zmz-design/zmz-vue3-web.git"
+  },
+  "bugs": {
+    "url": "https://gitee.com/zmz-design/zmz-vue3-web/issues"
+  },
+  "homepage": "https://zmz-vue3-web.zhuimengzhu.com",
+  "exports": {
+    ".": {
+      "browser": "./dist/zmz-vue3-web.umd.min.js",
+      "import": "./es/zmz-vue3-web.esm.js",
+      "require": "./cjs/zmz-vue3-web.cjs.js",
+      "default": "./cjs/zmz-vue3-web.cjs.js"
+    },
+    "./umd": {
+      "import": "./dist/zmz-vue3-web.umd.min.js",
+      "require": "./dist/zmz-vue3-web.umd.min.js",
+      "default": "./dist/zmz-vue3-web.umd.min.js"
+    },
+    "./es": {
+      "import": "./es/zmz-vue3-web.esm.js",
+      "require": "./es/zmz-vue3-web.esm.js",
+      "default": "./es/zmz-vue3-web.esm.js"
+    },
+    "./cjs": {
+      "import": "./cjs/zmz-vue3-web.cjs.js",
+      "require": "./cjs/zmz-vue3-web.cjs.js",
+      "default": "./cjs/zmz-vue3-web.cjs.js"
+    },
+    "./style.css": "./dist/zmz-vue3-web.min.css"
+  },
+  "sideEffects": [
+    "dist/*",
+    "es/*",
+    "cjs/*",
+    "packages/*",
+    "*.css"
+  ],
+  "dependencies": {
+    "async-validator": "^4.2.5",
+    "@popperjs/core": "^2.11.8",
+    "resize-observer-polyfill": "^1.5.1"
+  }
+}

@@ -1,0 +1,68 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-pageheader-icon-color: #213547;
+@zmz-pageheader-icon-size: 18px;
+@zmz-pageheader-icon-margin-right: 10px;
+@zmz-pageheader-title-color: #213547;
+@zmz-pageheader-title-font-size: 18px;
+@zmz-pageheader-title-font-weight: bold;
+@zmz-pageheader-title-margin-right: 10px;
+@zmz-pageheader-subtitle-color: #213547;
+@zmz-pageheader-subtitle-font-size: 12px;
+@zmz-pageheader-subtitle-font-weight: 400;
+@zmz-pageheader-subtitle-margin-right: 10px;
+
+@{b}zmz-pageheader {
+    .theme-var(--zmz-pageheader-icon-color, @zmz-pageheader-icon-color);
+    .theme-var(--zmz-pageheader-icon-size, @zmz-pageheader-icon-size);
+    .theme-var(--zmz-pageheader-icon-margin-right, @zmz-pageheader-icon-margin-right);
+    .theme-var(--zmz-pageheader-title-color, @zmz-pageheader-title-color);
+    .theme-var(--zmz-pageheader-title-font-size, @zmz-pageheader-title-font-size);
+    .theme-var(--zmz-pageheader-title-font-weight, @zmz-pageheader-title-font-weight);
+    .theme-var(--zmz-pageheader-title-margin-right, @zmz-pageheader-title-margin-right);
+    .theme-var(--zmz-pageheader-subtitle-color, @zmz-pageheader-subtitle-color);
+    .theme-var(--zmz-pageheader-subtitle-font-size, @zmz-pageheader-subtitle-font-size);
+    .theme-var(--zmz-pageheader-subtitle-font-weight, @zmz-pageheader-subtitle-font-weight);
+    .theme-var(--zmz-pageheader-subtitle-margin-right, @zmz-pageheader-subtitle-margin-right);
+}
+
+@{b}zmz-pageheader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @{e}left {
+        display: flex;
+        align-items: center;
+    }
+
+    @{e}back {
+        margin-right: var(--zmz-pageheader-icon-margin-right);
+
+        .zmz-pageheader__header__back__icon {
+            color: var(--zmz-pageheader-icon-color);
+            font-size: var(--zmz-pageheader-icon-size);
+            font-weight: bold;
+        }
+    }
+
+    @{e}wrap {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    @{e}title {
+        font-size: var(--zmz-pageheader-title-font-size);
+        color: var(--zmz-pageheader-title-color);
+        font-weight: var(--zmz-pageheader-title-font-weight);
+        margin-right: var(--zmz-pageheader-title-margin-right);
+    }
+
+    @{e}subtitle {
+        font-size: var(--zmz-pageheader-subtitle-font-size);
+        color: var(--zmz-pageheader-subtitle-color);
+        font-weight: var(--zmz-pageheader-subtitle-font-weight);
+        margin-right: var(--zmz-pageheader-subtitle-margin-right);
+    }
+}

@@ -1,0 +1,53 @@
+@charset "utf-8";
+@import './common/index.less';
+
+@zmz-backtop-width: 40px;
+@zmz-backtop-height: 40px;
+@zmz-backtop-radius: 50%;
+@zmz-backtop-shadow: 0 0 6px rgba(0, 0, 0, .12);
+@zmz-backtop-position-zindex: 99;
+@zmz-backtop-position-right: 50px;
+@zmz-backtop-position-bottom: 50px;
+@zmz-backtop-icon-color: @global-theme-primary;
+@zmz-backtop-icon-font-size: 16px;
+
+@{b}zmz-backtop {
+   .theme-var(--zmz-backtop-width, @zmz-backtop-width);
+   .theme-var(--zmz-backtop-height, @zmz-backtop-height);
+   .theme-var(--zmz-backtop-radius, @zmz-backtop-radius);
+   .theme-var(--zmz-backtop-shadow, @zmz-backtop-shadow);
+   .theme-var(--zmz-backtop-position-zindex, @zmz-backtop-position-zindex);
+   .theme-var(--zmz-backtop-position-right, @zmz-backtop-position-right);
+   .theme-var(--zmz-backtop-position-bottom, @zmz-backtop-position-bottom);
+   .theme-var(--zmz-backtop-icon-color, @zmz-backtop-icon-color);
+   .theme-var(--zmz-backtop-icon-font-size, @zmz-backtop-icon-font-size);
+}
+
+
+@{b}zmz-backtop {
+   position: fixed;
+   bottom: var(--zmz-backtop-position-bottom);
+   right: var(--zmz-backtop-position-right);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+   z-index: var(--zmz-backtop-position-zindex);
+
+   @{e}button {
+      background-color: #fff;
+      width: var(--zmz-backtop-width);
+      height: var(--zmz-backtop-height);
+      border-radius: var(--zmz-backtop-radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--zmz-backtop-shadow);
+      cursor: pointer;
+   }
+
+   .zmz-backtop__icon {
+      font-size: var(--zmz-backtop-icon-font-size);
+      color: var(--zmz-backtop-icon-color);
+   }
+}
